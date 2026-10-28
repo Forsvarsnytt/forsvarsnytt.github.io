@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forsvarsnytt</title>
+<meta name="description" content="Forsvars- og sikkerhetsnyheter fra Norge og verden, samlet på ett sted.">
+<style>
+  :root {
+    --bg: #f4f3ee; --flate: #ffffff; --tekst: #1d211c; --dempet: #626a5f;
+    --linje: #dcdcd2; --aksent: #4a5d3a; --aksent-tekst: #ffffff;
+    --chip: #e7e9df;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141713; --flate: #1c201b; --tekst: #e8eae3; --dempet: #9aa395;
+      --linje: #2e342c; --aksent: #8ea877; --aksent-tekst: #10130f; --chip: #262b24;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--tekst);
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .ramme { max-width: 820px; margin: 0 auto; padding: 0 16px 48px; }
+  header { padding: 28px 0 12px; border-bottom: 2px solid var(--tekst); }
+  h1 { margin: 0; font-size: 28px; letter-spacing: -0.02em; text-transform: uppercase; }
+  h1 span { color: var(--aksent); }
+  .under { color: var(--dempet); font-size: 14px; margin-top: 4px; }
+  nav { display: flex; gap: 6px; overflow-x: auto; padding: 14px 0 10px;
+    position: sticky; top: 0; background: var(--bg); z-index: 2; scrollbar-width: none; }
+  nav::-webkit-scrollbar { display: none; }
+  nav button { flex: none; border: 1px solid var(--linje); background: var(--flate);
+    color: var(--tekst); border-radius: 999px; padding: 6px 12px; font: inherit;
+    font-size: 14px; cursor: pointer; }
+  nav button[aria-pressed="true"] { background: var(--aksent); color: var(--aksent-tekst); border-color: var(--aksent); }
+  nav button small { opacity: .7; margin-left: 4px; }
+  .sok { width: 100%; padding: 10px 12px; border: 1px solid var(--linje); border-radius: 8px;
+    background: var(--flate); color: var(--tekst); font: inherit; margin-bottom: 8px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--dempet);
+    margin: 24px 0 6px; }
+  article { background: var(--flate); border: 1px solid var(--linje); border-radius: 10px;
+    padding: 14px 16px; margin-bottom: 8px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center;
+    font-size: 13px; color: var(--dempet); }
+  .tema { background: var(--chip); color: var(--tekst); border-radius: 4px; padding: 1px 7px; font-size: 12px; }
+  article a { color: var(--tekst); text-decoration: none; font-weight: 600; font-size: 17px;
+    display: block; margin: 6px 0 2px; line-height: 1.35; }
+  article a:hover { color: var(--aksent); text-decoration: underline; }
+  article p { margin: 0; color: var(--dempet); font-size: 14px; }
+  .tom { color: var(--dempet); padding: 32px 0; text-align: center; }
+  footer { color: var(--dempet); font-size: 13px; margin-top: 32px; border-top: 1px solid var(--linje); padding-top: 12px; }
+</style>
+</head>
+<body>
+<div class="ramme">
+  <header>
+    <h1>Forsvars<span>nytt</span></h1>
+    <div class="under">Sikkerhet og forsvar fra Norge og verden · oppdatert {{OPPDATERT}}</div>
+  </header>
+  <nav id="faner" aria-label="Temaer"></nav>
+  <input class="sok" id="sok" type="search" placeholder="Søk i overskrifter …" aria-label="Søk">
+  <main id="liste"></main>
+  <footer>Overskrifter og lenker hentes automatisk fra kildenes RSS-strømmer. Les hele sakene hos kildene.</footer>
+</div>
+<script>
+const SAKER = /*DATA*/null;
+const TEMAER = /*TEMAER*/null;
+const navn = Object.fromEntries(TEMAER.map(t => [t.id, t.navn]));
+let valgt = "alle";
+try { valgt = new URLSearchParams(location.hash.slice(1)).get("tema") || "alle"; } catch (e) {}
+
+const dato = new Intl.DateTimeFormat("nb-NO", { weekday: "long", day: "numeric", month: "long", timeZone: "Europe/Oslo" });
+const klokke = new Intl.DateTimeFormat("nb-NO", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Oslo" });
+const dagNokkel = d => new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Oslo" }).format(d);
+
+function dagTittel(nokkel) {
+  const idag = dagNokkel(new Date());
+  const igar = dagNokkel(new Date(Date.now() - 864e5));
+  if (nokkel === idag) return "I dag";
+  if (nokkel === igar) return "I går";
+  if (nokkel === "ukjent") return "Uten dato";
+  return dato.format(new Date(nokkel + "T12:00:00"));
+}
+
+function lagFaner() {
+  const nav = document.getElementById("faner");
+  const antall = id => id === "alle" ? SAKER.length : SAKER.filter(s => s.tema === id).length;
+  nav.innerHTML = "";
+  [{ id: "alle", navn: "Alle" }, ...TEMAER].forEach(t => {
+    const n = antall(t.id);
+    if (t.id !== "alle" && n === 0) return;
+    const b = document.createElement("button");
+    b.setAttribute("aria-pressed", t.id === valgt);
+    b.textContent = t.navn;
+    const s = document.createElement("small"); s.textContent = n; b.append(s);
+    b.onclick = () => { valgt = t.id; history.replaceState(null, "", "#tema=" + t.id); lagFaner(); vis(); };
+    nav.append(b);
+  });
+}
+
+function vis() {
+  const q = document.getElementById("sok").value.trim().toLowerCase();
+  const liste = document.getElementById("liste");
+  const utvalg = SAKER.filter(s => (valgt === "alle" || s.tema === valgt) &&
+    (!q || (s.tittel + " " + s.ingress + " " + s.kilde).toLowerCase().includes(q)));
+  liste.innerHTML = "";
+  if (!utvalg.length) { liste.innerHTML = '<div class="tom">Ingen saker her akkurat nå.</div>'; return; }
+  let forrige = null;
+  for (const s of utvalg) {
+    const d = s.tid ? new Date(s.tid) : null;
+    const nokkel = d ? dagNokkel(d) : "ukjent";
+    if (nokkel !== forrige) {
+      const h = document.createElement("h2"); h.textContent = dagTittel(nokkel); liste.append(h); forrige = nokkel;
+    }
+    const a = document.createElement("article");
+    const meta = document.createElement("div"); meta.className = "meta";
+    const tema = document.createElement("span"); tema.className = "tema"; tema.textContent = navn[s.tema] || s.tema;
+    const kilde = document.createElement("span"); kilde.textContent = s.kilde + (d ? " · " + klokke.format(d) : "");
+    meta.append(tema, kilde);
+    const lenke = document.createElement("a"); lenke.href = s.lenke; lenke.target = "_blank"; lenke.rel = "noopener"; lenke.textContent = s.tittel;
+    a.append(meta, lenke);
+    if (s.ingress) { const p = document.createElement("p"); p.textContent = s.ingress; a.append(p); }
+    liste.append(a);
+  }
+}
+
+document.getElementById("sok").addEventListener("input", vis);
+lagFaner(); vis();
+</script>
+</body>
+</html>

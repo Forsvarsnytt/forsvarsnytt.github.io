@@ -1,0 +1,35 @@
+{
+  "_info": "Kilder og temaer. 'filter: true' betyr at bare saker som matcher et nøkkelord tas med (for generelle nyhetskilder). 'tema' er standardtema hvis ingen nøkkelord treffer.",
+  "dager_tilbake": 7,
+  "maks_per_kilde": 30,
+  "kilder": [
+    {"navn": "NRK Urix", "url": "https://www.nrk.no/urix/toppsaker.rss", "tema": "verden", "filter": true},
+    {"navn": "NRK Norge", "url": "https://www.nrk.no/norge/toppsaker.rss", "tema": "norge", "filter": true},
+    {"navn": "Forsvarets forum", "url": "https://www.forsvaretsforum.no/rss", "tema": "norge", "filter": false},
+    {"navn": "High North News", "url": "https://www.highnorthnews.com/en/rss.xml", "tema": "nord", "filter": false},
+    {"navn": "Kyiv Independent", "url": "https://kyivindependent.com/news-archive/rss/", "tema": "ukraina", "filter": false},
+    {"navn": "BBC Europa", "url": "https://feeds.bbci.co.uk/news/world/europe/rss.xml", "tema": "verden", "filter": true},
+    {"navn": "BBC Afrika", "url": "https://feeds.bbci.co.uk/news/world/africa/rss.xml", "tema": "afrika", "filter": true},
+    {"navn": "BBC Midtøsten", "url": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml", "tema": "midtosten", "filter": true},
+    {"navn": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml", "tema": "verden", "filter": true},
+    {"navn": "Defense News", "url": "https://www.defensenews.com/arc/outboundfeeds/rss/?outputType=xml", "tema": "styrker", "filter": false},
+    {"navn": "Breaking Defense", "url": "https://breakingdefense.com/feed/", "tema": "styrker", "filter": false},
+    {"navn": "UK Defence Journal", "url": "https://ukdefencejournal.org.uk/feed/", "tema": "styrker", "filter": false}
+  ],
+  "temaer": [
+    {"id": "norge", "navn": "Norge",
+     "ord": ["forsvaret", "forsvarsminister", "forsvarssjef", "langtidsplan", "heimevernet", "hæren", "sjøforsvaret", "luftforsvaret", "etterretningstjenesten", "pst", "beredskap", "totalforsvar", "verneplikt", "rena", "bardufoss", "ørland", "evenes", "haakonsvern", "norway", "norwegian"]},
+    {"id": "ukraina", "navn": "Ukraina",
+     "ord": ["ukraina", "ukraine", "ukrainian", "kyiv", "kiev", "zelensky", "donbas", "donetsk", "kharkiv", "zaporizhzhia", "kherson", "crimea", "krim"]},
+    {"id": "nord", "navn": "Nordområdene og NATO",
+     "ord": ["nato", "arktis", "arctic", "nordområdene", "high north", "svalbard", "barents", "kola", "nordflåten", "northern fleet", "finnmark", "greenland", "grønland", "baltic", "østersjøen"]},
+    {"id": "afrika", "navn": "Afrika",
+     "ord": ["sahel", "mali", "burkina", "niger", "sudan", "rsf", "somalia", "al-shabaab", "congo", "kongo", "m23", "ethiopia", "etiopia", "libya", "wagner", "africa corps", "nigeria", "chad", "tsjad"]},
+    {"id": "midtosten", "navn": "Midtøsten",
+     "ord": ["gaza", "israel", "idf", "hamas", "hezbollah", "iran", "irgc", "yemen", "jemen", "houthi", "syria", "lebanon", "libanon", "iraq", "irak"]},
+    {"id": "styrker", "navn": "Verdens styrker",
+     "ord": ["pentagon", "army", "navy", "air force", "marines", "military", "militær", "missile", "missil", "drone", "fighter jet", "f-35", "submarine", "ubåt", "frigate", "fregatt", "procurement", "defence budget", "defense budget", "pla", "taiwan", "nuclear", "atomvåpen", "exercise", "øvelse"]},
+    {"id": "verden", "navn": "Verden ellers", "ord": []}
+  ],
+  "sikkerhetsord": ["war", "krig", "military", "militær", "army", "troops", "soldater", "attack", "angrep", "missile", "missil", "drone", "defence", "defense", "forsvar", "security", "sikkerhet", "conflict", "konflikt", "ceasefire", "våpenhvile", "rebels", "opprørere", "coup", "kupp", "sanctions", "sanksjoner", "nato", "weapons", "våpen", "jihadist", "insurgent", "militia", "milits", "navy", "air strike", "luftangrep", "terror"]
+}
