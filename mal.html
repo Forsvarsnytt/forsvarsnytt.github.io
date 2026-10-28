@@ -56,6 +56,7 @@
   article button { all: unset; display: block; color: var(--tekst); font-weight: 600; font-size: 17px;
     margin: 6px 0 2px; line-height: 1.35; cursor: pointer; }
   article { position: relative; }
+  .kreditering { color: var(--aksent); font-weight: 600; position: relative; z-index: 1; }
   .kortlenke { display: block; color: var(--tekst); font-weight: 600; font-size: 17px; margin: 6px 0 2px;
     line-height: 1.35; text-decoration: none; }
   .kortlenke::after { content: ""; position: absolute; inset: 0; border-radius: 10px; }  /* hele kortet er lenken */
@@ -304,6 +305,12 @@ function lagMeta(s, d) {
   const tema = document.createElement("span"); tema.className = "tema"; tema.textContent = navn[s.tema] || s.tema;
   const kilde = document.createElement("span"); kilde.textContent = s.kilde + (d ? " · " + klokke.format(d) : "");
   meta.append(tema, kilde);
+  if (s.kreditering) {  // kreditering kilden krever, f.eks. «Fra BBC News» med lenke
+    const k = document.createElement("a"); k.className = "kreditering";
+    k.href = s.kreditering.lenke; k.target = "_blank"; k.rel = "noopener"; k.textContent = s.kreditering.tekst;
+    k.onclick = e => e.stopPropagation();
+    meta.append(k);
+  }
   return meta;
 }
 

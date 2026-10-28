@@ -9,9 +9,9 @@
     {"navn": "NRK Norge", "url": "https://www.nrk.no/norge/toppsaker.rss", "tema": "norge", "filter": true, "vis_ingress": true, "tillatelse": "https://www.nrk.no/rss/ – retningslinjer for bruk av RSS fra NRK (lest 28.10.2026)"},
     {"navn": "Forsvarets forum", "url": "https://www.forsvaretsforum.no/?lab_viewport=rss", "tema": "norge", "filter": false},
     {"navn": "Kyiv Independent", "url": "https://kyivindependent.com/news-archive/rss/", "tema": "ukraina", "filter": false},
-    {"navn": "BBC Europa", "url": "https://feeds.bbci.co.uk/news/world/europe/rss.xml", "tema": "verden", "filter": true},
-    {"navn": "BBC Afrika", "url": "https://feeds.bbci.co.uk/news/world/africa/rss.xml", "tema": "afrika", "filter": true},
-    {"navn": "BBC Midtøsten", "url": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml", "tema": "midtosten", "filter": true},
+    {"navn": "BBC Europa", "url": "https://feeds.bbci.co.uk/news/world/europe/rss.xml", "tema": "verden", "filter": true, "vis_ingress": true, "kreditering": {"tekst": "Fra BBC News", "lenke": "https://www.bbc.com/news"}, "tillatelse": "BBC Terms of Use, punkt 12 (privatpersoner kan bruke BBC News RSS på egen nettside med kreditering, uten å endre strømmen) – lest 28.10.2026"},
+    {"navn": "BBC Afrika", "url": "https://feeds.bbci.co.uk/news/world/africa/rss.xml", "tema": "afrika", "filter": true, "vis_ingress": true, "kreditering": {"tekst": "Fra BBC News", "lenke": "https://www.bbc.com/news"}, "tillatelse": "BBC Terms of Use, punkt 12 (privatpersoner kan bruke BBC News RSS på egen nettside med kreditering, uten å endre strømmen) – lest 28.10.2026"},
+    {"navn": "BBC Midtøsten", "url": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml", "tema": "midtosten", "filter": true, "vis_ingress": true, "kreditering": {"tekst": "Fra BBC News", "lenke": "https://www.bbc.com/news"}, "tillatelse": "BBC Terms of Use, punkt 12 (privatpersoner kan bruke BBC News RSS på egen nettside med kreditering, uten å endre strømmen) – lest 28.10.2026"},
     {"navn": "UK Defence Journal", "url": "https://ukdefencejournal.org.uk/feed/", "tema": "styrker", "filter": false}
   ],
   "temaer": [

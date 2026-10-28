@@ -178,6 +178,7 @@ def hent_saker(cfg):
                 # vises bare når kilden har gitt lov (se feeds.json)
                 "vis_ingress": bool(k.get("vis_ingress")),
                 "vis_bilde": bool(k.get("vis_bilder")),
+                "kreditering": k.get("kreditering"),  # kildens krav til kreditering, f.eks. BBC
                 "tid": e["tid"].astimezone(timezone.utc).isoformat() if e["tid"] else None,
             })
             antall += 1
@@ -202,6 +203,7 @@ def offentlig(s):
         "tittel": s["tittel"], "lenke": s["lenke"], "kilde": s["kilde"], "tema": s["tema"], "tid": s["tid"],
         "ingress": s["ingress"] if s.get("vis_ingress") else "",
         "bilde": s["bilde"] if s.get("vis_bilde") else None,
+        "kreditering": s.get("kreditering"),
     }
 
 
