@@ -9,13 +9,13 @@
   :root {
     --bg: #f4f3ee; --flate: #ffffff; --tekst: #1d211c; --dempet: #626a5f;
     --linje: #dcdcd2; --aksent: #4a5d3a; --aksent-tekst: #ffffff;
-    --chip: #e7e9df; --illu-bg: #dfe3d3; --illu-fg: #4a5d3a;
+    --chip: #e7e9df; --illu-bg: #dfe3d3; --illu-fg: #4a5d3a; --spor: #c2661a;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #141713; --flate: #1c201b; --tekst: #e8eae3; --dempet: #9aa395;
       --linje: #2e342c; --aksent: #8ea877; --aksent-tekst: #10130f; --chip: #262b24;
-      --illu-bg: #242b21; --illu-fg: #8ea877;
+      --illu-bg: #242b21; --illu-fg: #8ea877; --spor: #f0a64a;
     }
   }
   * { box-sizing: border-box; }
@@ -27,6 +27,13 @@
   .banner-bilde { position: absolute; inset: 0; width: 100%; height: 100%; }
   .banner::before { content: ""; position: absolute; inset: 0; z-index: 1;
     background: linear-gradient(90deg, var(--illu-bg) 0%, var(--illu-bg) 30%, transparent 75%); }
+  .banner-pause { position: absolute; right: 12px; bottom: 10px; z-index: 3; border: 1px solid var(--linje);
+    background: color-mix(in srgb, var(--flate) 85%, transparent); color: var(--dempet); font: inherit; font-size: 12px;
+    padding: 3px 10px; border-radius: 999px; cursor: pointer; }
+  .banner-pause:hover { color: var(--aksent); border-color: var(--aksent); }
+  .spor { stroke: var(--spor); stroke-width: 3; stroke-linecap: round; }
+  .smell { fill: none; stroke: var(--spor); stroke-width: 2; }
+  .munning { fill: var(--spor); }
   .banner-innhold { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 40px 16px 22px; color: var(--tekst); }
   @media (max-width: 600px) {
     .banner-innhold { padding: 28px 16px 18px; }
@@ -234,13 +241,15 @@
     <g fill="none" stroke="currentColor" stroke-width="1.2" opacity=".16"><path d="M-10 28C150 10 300 50 460 28S760 8 920 32S1120 46 1210 22"/><path d="M-10 54C150 36 300 76 460 54S760 34 920 58S1120 72 1210 48"/><path d="M-10 80C150 62 300 102 460 80S760 60 920 84S1120 98 1210 74"/><path d="M-10 106C150 88 300 128 460 106S760 86 920 110S1120 124 1210 100"/><path d="M-10 132C150 114 300 154 460 132S760 112 920 136S1120 150 1210 126"/><path d="M-10 158C150 140 300 180 460 158S760 138 920 162S1120 176 1210 152"/><path d="M-10 184C150 166 300 206 460 184S760 164 920 188S1120 202 1210 178"/><path d="M-10 210C150 192 300 232 460 210S760 190 920 214S1120 228 1210 204"/></g>
     <g opacity=".3"><path d="M600 220L720 128l58 46 82-86 84 92 62-50 110 64 4 26z"/></g>
     <g opacity=".5">
-      <path transform="translate(630 70) rotate(90 32 32) scale(.85)" d="M32 5l3 13v8l22 12v4l-22-5-1 13 8 6v3l-10-3-10 3v-3l8-6-1-13-22 5v-4l22-12v-8z"/>
-      <path transform="translate(715 98) rotate(90 32 32) scale(.62)" d="M32 5l3 13v8l22 12v4l-22-5-1 13 8 6v3l-10-3-10 3v-3l8-6-1-13-22 5v-4l22-12v-8z"/>
-      <g transform="translate(1075 78) scale(1.05)"><ellipse cx="27" cy="37" rx="14" ry="8"/><path d="M39 33l19-3v5l-19 5z"/><path d="M55 25h3v11h-3z"/><path d="M6 23h44v2.5H6z"/><path d="M26 25h3v5h-3z"/><path d="M15 50h26v2.5H15z"/><path d="M20 44h2.5v6H20zM34 44h2.5v6H34z"/></g>
-      <g transform="translate(680 150) scale(1.15)"><path d="M3 40h58l-7 11H11z"/><path d="M21 30h18v10H21z"/><path d="M28 17h3v13h-3z"/><path d="M24 21h11v2H24z"/><path d="M43 35h5v5h-5z"/><path d="M47 36h10v2H47z"/><path d="M12 36h6v4h-6z"/></g>
-      <g transform="translate(1000 150) scale(1)"><path d="M19 27h20l5 9H16z"/><rect x="42" y="29" width="18" height="3" rx="1"/><path d="M6 36h52l-4 8H10z"/><rect x="7" y="44" width="50" height="10" rx="5"/></g>
+      <g id="b-jet1" transform="translate(630 70)"><path transform="rotate(90 32 32) scale(.85)" d="M32 5l3 13v8l22 12v4l-22-5-1 13 8 6v3l-10-3-10 3v-3l8-6-1-13-22 5v-4l22-12v-8z"/></g>
+      <g id="b-jet2" transform="translate(715 98)"><path transform="rotate(90 32 32) scale(.62)" d="M32 5l3 13v8l22 12v4l-22-5-1 13 8 6v3l-10-3-10 3v-3l8-6-1-13-22 5v-4l22-12v-8z"/></g>
+      <g id="b-heli" transform="translate(1075 78)"><g transform="scale(1.05)"><ellipse cx="27" cy="37" rx="14" ry="8"/><path d="M39 33l19-3v5l-19 5z"/><path d="M55 25h3v11h-3z"/><path d="M6 23h44v2.5H6z"/><path d="M26 25h3v5h-3z"/><path d="M15 50h26v2.5H15z"/><path d="M20 44h2.5v6H20zM34 44h2.5v6H34z"/></g></g>
+      <g id="b-skip" transform="translate(680 150)"><g transform="scale(1.15)"><path d="M3 40h58l-7 11H11z"/><path d="M21 30h18v10H21z"/><path d="M28 17h3v13h-3z"/><path d="M24 21h11v2H24z"/><path d="M43 35h5v5h-5z"/><path d="M47 36h10v2H47z"/><path d="M12 36h6v4h-6z"/></g></g>
+      <g id="b-tank" transform="translate(1000 150)"><g transform="scale(1)"><path d="M19 27h20l5 9H16z"/><rect x="42" y="29" width="18" height="3" rx="1"/><path d="M6 36h52l-4 8H10z"/><rect x="7" y="44" width="50" height="10" rx="5"/></g></g>
     </g>
+      <g id="b-skudd"></g>
   </svg>
+  <button class="banner-pause" id="banner-pause" type="button" hidden aria-pressed="false">Stopp animasjon</button>
   <div class="banner-innhold">
 
     <h1>Forsvars<span>nytt</span></h1>
@@ -666,6 +675,107 @@ if (EPOST_BAKLENGS) {
   document.getElementById("epost-tekst").textContent = adresse;
   document.querySelector(".epost-vis").hidden = false;
 }
+
+// ---------- animert banner ----------
+(function () {
+  const svg = document.querySelector(".banner-bilde");
+  const knapp = document.getElementById("banner-pause");
+  if (!svg || !document.getElementById("b-jet1")) return;
+  const NS = "http://www.w3.org/2000/svg";
+  const skuddLag = document.getElementById("b-skudd");
+  const hent = id => document.getElementById(id);
+  // enhetene: posisjon i banneret, størrelse og hvor våpenet sitter (i bannerets koordinater)
+  const enheter = [
+    { el: hent("b-jet1"), x: 630, y: 70, vx: 115, type: "fly", senter: [37, 27], vapen: [56, 27] },
+    { el: hent("b-jet2"), x: 715, y: 98, vx: 145, type: "fly", senter: [44, 20], vapen: [57, 20] },
+    { el: hent("b-heli"), x: 1075, y: 78, type: "heli", start: [1075, 78], senter: [30, 38], vapen: [14, 42] },
+    { el: hent("b-skip"), x: 680, y: 150, vx: 10, min: 620, max: 860, type: "skip", senter: [37, 45], vapen: [65, 42] },
+    { el: hent("b-tank"), x: 1000, y: 150, vx: -16, min: 900, max: 1110, type: "tank", senter: [32, 40], vapen: [60, 30] },
+  ];
+  let skudd = [], smell = [], tid = 0, nesteSkudd = 1.2, sist = null, kjorer = false, synlig = true, ramme = null;
+
+  function plasser(e) { e.el.setAttribute("transform", `translate(${e.x.toFixed(1)} ${e.y.toFixed(1)})`); }
+  const punkt = (e, p) => [e.x + p[0], e.y + p[1]];
+
+  function skyt() {
+    const skyttere = enheter.filter(e => e.type !== "fly" || e.x > 560);
+    const skytter = skyttere[Math.floor(Math.random() * skyttere.length)];
+    const mal = enheter.filter(e => e !== skytter && (skytter.type !== "fly" || e.x > skytter.x + 30) && e.x > 560 && e.x < 1190);
+    if (!skytter || !mal.length) return;
+    const m = mal[Math.floor(Math.random() * mal.length)];
+    const [sx, sy] = punkt(skytter, skytter.vapen);
+    const fart = 520, [mx, my] = punkt(m, m.senter);
+    const avstand = Math.hypot(mx - sx, my - sy), t = avstand / fart;
+    const tx = mx + (m.vx || 0) * t, ty = my;   // sikter litt foran målet
+    const lengde = Math.hypot(tx - sx, ty - sy) || 1;
+    const linje = document.createElementNS(NS, "line"); linje.setAttribute("class", "spor"); skuddLag.append(linje);
+    const munning = document.createElementNS(NS, "circle"); munning.setAttribute("class", "munning");
+    munning.setAttribute("cx", sx); munning.setAttribute("cy", sy); munning.setAttribute("r", 4); skuddLag.append(munning);
+    setTimeout(() => munning.remove(), 90);
+    skudd.push({ x: sx, y: sy, dx: (tx - sx) / lengde, dy: (ty - sy) / lengde, igjen: lengde, fart, linje });
+  }
+
+  function steg(na) {
+    if (!kjorer) return;
+    const dt = sist === null ? 0 : Math.min((na - sist) / 1000, 0.05);
+    sist = na; tid += dt;
+    for (const e of enheter) {
+      if (e.type === "fly") { e.x += e.vx * dt; e.y += Math.sin(tid * 0.8 + e.vx) * 0.15; if (e.x > 1260) e.x = 520; }
+      else if (e.type === "heli") { e.x = e.start[0] + Math.sin(tid * 0.35) * 45; e.y = e.start[1] + Math.sin(tid * 1.6) * 6; }
+      else { e.x += e.vx * dt; if (e.x < e.min || e.x > e.max) { e.vx = -e.vx; e.x = Math.max(e.min, Math.min(e.max, e.x)); }
+             if (e.type === "skip") e.y = 150 + Math.sin(tid * 1.2) * 1.5; }
+      plasser(e);
+    }
+    nesteSkudd -= dt;
+    if (nesteSkudd <= 0) { skyt(); nesteSkudd = 0.8 + Math.random() * 1.2; }
+    skudd = skudd.filter(s => {
+      const flytt = s.fart * dt; s.x += s.dx * flytt; s.y += s.dy * flytt; s.igjen -= flytt;
+      if (s.igjen <= 0) {
+        s.linje.remove();
+        const ring = document.createElementNS(NS, "circle"); ring.setAttribute("class", "smell"); skuddLag.append(ring);
+        smell.push({ x: s.x, y: s.y, alder: 0, ring });
+        return false;
+      }
+      s.linje.setAttribute("x1", s.x - s.dx * 22); s.linje.setAttribute("y1", s.y - s.dy * 22);
+      s.linje.setAttribute("x2", s.x); s.linje.setAttribute("y2", s.y);
+      return true;
+    });
+    smell = smell.filter(b => {
+      b.alder += dt;
+      if (b.alder > 0.45) { b.ring.remove(); return false; }
+      b.ring.setAttribute("cx", b.x); b.ring.setAttribute("cy", b.y);
+      b.ring.setAttribute("r", 3 + b.alder * 32); b.ring.setAttribute("opacity", 1 - b.alder / 0.45);
+      return true;
+    });
+    ramme = requestAnimationFrame(steg);
+  }
+
+  let stoppetAvLeser = false;
+  try { stoppetAvLeser = localStorage.getItem("forsvarsnytt-animasjon") === "av"; } catch (e) {}
+  const roligBevegelse = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function oppdater() {
+    const skal = !stoppetAvLeser && !roligBevegelse && synlig && !document.hidden;
+    if (skal && !kjorer) { kjorer = true; sist = null; ramme = requestAnimationFrame(steg); }
+    if (!skal && kjorer) { kjorer = false; cancelAnimationFrame(ramme); }
+    knapp.textContent = stoppetAvLeser ? "Start animasjon" : "Stopp animasjon";
+    knapp.setAttribute("aria-pressed", stoppetAvLeser);
+  }
+  if (!roligBevegelse) {
+    knapp.hidden = false;
+    knapp.onclick = () => {
+      stoppetAvLeser = !stoppetAvLeser;
+      try { localStorage.setItem("forsvarsnytt-animasjon", stoppetAvLeser ? "av" : "på"); } catch (e) {}
+      oppdater();
+    };
+  }
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([o]) => { synlig = o.isIntersecting; oppdater(); }).observe(document.querySelector(".banner"));
+  }
+  document.addEventListener("visibilitychange", oppdater);
+  oppdater();
+})();
+
 // ---------- ukens hjørne ----------
 function visUke(i) {
   const u = UKER[i];
