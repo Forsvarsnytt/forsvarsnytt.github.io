@@ -43,6 +43,12 @@ Står det `FEIL`, er adressen feil eller kilden blokkerer automatisk henting. S�
 
 Du kan redigere filene rett i GitHub i nettleseren (blyant-ikonet). Siden bygges på nytt hver gang du lagrer.
 
+## Mest omtalt og oppsummeringer
+
+Øverst på siden vises **mest omtalte saker** siste døgn, uke og måned. Det er hendelser som flere kilder skriver om samtidig, og det er gratis og automatisk (`mest_omtalt.py`). For å kunne vise uke og måned lagres et lite arkiv i `data/arkiv/`, én fil per dag. Arkivet lagres i repoet hver kveld.
+
+**AI-oppsummeringer (valgfritt):** Legger du inn en API-nøkkel fra console.anthropic.com som secret med navnet `ANTHROPIC_API_KEY` (Settings → Secrets and variables → Actions), skriver Claude en oppsummering på norsk hver kveld (`oppsummer.py`). Den erstatter «mest omtalt» automatisk. Modellen velges med `ai_modell` i `feeds.json`.
+
 ## Teste på egen maskin (valgfritt)
 
 Krever Python 3.9 eller nyere, ingen ekstra pakker.

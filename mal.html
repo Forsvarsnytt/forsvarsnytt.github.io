@@ -222,13 +222,16 @@ panel.addEventListener("click", e => { if (e.target === panel) panel.close(); })
 // ---------- oppsummering ----------
 let oppsType = null, visAlle = false;
 const TITLER = { dag: "Dagens viktigste", uke: "Ukens viktigste", maaned: "Månedens viktigste" };
+const TITLER_OMTALT = { dag: "Mest omtalt i dag", uke: "Mest omtalt denne uka", maaned: "Mest omtalt denne måneden" };
 
 function visOpps() {
   const o = OPPS[oppsType];
   document.querySelectorAll(".bytt button").forEach(b => b.setAttribute("aria-pressed", b.dataset.type === oppsType));
-  document.getElementById("opps-tittel").textContent = TITLER[oppsType];
+  const omtalt = o.modus === "omtalt";
+  document.getElementById("opps-tittel").textContent = (omtalt ? TITLER_OMTALT : TITLER)[oppsType];
   document.getElementById("opps-periode").textContent = o.periode;
-  document.getElementById("opps-ingress").textContent = o.ingress;
+  const ingress = document.getElementById("opps-ingress");
+  ingress.textContent = o.ingress; ingress.hidden = !o.ingress;
   const ol = document.getElementById("opps-punkter");
   ol.innerHTML = "";
   const synlige = visAlle ? o.punkter : o.punkter.slice(0, 3);
@@ -247,9 +250,11 @@ function visOpps() {
   mer.hidden = o.punkter.length <= 3;
   mer.textContent = visAlle ? "Vis færre" : `Vis alle ${o.punkter.length} saker`;
   const laget = new Date(o.laget);
-  document.getElementById("opps-merknad").textContent =
-    `Skrevet av AI (Claude) ${laget.toLocaleDateString("nb-NO", { day: "numeric", month: "long", timeZone: "Europe/Oslo" })} ` +
-    `ut fra overskrifter og ingresser fra kildene${o.grunnlag ? " · " + o.grunnlag.toLowerCase() : ""}. Kan inneholde feil – sjekk kildene.`;
+  const grunnlag = o.grunnlag ? " " + o.grunnlag + "." : "";
+  document.getElementById("opps-merknad").textContent = omtalt
+    ? "Automatisk utvalg: hendelser som flest kilder skriver om. Grupperingen kan av og til slå sammen eller dele saker feil." + grunnlag
+    : `Skrevet av AI (Claude) ${laget.toLocaleDateString("nb-NO", { day: "numeric", month: "long", timeZone: "Europe/Oslo" })} ` +
+      `ut fra overskrifter og ingresser fra kildene.${grunnlag} Kan inneholde feil – sjekk kildene.`;
 }
 
 if (OPPS && (OPPS.dag || OPPS.uke || OPPS.maaned)) {

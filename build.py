@@ -12,6 +12,8 @@ import re
 import sys
 import urllib.request
 import xml.etree.ElementTree as ET
+
+import mest_omtalt
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
@@ -167,12 +169,19 @@ def main():
         saker = hent_saker(cfg)
         (UT / "saker.json").write_text(json.dumps(saker, ensure_ascii=False), encoding="utf-8")
 
-    opps = {"dag": None, "uke": None, "maaned": None}
+    # mest omtalte saker (gratis, uten AI)
+    opps = mest_omtalt.lag(saker, datetime.now(OSLO))
+
+    # AI-oppsummeringer tar over der de finnes og er ferske
     opps_fil = ROT / "data" / "oppsummeringer.json"
     if opps_fil.exists():
         lagret = json.loads(opps_fil.read_text(encoding="utf-8"))
-        opps.update({"dag": (lagret.get("dager") or [None])[-1],
-                     "uke": lagret.get("uke"), "maaned": lagret.get("maaned")})
+        idag = datetime.now(OSLO).date()
+        ai = {"dag": (lagret.get("dager") or [None])[-1], "uke": lagret.get("uke"), "maaned": lagret.get("maaned")}
+        maks_alder = {"dag": 2, "uke": 8, "maaned": 32}
+        for t, o in ai.items():
+            if o and (idag - datetime.fromisoformat(o["laget"]).date()).days <= maks_alder[t]:
+                opps[t] = o
 
     mal = (ROT / "mal.html").read_text(encoding="utf-8")
     nå = datetime.now(OSLO).strftime("%d.%m.%Y kl. %H:%M")

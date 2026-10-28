@@ -62,8 +62,6 @@ def norsk_dato(d):
 
 def kall_claude(system, tekst, modell):
     nokkel = os.environ.get("ANTHROPIC_API_KEY")
-    if not nokkel:
-        sys.exit("ANTHROPIC_API_KEY mangler – legg den inn som secret i GitHub.")
     body = json.dumps({
         "model": modell,
         "max_tokens": 3000,
@@ -169,6 +167,9 @@ def lag_periode(type_, cfg, temaer, nå, dager):
 
 
 def main():
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        print("Ingen ANTHROPIC_API_KEY – hopper over AI-oppsummering (siden viser «mest omtalt» i stedet).")
+        return
     hva = sys.argv[1] if len(sys.argv) > 1 else "auto"
     cfg = json.loads((ROT / "feeds.json").read_text(encoding="utf-8"))
     cfg.setdefault("ai_modell", "claude-haiku-5-5")
