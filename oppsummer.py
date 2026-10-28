@@ -21,7 +21,7 @@ from zoneinfo import ZoneInfo
 
 ROT = Path(__file__).parent
 DATA = ROT / "data" / "oppsummeringer.json"
-SAKER = ROT / "site" / "saker.json"
+SAKER = ROT / "intern" / "saker.json"  # lokal fil fra build.py, publiseres ikke
 OSLO = ZoneInfo("Europe/Oslo")
 MAKS_TEGN = 200_000  # holder hvert kall godt under 100 000 tokens
 

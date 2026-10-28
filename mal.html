@@ -124,6 +124,8 @@
   }
   .tom { color: var(--dempet); padding: 32px 0; text-align: center; }
   footer { color: var(--dempet); font-size: 13px; margin-top: 32px; border-top: 1px solid var(--linje); padding-top: 12px; }
+  footer p { margin: 0 0 8px; }
+  footer a { color: var(--aksent); }
 </style>
 </head>
 <body>
@@ -155,7 +157,13 @@
   <nav id="faner" aria-label="Temaer"></nav>
   <input class="sok" id="sok" type="search" placeholder="Søk i overskrifter …" aria-label="Søk">
   <main id="liste"></main>
-  <footer>Overskrifter og lenker hentes automatisk fra kildenes RSS-strømmer. Les hele sakene hos kildene.</footer>
+  <footer>
+    <p><b>Om Forsvarsnytt.</b> Et ikke-kommersielt hobbyprosjekt som samler lenker til forsvars- og sikkerhetsnyheter.
+    Siden er ikke tilknyttet Forsvaret eller noen av kildene.</p>
+    <p>Overskriftene hentes fra kildenes åpne RSS-strømmer og lenker til de opprinnelige sakene. Alt innhold tilhører kildene,
+    og hele sakene leses hos dem. Illustrasjonene er laget for denne siden.</p>
+    <p>Er du utgiver og vil at noe skal endres eller fjernes? <a href="{{KONTAKT}}">Ta kontakt her</a>, så ordnes det raskt.</p>
+  </footer>
 </div>
 <dialog id="panel" aria-labelledby="panel-tittel">
   <div class="panel">
@@ -167,7 +175,7 @@
     <h3 id="panel-tittel"></h3>
     <p class="sammendrag" id="panel-tekst"></p>
     <a class="les" id="panel-lenke" target="_blank" rel="noopener"></a>
-    <div class="merknad">Sammendraget er kildens egen ingress fra RSS-strømmen.</div>
+    <div class="merknad" id="panel-merknad">Sammendraget er kildens egen ingress, gjengitt med kildens tillatelse.</div>
   </div>
 </dialog>
 <script>
@@ -297,8 +305,9 @@ function apne(s) {
   document.getElementById("panel-meta").replaceChildren(...lagMeta(s, d).childNodes);
   document.getElementById("panel-tittel").textContent = s.tittel;
   const tekst = document.getElementById("panel-tekst");
-  tekst.textContent = s.ingress || "Kilden har ikke lagt ved et sammendrag for denne saken.";
+  tekst.textContent = s.ingress || "Les sammendraget og hele saken hos " + s.kilde + ". Forsvarsnytt viser bare overskrifter og lenker, så innholdet blir hos kildene som eier det.";
   tekst.classList.toggle("mangler", !s.ingress);
+  document.getElementById("panel-merknad").hidden = !s.ingress;
   const lenke = document.getElementById("panel-lenke");
   lenke.href = s.lenke; lenke.textContent = "Les hele saken hos " + s.kilde + " ↗";
   panel.showModal();

@@ -8,6 +8,7 @@ Bruker bare Pythons innebygde biblioteker (Python 3.9 eller nyere).
 
 import html
 import json
+import os
 import re
 import sys
 import urllib.request
@@ -22,6 +23,7 @@ from zoneinfo import ZoneInfo
 ROT = Path(__file__).parent
 UT = ROT / "site"
 OSLO = ZoneInfo("Europe/Oslo")
+INTERN = ROT / "intern" / "saker.json"
 ATOM = "{http://www.w3.org/2005/Atom}"
 
 
@@ -173,6 +175,9 @@ def hent_saker(cfg):
                 "kilde": k["navn"],
                 "tema": beste or k["tema"],
                 "bilde": e["bilde"],
+                # vises bare når kilden har gitt lov (se feeds.json)
+                "vis_ingress": bool(k.get("vis_ingress")),
+                "vis_bilde": bool(k.get("vis_bilder")),
                 "tid": e["tid"].astimezone(timezone.utc).isoformat() if e["tid"] else None,
             })
             antall += 1
@@ -190,15 +195,30 @@ def til_js(data):
     return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
 
 
+def offentlig(s):
+    """Det som faktisk publiseres: overskrift, lenke, kilde, tema og tid.
+    Ingress og bilde tas bare med fra kilder som har gitt lov."""
+    return {
+        "tittel": s["tittel"], "lenke": s["lenke"], "kilde": s["kilde"], "tema": s["tema"], "tid": s["tid"],
+        "ingress": s["ingress"] if s.get("vis_ingress") else "",
+        "bilde": s["bilde"] if s.get("vis_bilde") else None,
+    }
+
+
 def main():
     cfg = json.loads((ROT / "feeds.json").read_text(encoding="utf-8"))
     UT.mkdir(exist_ok=True)
+    INTERN.parent.mkdir(exist_ok=True)
 
     if "--bare-side" in sys.argv:  # bruk sakene som allerede er hentet, bare lag siden på nytt
-        saker = json.loads((UT / "saker.json").read_text(encoding="utf-8"))
+        saker = json.loads(INTERN.read_text(encoding="utf-8"))
     else:
         saker = hent_saker(cfg)
-        (UT / "saker.json").write_text(json.dumps(saker, ensure_ascii=False), encoding="utf-8")
+        # full versjon lagres bare lokalt under kjøringen (brukes til sortering/oppsummering), publiseres aldri
+        INTERN.write_text(json.dumps(saker, ensure_ascii=False), encoding="utf-8")
+    saker = [offentlig(s) for s in saker]
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    kontakt = f"https://github.com/{repo}/issues" if repo else "#"
 
     # mest omtalte saker (gratis, uten AI)
     opps = mest_omtalt.lag(saker, datetime.now(OSLO))
@@ -220,7 +240,8 @@ def main():
             .replace("/*DATA*/null", til_js(saker))
             .replace("/*OPPS*/null", til_js(opps))
             .replace("/*TEMAER*/null", til_js([{"id": t["id"], "navn": t["navn"]} for t in cfg["temaer"]]))
-            .replace("{{OPPDATERT}}", nå))
+            .replace("{{OPPDATERT}}", nå)
+            .replace("{{KONTAKT}}", kontakt))
     (UT / "index.html").write_text(side, encoding="utf-8")
     print(f"Laget site/index.html med {len(saker)} saker")
 

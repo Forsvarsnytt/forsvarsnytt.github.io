@@ -1,5 +1,6 @@
 {
-  "_info": "Kilder og temaer. 'filter: true' betyr at bare saker som matcher et nøkkelord tas med (for generelle nyhetskilder). 'tema' er standardtema hvis ingen nøkkelord treffer.",
+  "_info": "Kilder og temaer. 'filter: true' betyr at bare saker som matcher et nøkkelord tas med (for generelle nyhetskilder). 'tema' er standardtema hvis ingen nøkkelord treffer. Som standard vises bare overskrift og lenke. Sett 'vis_ingress: true' eller 'vis_bilder: true' på en kilde BARE når kilden har gitt tillatelse eller vilkårene/lisensen tillater det, og skriv hvor tillatelsen står i 'tillatelse'.",
+  "_fjernet": "Al Jazeera og Defense News er tatt ut fordi vilkårene deres forbyr gjenbruk av innhold på andre nettsider uten skriftlig tillatelse.",
   "dager_tilbake": 7,
   "ai_modell": "claude-haiku-5-5",
   "maks_per_kilde": 30,
@@ -12,8 +13,6 @@
     {"navn": "BBC Europa", "url": "https://feeds.bbci.co.uk/news/world/europe/rss.xml", "tema": "verden", "filter": true},
     {"navn": "BBC Afrika", "url": "https://feeds.bbci.co.uk/news/world/africa/rss.xml", "tema": "afrika", "filter": true},
     {"navn": "BBC Midtøsten", "url": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml", "tema": "midtosten", "filter": true},
-    {"navn": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml", "tema": "verden", "filter": true},
-    {"navn": "Defense News", "url": "https://www.defensenews.com/arc/outboundfeeds/rss/?outputType=xml", "tema": "styrker", "filter": false},
     {"navn": "Breaking Defense", "url": "https://breakingdefense.com/feed/", "tema": "styrker", "filter": false},
     {"navn": "UK Defence Journal", "url": "https://ukdefencejournal.org.uk/feed/", "tema": "styrker", "filter": false}
   ],
