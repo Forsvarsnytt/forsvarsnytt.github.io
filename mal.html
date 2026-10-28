@@ -67,6 +67,30 @@
   article p { margin: 0; color: var(--dempet); font-size: 14px;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
+  /* ukens hjørne */
+  .hjorne { background: var(--flate); border: 1px solid var(--linje); border-radius: 10px;
+    padding: 16px 18px 14px; margin: 18px 0 4px; }
+  .hjorne-topp { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .hjorne-merke { background: var(--aksent); color: var(--aksent-tekst); font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em; padding: 3px 8px; border-radius: 4px; }
+  .hjorne h2 { all: unset; font-size: 15px; font-weight: 600; color: var(--dempet); }
+  .hjorne-del { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--dempet);
+    font-weight: 600; margin: 16px 0 6px; }
+  .sporsmal { margin: 0 0 8px; padding: 2px 0 2px 14px; border-left: 3px solid var(--aksent);
+    font-size: 18px; line-height: 1.45; font-weight: 600; }
+  .hjorne-tips { list-style: none; margin: 0; padding: 0; }
+  .hjorne-tips li { padding: 8px 0; border-top: 1px solid var(--linje); }
+  .hjorne-tips li:first-child { border-top: none; padding-top: 2px; }
+  .hjorne-tips a { color: var(--tekst); font-weight: 600; text-decoration: none; }
+  .hjorne-tips a:hover { color: var(--aksent); text-decoration: underline; }
+  .hjorne-tips .kilde { color: var(--dempet); font-size: 13px; margin-left: 6px; }
+  .hjorne-tips p { margin: 2px 0 0; color: var(--dempet); font-size: 14px; }
+  .tidligere { margin-top: 12px; font-size: 14px; color: var(--dempet); }
+  .tidligere summary { cursor: pointer; font-weight: 600; color: var(--aksent); }
+  .tidligere button { border: 1px solid var(--linje); background: var(--chip); color: var(--tekst); font: inherit;
+    font-size: 13px; border-radius: 999px; padding: 3px 10px; margin: 8px 6px 0 0; cursor: pointer; }
+  .tidligere button[aria-pressed="true"] { background: var(--aksent); color: var(--aksent-tekst); border-color: var(--aksent); }
+
   /* oppsummering */
   .opps { background: var(--flate); border: 1px solid var(--linje); border-left: 4px solid var(--aksent);
     border-radius: 10px; margin: 18px 0 4px; overflow: hidden; }
@@ -141,6 +165,24 @@
     <h1>Forsvars<span>nytt</span></h1>
     <div class="under">Sikkerhet og forsvar fra Norge og verden · oppdatert {{OPPDATERT}}</div>
   </header>
+  <section class="hjorne" id="hjorne" hidden aria-labelledby="hjorne-tittel">
+    <div class="hjorne-topp">
+      <span class="hjorne-merke">Ukens hjørne</span>
+      <h2 id="hjorne-tittel"></h2>
+    </div>
+    <div id="hjorne-sporsmal-boks" hidden>
+      <div class="hjorne-del">Ukens spørsmål</div>
+      <div id="hjorne-sporsmal"></div>
+    </div>
+    <div id="hjorne-tips-boks" hidden>
+      <div class="hjorne-del">Lesetips</div>
+      <ul class="hjorne-tips" id="hjorne-tips"></ul>
+    </div>
+    <details class="tidligere" id="tidligere" hidden>
+      <summary>Tidligere uker</summary>
+      <div id="tidligere-liste"></div>
+    </details>
+  </section>
   <section class="opps" id="opps" hidden>
     <button class="opps-knapp" id="opps-knapp" aria-expanded="false" aria-controls="opps-innhold">
       <span class="opps-ikon" id="opps-ikon"></span>
@@ -189,6 +231,7 @@
 const SAKER = /*DATA*/null;
 const TEMAER = /*TEMAER*/null;
 const OPPS = /*OPPS*/null;
+const UKER = /*UKER*/null;
 const navn = Object.fromEntries(TEMAER.map(t => [t.id, t.navn]));
 let valgt = "alle";
 try { valgt = new URLSearchParams(location.hash.slice(1)).get("tema") || "alle"; } catch (e) {}
@@ -403,6 +446,39 @@ if (OPPS && (OPPS.dag || OPPS.uke || OPPS.maaned)) {
   try { apen = localStorage.getItem("forsvarsnytt-opps-apen") === "1"; } catch (e) {}
   settApen(apen);
   knapp.onclick = () => settApen(knapp.getAttribute("aria-expanded") !== "true");
+}
+
+// ---------- ukens hjørne ----------
+function visUke(i) {
+  const u = UKER[i];
+  document.getElementById("hjorne-tittel").textContent = u.tittel;
+  const sp = document.getElementById("hjorne-sporsmal");
+  sp.replaceChildren(...u.sporsmal.map(t => { const p = document.createElement("p"); p.className = "sporsmal"; p.textContent = t; return p; }));
+  document.getElementById("hjorne-sporsmal-boks").hidden = !u.sporsmal.length;
+  const ul = document.getElementById("hjorne-tips");
+  ul.replaceChildren(...u.lesetips.map(t => {
+    const li = document.createElement("li");
+    const a = document.createElement("a"); a.href = t.lenke; a.target = "_blank"; a.rel = "noopener";
+    a.textContent = t.tittel || t.lenke.replace(/^https?:\/\/(www\.)?/, "");
+    const k = document.createElement("span"); k.className = "kilde"; k.textContent = t.kilde;
+    li.append(a, k);
+    if (t.kommentar) { const p = document.createElement("p"); p.textContent = t.kommentar; li.append(p); }
+    return li;
+  }));
+  document.getElementById("hjorne-tips-boks").hidden = !u.lesetips.length;
+  document.querySelectorAll("#tidligere-liste button").forEach((b, j) => b.setAttribute("aria-pressed", j === i));
+}
+
+if (UKER && UKER.length) {
+  document.getElementById("hjorne").hidden = false;
+  if (UKER.length > 1) {
+    document.getElementById("tidligere").hidden = false;
+    const liste = document.getElementById("tidligere-liste");
+    UKER.forEach((u, i) => {
+      const b = document.createElement("button"); b.textContent = u.tittel; b.onclick = () => visUke(i); liste.append(b);
+    });
+  }
+  visUke(0);
 }
 
 document.getElementById("sok").addEventListener("input", vis);

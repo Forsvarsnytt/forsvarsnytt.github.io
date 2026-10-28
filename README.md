@@ -45,6 +45,21 @@ Står det `FEIL`, er adressen feil eller kilden blokkerer automatisk henting. S�
 
 Du kan redigere filene rett i GitHub i nettleseren (blyant-ikonet). Siden bygges på nytt hver gang du lagrer.
 
+## Ukens hjørne
+
+Øverst på siden kan du legge inn **ukens spørsmål** og **lesetips**. Hver uke er én tekstfil i mappen `ukens/`.
+
+1. Gå til mappen `ukens/` på GitHub og åpne `MAL.md`. Kopier innholdet.
+2. Trykk **Add file → Create new file** og kall filen `ukens/2026-44.md`, altså år og ukenummer.
+3. Lim inn malen, bytt ut lenkene og tekstene, og trykk **Commit changes**.
+
+Siden oppdateres etter et par minutter. Den nyeste uka vises øverst, og eldre uker kan velges under «Tidligere uker».
+
+- **Lesetips:** én linje per tips: `- https://lenke-til-saken | Én setning om hvorfor du anbefaler den.` Er lenken en sak fra siden, hentes overskriften automatisk.
+- **Ukens spørsmål:** skriv spørsmålet som vanlig tekst under `## Ukens spørsmål`. Flere spørsmål kan skrives som en liste med `-`.
+- Linjer som starter med `<!--` er kommentarer og vises ikke.
+- Skriv bare ut fra åpne kilder, og aldri om noe du vet gjennom tjenesten.
+
 ## Mest omtalt og oppsummeringer
 
 Øverst på siden vises **mest omtalte saker** siste døgn, uke og måned. Det er hendelser som flere kilder skriver om samtidig, og det er gratis og automatisk (`mest_omtalt.py`). For å kunne vise uke og måned lagres et lite arkiv i `data/arkiv/`, én fil per dag. Arkivet lagres i repoet hver kveld.

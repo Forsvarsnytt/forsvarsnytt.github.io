@@ -15,6 +15,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 
 import mest_omtalt
+import ukens
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
@@ -231,6 +232,7 @@ def main():
     def beholdes(s):
         return s["kilde"] in kilder
     opps = mest_omtalt.lag(saker, datetime.now(OSLO), beholdes)
+    uker = ukens.lag(saker)  # «Ukens hjørne» fra mappen ukens/
 
     # AI-oppsummeringer tar over der de finnes og er ferske
     opps_fil = ROT / "data" / "oppsummeringer.json"
@@ -248,6 +250,7 @@ def main():
     side = (mal
             .replace("/*DATA*/null", til_js(saker))
             .replace("/*OPPS*/null", til_js(opps))
+            .replace("/*UKER*/null", til_js(uker))
             .replace("/*TEMAER*/null", til_js([{"id": t["id"], "navn": t["navn"]} for t in cfg["temaer"]]))
             .replace("{{OPPDATERT}}", nå)
             .replace("{{KONTAKT}}", kontakt))
