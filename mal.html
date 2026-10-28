@@ -119,8 +119,10 @@
   .melding.vis { opacity: 1; }
 
   /* forkortelser – vindu på høyre side */
-  .ordliste-fane { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 20;
-    writing-mode: vertical-rl; border: none; background: var(--aksent); color: var(--aksent-tekst);
+  .sidefaner { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 20;
+    display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+  .sidefaner[hidden] { display: none; }
+  .ordliste-fane { writing-mode: vertical-rl; border: none; background: var(--aksent); color: var(--aksent-tekst);
     font: inherit; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
     padding: 14px 7px; border-radius: 8px 0 0 8px; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.15); }
   .ordliste { position: fixed; top: 0; right: 0; bottom: 0; width: min(380px, 100%); z-index: 30;
@@ -139,7 +141,54 @@
   .ordliste dd { margin: 0; font-size: 14px; }
   .ordliste .ingen { color: var(--dempet); font-size: 14px; padding: 12px 0; }
   .ordliste .tips { color: var(--dempet); font-size: 12px; margin-top: 16px; }
-  @media (max-width: 600px) { .ordliste-fane { padding: 12px 6px; font-size: 12px; } }
+  @media (max-width: 600px) { .ordliste-fane { padding: 10px 6px; font-size: 11px; } }
+
+  /* konfliktkart */
+  :root { --krig: #b4442c; --konflikt: #c38016; --spenning: #3d7393; }
+  @media (prefers-color-scheme: dark) { :root { --krig: #e27a5f; --konflikt: #e6b155; --spenning: #7db3d1; } }
+  .ordliste.bred { width: min(920px, 100%); }
+  .kart-boks { padding: 0 18px; }
+  .kart-svg { width: 100%; height: auto; display: block; background: color-mix(in srgb, var(--spenning) 7%, var(--flate));
+    border-radius: 10px; border: 1px solid var(--linje); }
+  .kart-svg .land { fill: var(--illu-bg); stroke: var(--flate); stroke-width: .5; }
+  .kart-svg .land.krig { fill: color-mix(in srgb, var(--krig) 38%, var(--illu-bg)); }
+  .kart-svg .land.konflikt { fill: color-mix(in srgb, var(--konflikt) 38%, var(--illu-bg)); }
+  .kart-svg .land.spenning { fill: color-mix(in srgb, var(--spenning) 30%, var(--illu-bg)); }
+  .markor { cursor: pointer; }
+  .markor .treff { fill: transparent; }
+  .markor .prikk { stroke: var(--flate); stroke-width: 1.5; }
+  .markor.krig .prikk, .markor.krig .puls { fill: var(--krig); }
+  .markor.konflikt .prikk, .markor.konflikt .puls { fill: var(--konflikt); }
+  .markor.spenning .prikk { fill: var(--flate); stroke: var(--spenning); stroke-width: 2.5; }
+  .markor.spenning .puls { fill: var(--spenning); }
+  .markor .puls { opacity: .35; transform-box: fill-box; transform-origin: center; animation: puls 2.4s ease-out infinite; }
+  .markor.valgt .prikk { stroke: var(--tekst); stroke-width: 2.5; }
+  .markor:focus, .markor:focus-visible { outline: none; }
+  .markor:focus-visible .prikk { stroke: var(--tekst); stroke-width: 3; }
+  @keyframes puls { 0% { transform: scale(1); opacity: .45; } 100% { transform: scale(3.2); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .markor .puls { animation: none; opacity: .2; } }
+  .forklaring { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--dempet); margin: 10px 0 4px; }
+  .forklaring span { display: inline-flex; align-items: center; gap: 6px; }
+  .forklaring i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+  .k-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 6px; margin-top: 10px; }
+  .k-liste button { all: unset; box-sizing: border-box; cursor: pointer; display: flex; align-items: center; gap: 8px;
+    padding: 8px 10px; border: 1px solid var(--linje); border-radius: 8px; font-size: 14px; background: var(--flate); }
+  .k-liste button:hover, .k-liste button:focus-visible { border-color: var(--aksent); }
+  .k-liste i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+  .k-liste small { margin-left: auto; color: var(--dempet); font-size: 12px; }
+  .k-detalj h3 { all: unset; display: block; font-size: 20px; font-weight: 700; margin: 4px 0 6px; text-transform: none; letter-spacing: 0; color: var(--tekst); }
+  .k-merke { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    padding: 2px 8px; border-radius: 4px; color: #fff; }
+  .k-merke.krig { background: var(--krig); } .k-merke.konflikt { background: var(--konflikt); } .k-merke.spenning { background: var(--spenning); }
+  .k-siden { color: var(--dempet); font-size: 13px; margin-left: 8px; }
+  .k-detalj p { margin: 8px 0 12px; font-size: 15px; line-height: 1.55; }
+  .k-nyheter { list-style: none; margin: 0; padding: 0; }
+  .k-nyheter li { padding: 8px 0; border-top: 1px solid var(--linje); }
+  .k-nyheter a { color: var(--tekst); font-weight: 600; text-decoration: none; }
+  .k-nyheter a:hover { color: var(--aksent); text-decoration: underline; }
+  .k-nyheter small { display: block; color: var(--dempet); font-size: 12px; margin-top: 2px; }
+  .tilbake { border: none; background: none; color: var(--aksent); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; padding: 10px 0 0; }
+  .liten-merknad { color: var(--dempet); font-size: 12px; margin-top: 16px; }
 
   /* ukens hjørne */
   .hjorne { background: var(--flate); border: 1px solid var(--linje); border-radius: 10px;
@@ -254,6 +303,7 @@
     <h1>Forsvars<span>nytt</span></h1>
     <div class="under">Sikkerhet og forsvar fra Norge og verden · oppdatert {{OPPDATERT}}</div>
     <div class="verktoy">
+      <button id="apne-konfliktkart" aria-controls="konfliktkart" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Konfliktkart</button>
       <button id="apne-ordliste" aria-controls="ordliste"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Forkortelser</button>
       <a href="{{TILBAKEMELDING}}" class="epost" data-emne="Tilbakemelding om Forsvarsnytt" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Gi tilbakemelding</a>
     </div>
@@ -311,7 +361,28 @@
     <p class="epost-vis" hidden>E-post: <span id="epost-tekst"></span></p>
   </footer>
 </div>
-<button class="ordliste-fane" id="ordliste-fane" aria-controls="ordliste">Forkortelser</button>
+<div class="sidefaner" id="sidefaner">
+  <button class="ordliste-fane" id="konflikt-fane" aria-controls="konfliktkart" hidden>Konfliktkart</button>
+  <button class="ordliste-fane" id="ordliste-fane" aria-controls="ordliste">Forkortelser</button>
+</div>
+<aside class="ordliste bred" id="konfliktkart" aria-label="Konfliktkart" aria-hidden="true">
+  <div class="ordliste-topp">
+    <h2>Konflikter og spenningsområder</h2>
+    <button class="lukk" id="lukk-konfliktkart" aria-label="Lukk konfliktkart">×</button>
+  </div>
+  <div class="ordliste-innhold">
+    <div class="kart-boks" style="padding:0">
+      <svg class="kart-svg" id="kart-svg" viewBox="215 18 785 330" role="img" aria-label="Verdenskart med konflikter"></svg>
+      <div class="forklaring">
+        <span><i style="background:var(--krig)"></i>Krig</span>
+        <span><i style="background:var(--konflikt)"></i>Væpnet konflikt</span>
+        <span><i style="border:2.5px solid var(--spenning);box-sizing:border-box"></i>Spenningsområde</span>
+      </div>
+    </div>
+    <div id="k-innhold"></div>
+    <div class="liten-merknad">Bakgrunnstekstene er skrevet for Forsvarsnytt og oppdateres manuelt (sist gjennomgått 28.10.2026). Nyhetene hentes automatisk fra kildene på siden. Kart: Natural Earth (public domain). Krim vises som en del av Ukraina.</div>
+  </div>
+</aside>
 <aside class="ordliste" id="ordliste" aria-label="Forkortelser" aria-hidden="true">
   <div class="ordliste-topp">
     <h2>Forkortelser</h2>
@@ -640,27 +711,132 @@ function tegnOrdliste() {
   tips.textContent = "Mangler det en forkortelse? Gi tilbakemelding, så legges den til.";
   boks.append(tips);
 }
-function settOrdliste(apen) {
-  ordliste.classList.toggle("apen", apen);
-  ordliste.setAttribute("aria-hidden", !apen);
-  ordliste.inert = !apen;
-  document.getElementById("ordliste-fane").hidden = apen;
-  if (apen) document.getElementById("sok-ordliste").focus({ preventScroll: true });
+// felles håndtering av vinduene på høyre side (forkortelser, konfliktkart …)
+const SKUFFER = {
+  ordliste: { el: ordliste, knapper: ["#apne-ordliste", "#ordliste-fane"], vedApning: () => document.getElementById("sok-ordliste").focus({ preventScroll: true }) },
+};
+let apenSkuff = null;
+function settSkuff(navn, apen) {
+  for (const [n, s] of Object.entries(SKUFFER)) {
+    const denne = apen && n === navn;
+    s.el.classList.toggle("apen", denne); s.el.setAttribute("aria-hidden", !denne); s.el.inert = !denne;
+  }
+  apenSkuff = apen ? navn : null;
+  document.getElementById("sidefaner").hidden = !!apenSkuff;
+  if (apen && SKUFFER[navn].vedApning) SKUFFER[navn].vedApning();
 }
-document.getElementById("apne-ordliste").onclick = () => settOrdliste(true);
-document.getElementById("ordliste-fane").onclick = () => settOrdliste(true);
-document.getElementById("lukk-ordliste").onclick = () => settOrdliste(false);
+function settOrdliste(apen) { settSkuff("ordliste", apen); }
+function kobleSkuff(navn, lukkId) {
+  const s = SKUFFER[navn];
+  s.knapper.forEach(k => { const el = document.querySelector(k); if (el) el.onclick = () => settSkuff(navn, true); });
+  document.getElementById(lukkId).onclick = () => settSkuff(navn, false);
+  s.el.inert = true;
+}
+kobleSkuff("ordliste", "lukk-ordliste");
 document.getElementById("sok-ordliste").addEventListener("input", tegnOrdliste);
-document.addEventListener("keydown", e => { if (e.key === "Escape" && ordliste.classList.contains("apen")) settOrdliste(false); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && apenSkuff) settSkuff(apenSkuff, false); });
 document.addEventListener("click", e => {
-  if (ordliste.classList.contains("apen") && !ordliste.contains(e.target) &&
-      !e.target.closest("#apne-ordliste, #ordliste-fane")) settOrdliste(false);
+  if (!apenSkuff) return;
+  const s = SKUFFER[apenSkuff];
+  if (!s.el.contains(e.target) && !s.knapper.some(k => e.target.closest(k))) settSkuff(apenSkuff, false);
 });
-ordliste.inert = true;
 if (!ORDLISTE || !ORDLISTE.length) {
   document.getElementById("apne-ordliste").hidden = true; document.getElementById("ordliste-fane").hidden = true;
 } else tegnOrdliste();
 
+
+
+// ---------- konfliktkart ----------
+const KONFLIKTER = /*KONFLIKTER*/null;
+const KART = /*KART*/null;
+const TYPENAVN = { krig: "Krig", konflikt: "Væpnet konflikt", spenning: "Spenningsområde" };
+const xy = ([lat, lon]) => [(lon + 180) * 1000 / 360, (84 - lat) * 1000 / 360];
+let valgtKonflikt = null;
+
+function tegnKart() {
+  const svg = document.getElementById("kart-svg"), NS = "http://www.w3.org/2000/svg";
+  const farge = {};
+  for (const k of KONFLIKTER) for (const l of k.land) if (!farge[l] || k.type === "krig") farge[l] = k.type;
+  const landLag = document.createElementNS(NS, "g");
+  for (const [navn, d] of Object.entries(KART)) {
+    const p = document.createElementNS(NS, "path"); p.setAttribute("d", d);
+    p.setAttribute("class", "land" + (farge[navn] ? " " + farge[navn] : ""));
+    const t = document.createElementNS(NS, "title"); t.textContent = navn; p.append(t);
+    landLag.append(p);
+  }
+  svg.append(landLag);
+  // spenningsområder under, kriger øverst
+  const rekkefolge = { spenning: 0, konflikt: 1, krig: 2 };
+  [...KONFLIKTER].sort((a, b) => rekkefolge[a.type] - rekkefolge[b.type]).forEach(k => {
+    const [x, y] = xy(k.posisjon);
+    const g = document.createElementNS(NS, "g");
+    g.setAttribute("class", "markor " + k.type); g.setAttribute("tabindex", "0"); g.setAttribute("role", "button");
+    g.setAttribute("aria-label", k.navn); g.dataset.navn = k.navn;
+    g.innerHTML = `<circle class="treff" cx="${x}" cy="${y}" r="16"/><circle class="puls" cx="${x}" cy="${y}" r="6"/><circle class="prikk" cx="${x}" cy="${y}" r="6"/>`;
+    const t = document.createElementNS(NS, "title"); t.textContent = k.navn; g.append(t);
+    g.onclick = e => { e.stopPropagation(); velgKonflikt(k); };
+    g.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); velgKonflikt(k); } };
+    svg.append(g);
+  });
+}
+
+function visKonfliktliste() {
+  valgtKonflikt = null;
+  document.querySelectorAll(".markor").forEach(m => m.classList.remove("valgt"));
+  const boks = document.getElementById("k-innhold"); boks.innerHTML = "";
+  const h = document.createElement("h3"); h.textContent = "Velg et område på kartet eller i lista"; boks.append(h);
+  const liste = document.createElement("div"); liste.className = "k-liste";
+  for (const k of KONFLIKTER) {
+    const b = document.createElement("button");
+    const i = document.createElement("i");
+    i.style.cssText = k.type === "spenning" ? "border:2.5px solid var(--spenning);box-sizing:border-box" : `background:var(--${k.type})`;
+    const s = document.createElement("span"); s.textContent = k.navn;
+    const n = document.createElement("small"); n.textContent = k.antall ? k.antall + " saker" : "";
+    b.append(i, s, n); b.onclick = e => { e.stopPropagation(); velgKonflikt(k); };
+    liste.append(b);
+  }
+  boks.append(liste);
+}
+
+function velgKonflikt(k) {
+  valgtKonflikt = k;
+  document.querySelectorAll(".markor").forEach(m => m.classList.toggle("valgt", m.dataset.navn === k.navn));
+  const boks = document.getElementById("k-innhold"); boks.innerHTML = "";
+  const d = document.createElement("div"); d.className = "k-detalj";
+  const merke = document.createElement("span"); merke.className = "k-merke " + k.type; merke.textContent = TYPENAVN[k.type];
+  const siden = document.createElement("span"); siden.className = "k-siden"; siden.textContent = k.siden ? "Siden " + k.siden.charAt(0).toLowerCase() + k.siden.slice(1) : "";
+  const h = document.createElement("h3"); h.textContent = k.navn;
+  const p = document.createElement("p"); p.textContent = k.tekst;
+  const nh = document.createElement("div"); nh.className = "hjorne-del"; nh.textContent = k.antall ? `Siste nytt (${k.antall} saker i arkivet)` : "Siste nytt";
+  d.append(merke, siden, h, p, nh);
+  if (k.nyheter.length) {
+    const ul = document.createElement("ul"); ul.className = "k-nyheter";
+    for (const s of k.nyheter) {
+      const li = document.createElement("li");
+      const a = document.createElement("a"); a.href = s.lenke; a.target = "_blank"; a.rel = "noopener"; a.textContent = s.tittel;
+      const sm = document.createElement("small");
+      sm.textContent = s.kilde + (s.tid ? " · " + new Date(s.tid).toLocaleDateString("nb-NO", { day: "numeric", month: "long", timeZone: "Europe/Oslo" }) : "");
+      li.append(a, sm); ul.append(li);
+    }
+    d.append(ul);
+  } else {
+    const ingen = document.createElement("div"); ingen.className = "ingen"; ingen.style.color = "var(--dempet)";
+    ingen.textContent = "Ingen saker om dette området i arkivet ennå. Arkivet fylles opp for hver dag.";
+    d.append(ingen);
+  }
+  const tilbake = document.createElement("button"); tilbake.className = "tilbake"; tilbake.textContent = "← Alle områder";
+  tilbake.onclick = e => { e.stopPropagation(); visKonfliktliste(); };
+  d.append(tilbake);
+  boks.append(d);
+}
+
+if (KONFLIKTER && KONFLIKTER.length && KART) {
+  SKUFFER.konfliktkart = { el: document.getElementById("konfliktkart"), knapper: ["#apne-konfliktkart", "#konflikt-fane"] };
+  kobleSkuff("konfliktkart", "lukk-konfliktkart");
+  document.getElementById("apne-konfliktkart").hidden = false;
+  document.getElementById("konflikt-fane").hidden = false;
+  tegnKart(); visKonfliktliste();
+}
 
 // ---------- e-post ----------
 // Adressen ligger baklengs i koden og settes sammen først i nettleseren, så den er vanskeligere for spamroboter å finne.

@@ -1,0 +1,169 @@
+# KONFLIKTKART – vises i «Konfliktkart»-vinduet på siden.
+# Hver konflikt starter med ## Navn. Feltene under er:
+#   type:      krig, konflikt eller spenning (bestemmer fargen på kartet)
+#   posisjon:  breddegrad, lengdegrad for markøren (finn tallene ved å høyreklikke på stedet i Google Maps)
+#   land:      landene som skal fargelegges, med engelske navn adskilt med komma (kan stå tomt)
+#   siden:     når konflikten startet
+#   søkeord:   ord som brukes til å finne nyheter om konflikten, adskilt med komma (hele ord)
+#   tekst:     kort, nøktern bakgrunn med egne ord
+# Linjer som starter med # vises ikke. Sist gjennomgått: 28.10.2026.
+
+## Krigen i Ukraina
+type: krig
+posisjon: 48.6, 35.5
+land: Ukraine
+siden: 2014, fullskala invasjon fra 24. februar 2022
+søkeord: ukraine, ukraina, ukrainian, ukrainsk, ukrainske, kyiv, kiev, kharkiv, zaporizhzhia, donetsk, donbas, kherson, crimea, krim, zelensky, zelenskyj, pokrovsk, odesa
+tekst: Russland gikk til fullskala invasjon av Ukraina 24. februar 2022, etter å ha annektert Krim og støttet væpnede separatister i Donbas siden 2014. Krigen er den største i Europa siden andre verdenskrig og står sentralt i norsk og alliert sikkerhetspolitikk.
+
+## Gaza og Israel
+type: krig
+posisjon: 31.4, 34.4
+land: Israel, Palestine
+siden: 7. oktober 2023
+søkeord: gaza, hamas, west bank, vestbredden, idf, israel, israelsk, israelske, netanyahu
+tekst: Hamas angrep Israel 7. oktober 2023, drepte rundt 1200 mennesker og tok over 250 gisler. Israels militæroffensiv i Gaza har ført til svært store tap av sivile liv og en humanitær katastrofe. Det er inngått våpenhviler flere ganger, senest i oktober 2025. Se siste nytt for dagens situasjon.
+
+## Libanon og Hizbollah
+type: konflikt
+posisjon: 33.6, 35.7
+land: Lebanon
+siden: oktober 2023
+søkeord: lebanon, libanon, hezbollah, hizbollah, beirut
+tekst: Hizbollah begynte å skyte mot Israel etter 7. oktober 2023, og høsten 2024 ble det åpen krig mellom Israel og Hizbollah. En våpenhvile ble inngått i november 2024, men Israel har fortsatt utført angrep i Libanon.
+
+## Iran og regionen
+type: spenning
+posisjon: 32.4, 53.7
+land: Iran
+siden: Langvarig, krig i juni 2025
+søkeord: iran, iranian, iransk, irgc, tehran, teheran, revolusjonsgarden
+tekst: Iran står i konflikt med Israel og USA, blant annet om atomprogrammet og støtten til væpnede grupper i regionen. I juni 2025 angrep Israel og USA iranske militær- og atomanlegg i en krig som varte i tolv dager.
+
+## Jemen og Rødehavet
+type: konflikt
+posisjon: 15.4, 44.2
+land: Yemen
+siden: Borgerkrig fra 2014, angrep i Rødehavet fra 2023
+søkeord: houthi, houthis, houthiene, yemen, jemen, red sea, rødehavet, sanaa
+tekst: Houthi-bevegelsen kontrollerer store deler av Jemen. Siden 2023 har den angrepet skipsfarten i Rødehavet og skutt mot Israel, noe som har ført til gjengjeldelsesangrep fra USA, Storbritannia og Israel.
+
+## Syria
+type: konflikt
+posisjon: 35.0, 38.5
+land: Syria
+siden: Borgerkrig fra 2011, regimeskifte i desember 2024
+søkeord: syria, syrian, syrisk, damascus, damaskus, hts, aleppo
+tekst: Assad-regimet falt i desember 2024 etter en offensiv ledet av opprørsgruppen HTS. Et overgangsstyre leder landet, men det har vært vold mellom ulike grupper, og flere utenlandske stater har militære styrker i landet.
+
+## Borgerkrigen i Sudan
+type: krig
+posisjon: 15.0, 29.5
+land: Sudan
+siden: 15. april 2023
+søkeord: sudan, sudanese, rsf, darfur, khartoum, el fasher, el-fasher, burhan, hemedti
+tekst: Krigen mellom Sudans hær (SAF) og den paramilitære styrken RSF brøt ut i april 2023. Den har skapt en av verdens største humanitære kriser, med millioner av mennesker på flukt og alvorlige overgrep mot sivile, særlig i Darfur.
+
+## Sahel
+type: konflikt
+posisjon: 15.5, -0.5
+land: Mali, Burkina Faso, Niger
+siden: Opprør fra 2012, militærkupp 2020–2023
+søkeord: sahel, mali, malian, burkina faso, burkina, niger, nigerien, jnim, bamako, ouagadougou, niamey, africa corps, wagner
+tekst: Islamistiske grupper knyttet til al-Qaida og IS er aktive i Mali, Burkina Faso og Niger. Etter militærkupp mellom 2020 og 2023 har landene brutt med Frankrike og vestlige partnere og knyttet seg tettere til Russland.
+
+## Øst-Kongo
+type: konflikt
+posisjon: -1.7, 29.0
+land: Democratic Republic of the Congo, Rwanda
+siden: Langvarig, ny opptrapping fra 2022
+søkeord: congo, kongo, drc, m23, goma, bukavu, kivu, rwanda, rwandan
+tekst: Den Rwanda-støttede opprørsgruppen M23 har kjempet mot Kongos regjering i de østlige provinsene. I 2025 tok M23 kontroll over storbyene Goma og Bukavu. Det har vært flere forsøk på fredsavtaler.
+
+## Somalia
+type: konflikt
+posisjon: 3.5, 45.5
+land: Somalia
+siden: 2006
+søkeord: somalia, somali, al-shabaab, al shabaab, mogadishu
+tekst: Den islamistiske gruppen al-Shabaab kjemper mot Somalias regjering, som får militær støtte fra Den afrikanske union og internasjonale partnere.
+
+## Etiopia
+type: konflikt
+posisjon: 11.5, 38.5
+land: Ethiopia
+siden: Krig i Tigray 2020–2022, kamper i Amhara fra 2023
+søkeord: ethiopia, ethiopian, etiopia, amhara, fano, tigray, addis
+tekst: Etter krigen i Tigray-regionen (2020–2022) har det vært væpnede kamper i Amhara-regionen mellom regjeringsstyrker og Fano-militsen, og spenningen med nabolandet Eritrea har økt.
+
+## Nigeria og Tsjadsjøen
+type: konflikt
+posisjon: 12.0, 13.5
+land: Nigeria
+siden: 2009
+søkeord: nigeria, nigerian, boko haram, iswap, borno, lake chad, tsjadsjøen
+tekst: Boko Haram og IS-grupperingen ISWAP har ført en opprørskrig i nordøstlige Nigeria siden 2009, og konflikten har spredt seg til nabolandene rundt Tsjadsjøen.
+
+## Myanmar
+type: krig
+posisjon: 21.0, 96.0
+land: Myanmar
+siden: Militærkupp 1. februar 2021
+søkeord: myanmar, burma, burmese, junta
+tekst: Etter militærkuppet i februar 2021 har motstandsgrupper og etniske væpnede grupper kjempet mot militærjuntaen i store deler av landet.
+
+## Haiti
+type: konflikt
+posisjon: 18.9, -72.3
+land: Haiti
+siden: Kraftig opptrapping fra 2021
+søkeord: haiti, haitian, port-au-prince
+tekst: Væpnede gjenger kontrollerer store deler av hovedstaden Port-au-Prince. En internasjonal sikkerhetsstyrke ledet av Kenya ble sendt til landet i 2024.
+
+## India og Pakistan
+type: spenning
+posisjon: 34.1, 75.5
+land: India, Pakistan
+siden: 1947
+søkeord: kashmir, india, indian, indisk, pakistan, pakistani, pakistansk
+tekst: Kashmir er omstridt mellom India og Pakistan, som begge har atomvåpen. I mai 2025 kom det til de alvorligste militære kampene mellom landene på flere tiår.
+
+## Taiwanstredet
+type: spenning
+posisjon: 24.0, 120.8
+land: Taiwan
+siden: 1949
+søkeord: taiwan, taiwanese, taipei, pla, taiwanstredet, taiwan strait
+tekst: Kina betrakter Taiwan som en del av Kina og har ikke utelukket bruk av makt. Kinesiske militærøvelser rundt øya har økt i omfang de siste årene.
+
+## Sørkinahavet
+type: spenning
+posisjon: 12.0, 114.5
+land:
+siden: Langvarig
+søkeord: south china sea, sørkinahavet, philippines, filippinene, spratly, scarborough
+tekst: Kina gjør krav på det meste av Sørkinahavet, i strid med en internasjonal voldgiftsdom fra 2016. Det har vært gjentatte sammenstøt mellom kinesiske og filippinske fartøyer.
+
+## Koreahalvøya
+type: spenning
+posisjon: 39.5, 127.0
+land: North Korea
+siden: 1950
+søkeord: north korea, nord-korea, north korean, nordkoreansk, pyongyang, kim jong un
+tekst: Nord-Korea fortsetter å utvikle atomvåpen og missiler, og har sendt soldater og våpen for å støtte Russlands krig mot Ukraina.
+
+## Nordområdene
+type: spenning
+posisjon: 71.5, 33.0
+land:
+siden: Økt spenning etter 2014 og 2022
+søkeord: arctic, arktis, high north, nordområdene, svalbard, barents, barentshavet, kola, finnmark, northern fleet, nordflåten, murmansk
+tekst: Russlands Nordflåte på Kola-halvøya er sentral for landets atomavskrekking. Nordområdene er Norges viktigste strategiske område, med økt alliert øvingsaktivitet og russisk militær tilstedeværelse.
+
+## Østersjøen
+type: spenning
+posisjon: 57.5, 19.5
+land: Estonia, Latvia, Lithuania
+siden: Økt spenning etter 2022
+søkeord: baltic, østersjøen, kaliningrad, estonia, estland, latvia, latvija, lithuania, litauen, gotland, baltic sentry
+tekst: Med Finland og Sverige i NATO er Østersjøen omringet av allierte land, med unntak av russiske Kaliningrad og St. Petersburg. Skader på undersjøiske kabler og rørledninger har ført til økt NATO-overvåking.
