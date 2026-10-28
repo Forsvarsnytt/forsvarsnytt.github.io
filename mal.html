@@ -9,12 +9,13 @@
   :root {
     --bg: #f4f3ee; --flate: #ffffff; --tekst: #1d211c; --dempet: #626a5f;
     --linje: #dcdcd2; --aksent: #4a5d3a; --aksent-tekst: #ffffff;
-    --chip: #e7e9df;
+    --chip: #e7e9df; --illu-bg: #dfe3d3; --illu-fg: #4a5d3a;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #141713; --flate: #1c201b; --tekst: #e8eae3; --dempet: #9aa395;
       --linje: #2e342c; --aksent: #8ea877; --aksent-tekst: #10130f; --chip: #262b24;
+      --illu-bg: #242b21; --illu-fg: #8ea877;
     }
   }
   * { box-sizing: border-box; }
@@ -38,8 +39,17 @@
   h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--dempet);
     margin: 24px 0 6px; }
   article { background: var(--flate); border: 1px solid var(--linje); border-radius: 10px;
-    padding: 14px 16px; margin-bottom: 8px; cursor: pointer; transition: border-color .15s; }
+    padding: 14px 16px; margin-bottom: 8px; cursor: pointer; transition: border-color .15s;
+    display: grid; grid-template-columns: minmax(0, 1fr) 96px; gap: 14px; align-items: start; }
   article:hover { border-color: var(--aksent); }
+  .bilde { width: 96px; height: 96px; border-radius: 8px; overflow: hidden; background: var(--illu-bg);
+    color: var(--illu-fg); display: grid; place-items: center; }
+  .bilde img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bilde svg { width: 76%; height: 76%; }
+  @media (max-width: 600px) {
+    article { grid-template-columns: minmax(0, 1fr) 76px; gap: 12px; }
+    .bilde { width: 76px; height: 76px; }
+  }
   .meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center;
     font-size: 13px; color: var(--dempet); }
   .tema { background: var(--chip); color: var(--tekst); border-radius: 4px; padding: 1px 7px; font-size: 12px; }
@@ -52,8 +62,21 @@
 
   /* oppsummering */
   .opps { background: var(--flate); border: 1px solid var(--linje); border-left: 4px solid var(--aksent);
-    border-radius: 10px; padding: 16px 18px; margin: 18px 0 4px; }
-  .opps-topp { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+    border-radius: 10px; margin: 18px 0 4px; overflow: hidden; }
+  .opps-knapp { all: unset; box-sizing: border-box; width: 100%; display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px; cursor: pointer; }
+  .opps-knapp:hover { background: var(--chip); }
+  .opps-knapp:focus-visible { outline: 2px solid var(--aksent); outline-offset: -2px; }
+  .opps-ikon { width: 40px; height: 40px; border-radius: 8px; background: var(--illu-bg); color: var(--illu-fg);
+    display: grid; place-items: center; flex: none; }
+  .opps-ikon svg { width: 28px; height: 28px; }
+  .opps-knapp .tekst { flex: 1; min-width: 0; }
+  .opps-knapp strong { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+  .opps-knapp small { display: block; color: var(--dempet); font-size: 14px; margin-top: 1px; }
+  .pil { font-size: 18px; color: var(--dempet); transition: transform .2s; }
+  .opps-knapp[aria-expanded="true"] .pil { transform: rotate(180deg); }
+  .opps-innhold { padding: 4px 18px 16px; border-top: 1px solid var(--linje); }
+  .opps-topp { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
   .opps-topp strong { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
   .bytt { display: inline-flex; background: var(--chip); border-radius: 8px; padding: 3px; }
   .bytt button { border: none; background: none; color: var(--tekst); font: inherit; font-size: 14px;
@@ -81,6 +104,9 @@
     box-shadow: 0 20px 60px rgba(0,0,0,.25); }
   dialog::backdrop { background: rgba(10, 12, 9, .55); }
   .panel { padding: 22px 24px 24px; overflow-y: auto; }
+  .panel-bilde { margin: -22px -24px 18px; aspect-ratio: 16 / 9; background: var(--illu-bg); overflow: hidden; }
+  .panel-bilde img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 600px) { .panel-bilde { margin: -18px -16px 16px; } }
   .panel-topp { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
   .lukk { border: none; background: var(--chip); color: var(--tekst); width: 34px; height: 34px;
     border-radius: 50%; font-size: 20px; line-height: 1; cursor: pointer; flex: none; }
@@ -106,18 +132,25 @@
     <h1>Forsvars<span>nytt</span></h1>
     <div class="under">Sikkerhet og forsvar fra Norge og verden · oppdatert {{OPPDATERT}}</div>
   </header>
-  <section class="opps" id="opps" hidden aria-labelledby="opps-tittel">
-    <div class="opps-topp">
-      <strong id="opps-tittel">Det viktigste</strong>
-      <div class="bytt" role="group" aria-label="Periode">
-        <button data-type="dag">Dag</button><button data-type="uke">Uke</button><button data-type="maaned">Måned</button>
+  <section class="opps" id="opps" hidden>
+    <button class="opps-knapp" id="opps-knapp" aria-expanded="false" aria-controls="opps-innhold">
+      <span class="opps-ikon" id="opps-ikon"></span>
+      <span class="tekst"><strong id="opps-hode">Mest omtalt</strong><small id="opps-hint"></small></span>
+      <span class="pil" aria-hidden="true">▾</span>
+    </button>
+    <div class="opps-innhold" id="opps-innhold" hidden>
+      <div class="opps-topp">
+        <strong id="opps-tittel">Det viktigste</strong>
+        <div class="bytt" role="group" aria-label="Periode">
+          <button data-type="dag">Dag</button><button data-type="uke">Uke</button><button data-type="maaned">Måned</button>
+        </div>
       </div>
+      <div class="opps-periode" id="opps-periode"></div>
+      <p class="opps-ingress" id="opps-ingress"></p>
+      <ol id="opps-punkter"></ol>
+      <button class="vis-mer" id="vis-mer" hidden></button>
+      <div class="opps-merknad" id="opps-merknad"></div>
     </div>
-    <div class="opps-periode" id="opps-periode"></div>
-    <p class="opps-ingress" id="opps-ingress"></p>
-    <ol id="opps-punkter"></ol>
-    <button class="vis-mer" id="vis-mer" hidden></button>
-    <div class="opps-merknad" id="opps-merknad"></div>
   </section>
   <nav id="faner" aria-label="Temaer"></nav>
   <input class="sok" id="sok" type="search" placeholder="Søk i overskrifter …" aria-label="Søk">
@@ -126,6 +159,7 @@
 </div>
 <dialog id="panel" aria-labelledby="panel-tittel">
   <div class="panel">
+    <div class="panel-bilde" id="panel-bilde" hidden></div>
     <div class="panel-topp">
       <div class="meta" id="panel-meta"></div>
       <button class="lukk" id="lukk" aria-label="Lukk">×</button>
@@ -188,12 +222,58 @@ function vis() {
       const h = document.createElement("h2"); h.textContent = dagTittel(nokkel); liste.append(h); forrige = nokkel;
     }
     const a = document.createElement("article");
+    const tekst = document.createElement("div");
     const tittel = document.createElement("button"); tittel.textContent = s.tittel;
-    a.append(lagMeta(s, d), tittel);
-    if (s.ingress) { const p = document.createElement("p"); p.textContent = s.ingress; a.append(p); }
+    tekst.append(lagMeta(s, d), tittel);
+    if (s.ingress) { const p = document.createElement("p"); p.textContent = s.ingress; tekst.append(p); }
+    a.append(tekst, lagBilde(s));
     a.onclick = () => apne(s);
     liste.append(a);
   }
+}
+
+// ---------- bilder og illustrasjoner ----------
+const KONTUR = '<g fill="none" stroke="currentColor" stroke-width="1" opacity=".18">' +
+  '<path d="M-2 12C12 6 22 18 36 12S56 6 66 12"/><path d="M-2 30C10 24 26 36 40 28S58 26 66 32"/>' +
+  '<path d="M-2 50C14 44 24 56 38 48S56 46 66 52"/></g>';
+const SILUETT = {
+  // jagerfly sett ovenfra
+  jet: '<path d="M32 5l3 13v8l22 12v4l-22-5-1 13 8 6v3l-10-3-10 3v-3l8-6-1-13-22 5v-4l22-12v-8z"/>',
+  // stridsvogn
+  tank: '<path d="M19 27h20l5 9H16z"/><rect x="42" y="29" width="18" height="3" rx="1"/>' +
+        '<path d="M6 36h52l-4 8H10z"/><rect x="7" y="44" width="50" height="10" rx="5"/>' +
+        '<g fill="var(--illu-bg)"><circle cx="14" cy="49" r="3"/><circle cx="23" cy="49" r="3"/><circle cx="32" cy="49" r="3"/><circle cx="41" cy="49" r="3"/><circle cx="50" cy="49" r="3"/></g>',
+  // marinefartøy
+  skip: '<path d="M3 40h58l-7 11H11z"/><path d="M21 30h18v10H21z"/><path d="M28 17h3v13h-3z"/><path d="M24 21h11v2H24z"/>' +
+        '<path d="M43 35h5v5h-5z"/><path d="M47 36h10v2H47z"/><path d="M12 36h6v4h-6z"/>',
+  // helikopter
+  heli: '<ellipse cx="27" cy="37" rx="14" ry="8"/><path d="M39 33l19-3v5l-19 5z"/><path d="M55 25h3v11h-3z"/>' +
+        '<path d="M6 23h44v2.5H6z"/><path d="M26 25h3v5h-3z"/><path d="M15 50h26v2.5H15z"/><path d="M20 44h2.5v6H20zM34 44h2.5v6H34z"/>',
+  // drone sett ovenfra
+  drone: '<path d="M30.5 8h3l1 40h-5z"/><path d="M3 27h58v4H3z"/><path d="M24 53l8-6 8 6v3l-8-4-8 4z"/><circle cx="32" cy="12" r="3"/>',
+  // fjell med flagg
+  fjell: '<path d="M2 56l18-30 9 13 11-19 22 36z"/><path d="M41 6h2v15h-2z"/><path d="M43 6h14v9H43z"/>',
+  // globus
+  globus: '<g fill="none" stroke="currentColor" stroke-width="3"><circle cx="32" cy="32" r="22"/><ellipse cx="32" cy="32" rx="9" ry="22"/>' +
+          '<path d="M10 32h44M14 21h36M14 43h36"/></g>',
+};
+const TEMA_SILUETT = { norge: "fjell", ukraina: "tank", nord: "skip", afrika: "heli", midtosten: "drone", styrker: "jet", verden: "globus" };
+
+function illustrasjon(tema) {
+  return '<svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">' + KONTUR + (SILUETT[TEMA_SILUETT[tema]] || SILUETT.globus) + "</svg>";
+}
+
+function lagBilde(s) {
+  const boks = document.createElement("div"); boks.className = "bilde";
+  if (s.bilde) {
+    const img = document.createElement("img");
+    img.src = s.bilde; img.alt = ""; img.loading = "lazy"; img.referrerPolicy = "no-referrer";
+    img.onerror = () => { boks.innerHTML = illustrasjon(s.tema); };  // bildet virker ikke → illustrasjon
+    boks.append(img);
+  } else {
+    boks.innerHTML = illustrasjon(s.tema);
+  }
+  return boks;
 }
 
 function lagMeta(s, d) {
@@ -207,6 +287,13 @@ function lagMeta(s, d) {
 const panel = document.getElementById("panel");
 function apne(s) {
   const d = s.tid ? new Date(s.tid) : null;
+  const pb = document.getElementById("panel-bilde");
+  pb.replaceChildren(); pb.hidden = !s.bilde;
+  if (s.bilde) {
+    const img = document.createElement("img");
+    img.src = s.bilde; img.alt = ""; img.referrerPolicy = "no-referrer"; img.onerror = () => { pb.hidden = true; };
+    pb.append(img);
+  }
   document.getElementById("panel-meta").replaceChildren(...lagMeta(s, d).childNodes);
   document.getElementById("panel-tittel").textContent = s.tittel;
   const tekst = document.getElementById("panel-tekst");
@@ -266,6 +353,25 @@ if (OPPS && (OPPS.dag || OPPS.uke || OPPS.maaned)) {
   document.getElementById("vis-mer").onclick = () => { visAlle = !visAlle; visOpps(); };
   oppsType = ["dag", "uke", "maaned"].find(t => OPPS[t]);
   visOpps();
+
+  // sammenleggbar boks – husker om leseren hadde den åpen
+  const knapp = document.getElementById("opps-knapp"), innhold = document.getElementById("opps-innhold");
+  const forste = OPPS[oppsType];
+  const omtalt = forste.modus === "omtalt";
+  document.getElementById("opps-hode").textContent = omtalt ? "Mest omtalt" : "Det viktigste";
+  document.getElementById("opps-ikon").innerHTML = '<svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">' +
+    '<path d="M32 4l7 15 16 2-12 11 3 16-14-8-14 8 3-16L9 21l16-2z"/><path d="M22 46l-6 14 8-3 4 7 4-12zM42 46l6 14-8-3-4 7-4-12z"/></svg>';
+  const periodeTekst = { dag: "i dag", uke: "denne uka", maaned: "denne måneden" }[oppsType];
+  function settApen(apen) {
+    knapp.setAttribute("aria-expanded", apen); innhold.hidden = !apen;
+    document.getElementById("opps-hint").textContent = apen ? "Trykk for å skjule"
+      : `${forste.punkter.length} ${forste.punkter.length === 1 ? "sak" : "saker"} ${periodeTekst} · trykk for å se dag, uke og måned`;
+    try { localStorage.setItem("forsvarsnytt-opps-apen", apen ? "1" : "0"); } catch (e) {}
+  }
+  let apen = false;
+  try { apen = localStorage.getItem("forsvarsnytt-opps-apen") === "1"; } catch (e) {}
+  settApen(apen);
+  knapp.onclick = () => settApen(knapp.getAttribute("aria-expanded") !== "true");
 }
 
 document.getElementById("sok").addEventListener("input", vis);

@@ -49,8 +49,36 @@ def les_dato(tekst):
     return d if d.tzinfo else d.replace(tzinfo=timezone.utc)
 
 
+MEDIA = "{http://search.yahoo.com/mrss/}"
+CONTENT = "{http://purl.org/rss/1.0/modules/content/}encoded"
+BILDETYPER = re.compile(r"\.(jpe?g|png|webp|gif)(\?|$)", re.I)
+
+
+def finn_bilde(el, *tekster):
+    """Finner bildet kilden har lagt ved saken (media:content, media:thumbnail, enclosure eller <img>)."""
+    kandidater = []
+    for m in el.iter(f"{MEDIA}content"):
+        if m.get("medium") == "image" or (m.get("type") or "").startswith("image") or BILDETYPER.search(m.get("url", "")):
+            kandidater.append((int(m.get("width") or 0), m.get("url")))
+    for m in el.iter(f"{MEDIA}thumbnail"):
+        kandidater.append((int(m.get("width") or 0), m.get("url")))
+    for tag in ("enclosure", f"{ATOM}link"):
+        for e in el.findall(tag):
+            if (e.get("type") or "").startswith("image"):
+                kandidater.append((0, e.get("url") or e.get("href")))
+    kandidater = [(b, u) for b, u in kandidater if u and u.startswith("https://")]
+    if kandidater:
+        passende = [k for k in kandidater if k[0] <= 1200] or kandidater
+        return max(passende, key=lambda k: k[0])[1]
+    for tekst in tekster:  # bilde inne i selve teksten
+        m = re.search(r'<img[^>]+src="(https://[^"]+)"', html.unescape(tekst or ""))
+        if m:
+            return m.group(1)
+    return None
+
+
 def les_feed(data):
-    """Gir en liste med dicts: tittel, lenke, ingress, tid."""
+    """Gir en liste med dicts: tittel, lenke, ingress, tid, bilde."""
     rot = ET.fromstring(data)
     saker = []
     for item in rot.iter("item"):  # RSS 2.0
@@ -59,6 +87,7 @@ def les_feed(data):
             "lenke": (item.findtext("link") or "").strip(),
             "ingress": item.findtext("description"),
             "tid": les_dato(item.findtext("pubDate") or item.findtext("{http://purl.org/dc/elements/1.1/}date")),
+            "bilde": finn_bilde(item, item.findtext("description"), item.findtext(CONTENT)),
         })
     for entry in rot.iter(f"{ATOM}entry"):  # Atom
         lenke = ""
@@ -71,6 +100,7 @@ def les_feed(data):
             "lenke": lenke,
             "ingress": entry.findtext(f"{ATOM}summary") or entry.findtext(f"{ATOM}content"),
             "tid": les_dato(entry.findtext(f"{ATOM}published") or entry.findtext(f"{ATOM}updated")),
+            "bilde": finn_bilde(entry, entry.findtext(f"{ATOM}content"), entry.findtext(f"{ATOM}summary")),
         })
     return saker
 
@@ -142,6 +172,7 @@ def hent_saker(cfg):
                 "lenke": lenke,
                 "kilde": k["navn"],
                 "tema": beste or k["tema"],
+                "bilde": e["bilde"],
                 "tid": e["tid"].astimezone(timezone.utc).isoformat() if e["tid"] else None,
             })
             antall += 1
