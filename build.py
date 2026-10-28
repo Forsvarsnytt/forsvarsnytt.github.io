@@ -163,6 +163,8 @@ def hent_saker(cfg):
                 continue
             if e["tid"] and e["tid"] < grense:
                 continue
+            if e["tid"] and e["tid"] > datetime.now(timezone.utc):
+                e["tid"] = datetime.now(timezone.utc)  # saker datert fram i tid (f.eks. varslede arrangementer) vises som nye
             ingress = rens(e["ingress"], None if k.get("vis_ingress") else 700)  # tillatt ingress vises uendret
             tekst = f"{tittel} {ingress}".lower()
 
