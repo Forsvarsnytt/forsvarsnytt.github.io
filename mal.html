@@ -38,14 +38,39 @@
   h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--dempet);
     margin: 24px 0 6px; }
   article { background: var(--flate); border: 1px solid var(--linje); border-radius: 10px;
-    padding: 14px 16px; margin-bottom: 8px; }
+    padding: 14px 16px; margin-bottom: 8px; cursor: pointer; transition: border-color .15s; }
+  article:hover { border-color: var(--aksent); }
   .meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center;
     font-size: 13px; color: var(--dempet); }
   .tema { background: var(--chip); color: var(--tekst); border-radius: 4px; padding: 1px 7px; font-size: 12px; }
-  article a { color: var(--tekst); text-decoration: none; font-weight: 600; font-size: 17px;
-    display: block; margin: 6px 0 2px; line-height: 1.35; }
-  article a:hover { color: var(--aksent); text-decoration: underline; }
-  article p { margin: 0; color: var(--dempet); font-size: 14px; }
+  article button { all: unset; display: block; color: var(--tekst); font-weight: 600; font-size: 17px;
+    margin: 6px 0 2px; line-height: 1.35; cursor: pointer; }
+  article button:focus-visible { outline: 2px solid var(--aksent); outline-offset: 2px; border-radius: 2px; }
+  article:hover button { color: var(--aksent); }
+  article p { margin: 0; color: var(--dempet); font-size: 14px;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* panel med sammendrag */
+  dialog { border: none; padding: 0; background: var(--flate); color: var(--tekst);
+    width: min(640px, calc(100% - 32px)); max-height: calc(100% - 64px); border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.25); }
+  dialog::backdrop { background: rgba(10, 12, 9, .55); }
+  .panel { padding: 22px 24px 24px; overflow-y: auto; }
+  .panel-topp { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .lukk { border: none; background: var(--chip); color: var(--tekst); width: 34px; height: 34px;
+    border-radius: 50%; font-size: 20px; line-height: 1; cursor: pointer; flex: none; }
+  .panel h3 { font-size: 22px; line-height: 1.3; margin: 14px 0 12px; letter-spacing: -0.01em; }
+  .sammendrag { font-size: 16px; line-height: 1.6; margin: 0 0 22px; white-space: pre-line; }
+  .sammendrag.mangler { color: var(--dempet); font-style: italic; }
+  .les { display: inline-block; background: var(--aksent); color: var(--aksent-tekst); text-decoration: none;
+    font-weight: 600; padding: 11px 18px; border-radius: 8px; }
+  .les:hover { filter: brightness(1.1); }
+  .merknad { font-size: 12px; color: var(--dempet); margin-top: 14px; }
+  @media (max-width: 600px) {
+    dialog { width: 100%; max-width: 100%; margin: auto 0 0; border-radius: 16px 16px 0 0; max-height: 85%; }
+    .panel { padding: 18px 16px 28px; }
+    .les { display: block; text-align: center; }
+  }
   .tom { color: var(--dempet); padding: 32px 0; text-align: center; }
   footer { color: var(--dempet); font-size: 13px; margin-top: 32px; border-top: 1px solid var(--linje); padding-top: 12px; }
 </style>
@@ -61,6 +86,18 @@
   <main id="liste"></main>
   <footer>Overskrifter og lenker hentes automatisk fra kildenes RSS-strømmer. Les hele sakene hos kildene.</footer>
 </div>
+<dialog id="panel" aria-labelledby="panel-tittel">
+  <div class="panel">
+    <div class="panel-topp">
+      <div class="meta" id="panel-meta"></div>
+      <button class="lukk" id="lukk" aria-label="Lukk">×</button>
+    </div>
+    <h3 id="panel-tittel"></h3>
+    <p class="sammendrag" id="panel-tekst"></p>
+    <a class="les" id="panel-lenke" target="_blank" rel="noopener"></a>
+    <div class="merknad">Sammendraget er kildens egen ingress fra RSS-strømmen.</div>
+  </div>
+</dialog>
 <script>
 const SAKER = /*DATA*/null;
 const TEMAER = /*TEMAER*/null;
@@ -112,16 +149,36 @@ function vis() {
       const h = document.createElement("h2"); h.textContent = dagTittel(nokkel); liste.append(h); forrige = nokkel;
     }
     const a = document.createElement("article");
-    const meta = document.createElement("div"); meta.className = "meta";
-    const tema = document.createElement("span"); tema.className = "tema"; tema.textContent = navn[s.tema] || s.tema;
-    const kilde = document.createElement("span"); kilde.textContent = s.kilde + (d ? " · " + klokke.format(d) : "");
-    meta.append(tema, kilde);
-    const lenke = document.createElement("a"); lenke.href = s.lenke; lenke.target = "_blank"; lenke.rel = "noopener"; lenke.textContent = s.tittel;
-    a.append(meta, lenke);
+    const tittel = document.createElement("button"); tittel.textContent = s.tittel;
+    a.append(lagMeta(s, d), tittel);
     if (s.ingress) { const p = document.createElement("p"); p.textContent = s.ingress; a.append(p); }
+    a.onclick = () => apne(s);
     liste.append(a);
   }
 }
+
+function lagMeta(s, d) {
+  const meta = document.createElement("div"); meta.className = "meta";
+  const tema = document.createElement("span"); tema.className = "tema"; tema.textContent = navn[s.tema] || s.tema;
+  const kilde = document.createElement("span"); kilde.textContent = s.kilde + (d ? " · " + klokke.format(d) : "");
+  meta.append(tema, kilde);
+  return meta;
+}
+
+const panel = document.getElementById("panel");
+function apne(s) {
+  const d = s.tid ? new Date(s.tid) : null;
+  document.getElementById("panel-meta").replaceChildren(...lagMeta(s, d).childNodes);
+  document.getElementById("panel-tittel").textContent = s.tittel;
+  const tekst = document.getElementById("panel-tekst");
+  tekst.textContent = s.ingress || "Kilden har ikke lagt ved et sammendrag for denne saken.";
+  tekst.classList.toggle("mangler", !s.ingress);
+  const lenke = document.getElementById("panel-lenke");
+  lenke.href = s.lenke; lenke.textContent = "Les hele saken hos " + s.kilde + " ↗";
+  panel.showModal();
+}
+document.getElementById("lukk").onclick = () => panel.close();
+panel.addEventListener("click", e => { if (e.target === panel) panel.close(); });  // klikk utenfor lukker
 
 document.getElementById("sok").addEventListener("input", vis);
 lagFaner(); vis();

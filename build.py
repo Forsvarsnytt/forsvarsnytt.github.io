@@ -84,11 +84,18 @@ def lag_matcher(ord_liste):
     return re.compile("|".join(deler)) if deler else None
 
 
-def rens(tekst, maks=220):
+def rens(tekst, maks=700):
+    """Fjerner HTML og kutter lange tekster, helst ved slutten av en setning."""
     tekst = html.unescape(tekst or "")
     tekst = re.sub(r"<[^>]+>", " ", tekst)
     tekst = re.sub(r"\s+", " ", tekst).strip()
-    return tekst if len(tekst) <= maks else tekst[: maks - 1].rsplit(" ", 1)[0] + "…"
+    if len(tekst) <= maks:
+        return tekst
+    kutt = tekst[:maks]
+    slutt = max(kutt.rfind(". "), kutt.rfind("! "), kutt.rfind("? "))
+    if slutt > maks * 0.5:
+        return kutt[: slutt + 1]
+    return kutt[:-1].rsplit(" ", 1)[0] + "…"
 
 
 # ---------- hovedprogram ----------
