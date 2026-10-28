@@ -1,0 +1,182 @@
+# TIDSLINJE FRA 2022 – vises i «Tidslinje»-vinduet på siden.
+# Hver hendelse starter med: ## ÅÅÅÅ-MM-DD | kategori | Overskrift
+#   kategorier: ukraina, nato, norge, midtosten, afrika, verden
+# Neste linje er en kort tekst med egne ord.
+# Linjen «kilde: Navn på kilden | https://lenke» viser hvor opplysningene er hentet fra. Hver hendelse skal ha en kilde.
+# Linjer som starter med # vises ikke. Sist gjennomgått: 28.10.2026.
+
+## 2022-02-24 | ukraina | Russland går til fullskala invasjon av Ukraina
+Russiske styrker angriper fra nord, øst og sør, blant annet mot Kyiv. Det er den største militære invasjonen i Europa siden andre verdenskrig.
+kilde: FN-nyheter | https://news.un.org/en/story/2022/02/1112592
+
+## 2022-02-27 | verden | Tysklands «Zeitenwende»
+Forbundskansler Olaf Scholz kunngjør et vendepunkt i tysk sikkerhetspolitikk, med et ekstra fond på 100 milliarder euro til de tyske væpnede styrkene.
+kilde: Wikipedia | https://en.wikipedia.org/wiki/Zeitenwende_speech
+
+## 2022-02-28 | norge | Norge gir våpen til Ukraina
+Regjeringen går bort fra den tidligere linjen om ikke å sende våpen til land i krig, og sender panservernvåpen til Ukraina.
+kilde: Regjeringen | https://www.regjeringen.no/no/aktuelt/norge-gir-vapen-til-ukraina/id2902587/
+
+## 2022-03-02 | verden | FN krever at Russland trekker seg ut
+FNs generalforsamling vedtar med 141 stemmer mot 5 at Russland umiddelbart må avslutte maktbruken og trekke alle styrker ut av Ukraina.
+kilde: FN | https://press.un.org/en/2022/ga12407.doc.htm
+
+## 2022-04-03 | ukraina | Drapene i Butsja blir kjent
+Etter at russiske styrker trekker seg ut av Kyiv-området, blir det funnet et stort antall drepte sivile i Butsja. FNs generalsekretær krever uavhengig granskning av mulige krigsforbrytelser.
+kilde: FN-nyheter | https://news.un.org/en/story/2022/04/1115442
+
+## 2022-05-18 | nato | Finland og Sverige søker om NATO-medlemskap
+De to nordiske landene leverer søknadene samme dag og bryter med en lang tradisjon for militær alliansefrihet.
+kilde: NATO | https://www.nato.int/cps/en/natohq/news_195468.htm
+
+## 2022-06-29 | nato | NATO-toppmøtet i Madrid
+Alliansen vedtar et nytt strategisk konsept som beskriver Russland som den største og mest direkte trusselen mot allierte, og inviterer Finland og Sverige til å bli medlemmer.
+kilde: NATO | https://www.nato.int/cps/en/natohq/news_197358.htm
+
+## 2022-07-22 | ukraina | Kornavtalen i Svartehavet
+Ukraina og Russland undertegner hver for seg avtaler med FN og Tyrkia som gjør det mulig å eksportere korn fra ukrainske havner.
+kilde: FN-nyheter | https://news.un.org/en/story/2022/07/1123062
+
+## 2022-09-26 | verden | Nord Stream-rørledningene sprenges
+Eksplosjoner skader gassrørledningene mellom Russland og Tyskland i Østersjøen, og viser hvor sårbar kritisk infrastruktur under havet er.
+kilde: Wikipedia | https://en.wikipedia.org/wiki/Nord_Stream_pipelines_sabotage
+
+## 2022-09-30 | ukraina | Russland erklærer fire ukrainske regioner annektert
+Russland erklærer Donetsk, Luhansk, Zaporizjzja og Kherson som russiske. FNs generalforsamling fordømmer forsøket på ulovlig annektering i oktober.
+kilde: FN-nyheter | https://news.un.org/en/story/2022/10/1129492
+
+## 2022-11-11 | ukraina | Ukraina gjenerobrer Kherson
+Russiske styrker trekker seg ut av byen Kherson og vestbredden av Dnipro etter en ukrainsk motoffensiv.
+kilde: Wikipedia | https://en.wikipedia.org/wiki/Liberation_of_Kherson
+
+## 2023-02-16 | norge | Nansen-programmet for Ukraina
+Et bredt flertall på Stortinget blir enige om et flerårig støtteprogram på 75 milliarder kroner over fem år, fordelt på sivil og militær støtte.
+kilde: Regjeringen | https://www.regjeringen.no/en/whats-new/broad-political-agreement-on-multi-year-support-programme-for-ukraine/id2963374/
+
+## 2023-04-04 | nato | Finland blir NATO-medlem
+Finland blir alliansens 31. medlem, og NATOs grense mot Russland blir mer enn doblet.
+kilde: NATO | https://www.nato.int/en/news-and-events/articles/news/2023/04/04/finland-joins-nato-as-31st-ally
+
+## 2023-04-15 | afrika | Krig bryter ut i Sudan
+Kamper bryter ut mellom Sudans hær (SAF) og den paramilitære styrken RSF, og spres raskt fra hovedstaden Khartoum til Darfur.
+kilde: FN-nyheter | https://news.un.org/en/story/2023/04/1135702
+
+## 2023-06-06 | ukraina | Kakhovka-demningen ødelegges
+Demningen ved Dnipro i den russiskkontrollerte delen av Kherson-regionen blir ødelagt, og store områder blir oversvømt.
+kilde: FN-nyheter | https://news.un.org/en/story/2023/06/1137472
+
+## 2023-06-24 | ukraina | Wagner-opprøret
+Leiesoldatgruppen Wagner, ledet av Jevgenij Prigozjin, marsjerer mot Moskva før opprøret avblåses samme dag.
+kilde: Wikipedia | https://en.wikipedia.org/wiki/Wagner_Group_rebellion
+
+## 2023-07-11 | nato | NATO-toppmøtet i Vilnius
+Alliansen oppretter NATO–Ukraina-rådet og slår fast at Ukrainas framtid er i NATO.
+kilde: NATO | https://nato.int/en/about-us/official-texts-and-resources/official-texts/2023/07/11/vilnius-summit-communique
+
+## 2023-07-17 | ukraina | Russland trekker seg fra kornavtalen
+Russland avslutter Svartehavsavtalen og angriper deretter ukrainske havner og kornlagre.
+kilde: FN-nyheter | https://news.un.org/en/story/2023/07/1138752
+
+## 2023-07-26 | afrika | Militærkupp i Niger
+Presidentgarden avsetter president Mohamed Bazoum. Niger blir det tredje landet i Sahel med militærstyre etter Mali og Burkina Faso.
+kilde: FN-nyheter | https://news.un.org/en/story/2023/07/1139127
+
+## 2023-10-07 | midtosten | Hamas angriper Israel, krigen i Gaza starter
+Hamas angriper Israel, dreper rundt 1200 mennesker og tar over 250 gisler. Israel svarer med en omfattende militæroffensiv i Gaza.
+kilde: FN-nyheter | https://news.un.org/en/story/2023/10/1143002
+
+## 2023-12-14 | verden | EU åpner medlemskapsforhandlinger med Ukraina
+Det europeiske råd vedtar å åpne forhandlinger om EU-medlemskap med Ukraina og Moldova.
+kilde: Det europeiske råd | https://www.consilium.europa.eu/en/press/press-releases/2023/12/14/european-council-conclusions-on-ukraine-enlargement-and-reforms/
+
+## 2024-01-10 | midtosten | FN fordømmer houthienes angrep i Rødehavet
+Sikkerhetsrådet fordømmer houthienes angrep på skipsfarten. Få dager senere angriper USA og Storbritannia mål i Jemen.
+kilde: FN-nyheter | https://news.un.org/en/story/2024/01/1145382
+
+## 2024-03-07 | nato | Sverige blir NATO-medlem
+Sverige blir alliansens 32. medlem, og med det er alle nordiske land med i NATO.
+kilde: NATO | https://www.nato.int/en/news-and-events/articles/news/2024/03/07/sweden-officially-joins-nato
+
+## 2024-04-05 | norge | Ny langtidsplan for Forsvaret
+Regjeringen legger fram langtidsplanen for 2025–2036, som øker forsvarsbudsjettene med rundt 600 milliarder kroner over tolv år.
+kilde: Regjeringen | https://www.regjeringen.no/no/aktuelt/styrker-forsvarsevnen-med-600-milliarder/id3032880/
+
+## 2024-07-10 | nato | NATO-toppmøtet i Washington
+Alliansen markerer 75 år og vedtar langsiktig militær støtte til Ukraina.
+kilde: NATO | https://www.nato.int/cps/en/natohq/news_227482.htm
+
+## 2024-08-06 | ukraina | Ukraina går inn i Kursk
+Ukrainske styrker går over grensen og tar kontroll over et område i den russiske Kursk-regionen.
+kilde: War on the Rocks | https://warontherocks.com/2024/08/in-brief-the-ukrainian-operation-into-kursk/
+
+## 2024-10-28 | ukraina | Nordkoreanske soldater i Russland
+NATOs generalsekretær bekrefter at nordkoreanske soldater er sendt til Russland og Kursk-regionen.
+kilde: Semafor | https://www.semafor.com/article/10/28/2024/north-korean-troops-deployed-to-russia-confirms-nato-chief
+
+## 2024-11-27 | midtosten | Våpenhvile mellom Israel og Hizbollah
+Etter flere måneder med åpen krig i Libanon trer en våpenhvile i kraft.
+kilde: FN-nyheter | https://news.un.org/en/story/2024/11/1157521
+
+## 2024-12-08 | midtosten | Assad-regimet faller i Syria
+En offensiv ledet av opprørsgruppen HTS når Damaskus, og president Bashar al-Assad flykter etter 24 år ved makten.
+kilde: FN-nyheter | https://news.un.org/en/story/2024/12/1158021
+
+## 2025-01-27 | afrika | M23 tar Goma i Øst-Kongo
+Den Rwanda-støttede opprørsgruppen M23 tar kontroll over storbyen Goma, og FNs sikkerhetsråd krever at volden stanser.
+kilde: FN-nyheter | https://news.un.org/en/story/2025/01/1159511
+
+## 2025-05-07 | verden | Kamper mellom India og Pakistan
+De to atommaktene utveksler angrep i de alvorligste kampene mellom landene på flere tiår, før en våpenhvile inngås 10. mai.
+kilde: FN-nyheter | https://news.un.org/en/story/2025/05/1163116
+
+## 2025-06-01 | ukraina | Operasjon «Spiderweb»
+Ukraina angriper flere russiske flybaser langt inne i Russland med droner smuglet inn i lastebiler, og skader et stort antall strategiske bombefly.
+kilde: UK Defence Journal | https://ukdefencejournal.org.uk/ukraine-destroys-russian-bombers-in-historic-drone-raid/
+
+## 2025-06-13 | midtosten | Tolvdagerskrigen mellom Israel og Iran
+Israel angriper iranske militær- og atomanlegg, Iran svarer med missilangrep, og USA bomber iranske atomanlegg 22. juni. En våpenhvile trer i kraft 24. juni.
+kilde: FN-nyheter | https://news.un.org/en/story/2025/06/1164401
+
+## 2025-06-25 | nato | NATO-toppmøtet i Haag: fem prosent
+De allierte forplikter seg til å bruke fem prosent av BNP på forsvar og sikkerhet innen 2035.
+kilde: NATO | https://www.nato.int/en/about-us/official-texts-and-resources/official-texts/2025/06/25/the-hague-summit-declaration
+
+## 2025-08-15 | ukraina | Trump og Putin møtes i Alaska
+USAs og Russlands presidenter møtes i Anchorage for å drøfte krigen i Ukraina, uten at det blir inngått noen avtale.
+kilde: Wikipedia | https://en.wikipedia.org/wiki/2025_Russia%E2%80%93United_States_summit
+
+## 2025-08-31 | norge | Norge velger britiske fregatter
+Regjeringen velger britiske Type 26-fregatter, spesialbygget for å finne og bekjempe ubåter, i et strategisk partnerskap med Storbritannia.
+kilde: Regjeringen | https://www.regjeringen.no/no/aktuelt/statsministerens-innledning-pa-pressekonferanse-om-anskaffelse-av-nye-fregatter/id3117443/
+
+## 2025-09-12 | nato | NATO starter «Eastern Sentry»
+Etter at russiske droner brøt inn i polsk luftrom, styrker NATO forsvaret langs østflanken.
+kilde: NATO | https://www.nato.int/en/news-and-events/articles/news/2025/09/12/nato-launches-eastern-sentry-to-bolster-posture-along-eastern-flank
+
+## 2025-10-10 | midtosten | Våpenhvile i Gaza
+En våpenhvile basert på en amerikansk fredsplan trer i kraft, og de gjenlevende gislene løslates.
+kilde: FN-nyheter | https://news.un.org/en/story/2025/10/1166094
+
+## 2025-10-26 | afrika | El Fasher faller til RSF
+Den paramilitære styrken RSF tar byen El Fasher i Darfur etter en lang beleiring, og FN melder om grove overgrep mot sivile.
+kilde: FN-nyheter | https://news.un.org/en/story/2025/10/1166224
+
+## 2026-02-24 | ukraina | Fire år med fullskala krig
+FNs generalforsamling krever på årsdagen en umiddelbar, full og ubetinget våpenhvile mellom Russland og Ukraina.
+kilde: FN-nyheter | https://news.un.org/en/story/2026/02/1167022
+
+## 2026-02-28 | midtosten | USA og Israel angriper Iran
+USA og Israel innleder omfattende angrep mot Iran. Iran svarer med angrep mot Israel, amerikanske baser og Gulf-stater, og skipstrafikken gjennom Hormuzstredet stopper nesten opp.
+kilde: Det britiske parlamentets utredningstjeneste | https://commonslibrary.parliament.uk/research-briefings/cbp-10521/
+
+## 2026-03-27 | norge | Langtidsplanen styrkes med 115 milliarder
+Regjeringen foreslår 115 milliarder kroner ekstra til Forsvaret fram mot 2036, blant annet for å bygge opp Brigade Finnmark raskere og få nye ubåter og fregatter tidligere.
+kilde: Regjeringen | https://www.regjeringen.no/en/whats-new/government-to-provide-additional-nok-115-billion-to-strengthen-long-term-defence-plan/id3155063/
+
+## 2026-04-08 | midtosten | Våpenhvile mellom USA og Iran
+En våpenhvile meklet av Pakistan trer i kraft, men den blir brutt flere ganger og bryter sammen 8. juli.
+kilde: Wikipedia | https://en.wikipedia.org/wiki/2026_Iran_war_ceasefire
+
+## 2026-04-11 | ukraina | Kortvarig våpenhvile i påsken
+Russland og Ukraina går med på en våpenhvile på rundt 32 timer i påsken. Begge sider melder om brudd, og kampene fortsetter når den utløper.
+kilde: Wikipedia | https://en.wikipedia.org/wiki/2026_Russo-Ukrainian_truce

@@ -143,6 +143,31 @@
   .ordliste .tips { color: var(--dempet); font-size: 12px; margin-top: 16px; }
   @media (max-width: 600px) { .ordliste-fane { padding: 10px 6px; font-size: 11px; } }
 
+
+  /* tidslinje */
+  :root { --t-ukraina: #2f63a8; --t-nato: #4a5d3a; --t-norge: #b4442c; --t-midtosten: #c38016; --t-afrika: #8a5a2b; --t-verden: #6b6f68; }
+  @media (prefers-color-scheme: dark) { :root { --t-ukraina: #7aa7e0; --t-nato: #8ea877; --t-norge: #e27a5f; --t-midtosten: #e6b155; --t-afrika: #c99a6a; --t-verden: #a8ada4; } }
+  .t-filter { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 18px 4px; }
+  .t-filter button { border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); font: inherit; font-size: 13px;
+    border-radius: 999px; padding: 4px 11px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+  .t-filter button i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .t-filter button[aria-pressed="true"] { background: var(--tekst); color: var(--bg); border-color: var(--tekst); }
+  .t-valg { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 6px 18px 2px; font-size: 13px; color: var(--dempet); flex-wrap: wrap; }
+  .t-valg .ar { display: flex; gap: 4px; flex-wrap: wrap; }
+  .t-valg .ar button, .t-snu { border: none; background: var(--chip); color: var(--tekst); font: inherit; font-size: 12px; padding: 3px 9px; border-radius: 6px; cursor: pointer; }
+  .t-liste { position: relative; margin: 8px 0 0; padding: 0 0 0 22px; }
+  .t-liste::before { content: ""; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 2px; background: var(--linje); }
+  .t-aar { position: sticky; top: 0; z-index: 1; background: var(--flate); margin: 18px 0 6px -22px; padding: 6px 0;
+    font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
+  .t-hendelse { position: relative; padding: 4px 0 14px; }
+  .t-hendelse::before { content: ""; position: absolute; left: -21px; top: 9px; width: 12px; height: 12px; border-radius: 50%;
+    background: var(--farge); border: 2px solid var(--flate); box-shadow: 0 0 0 1px var(--farge); }
+  .t-hendelse .t-meta { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; font-size: 13px; color: var(--dempet); }
+  .t-hendelse .t-kat { color: var(--farge); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+  .t-hendelse h3 { all: unset; display: block; font-size: 16px; font-weight: 700; margin: 2px 0 3px; line-height: 1.35; }
+  .t-hendelse p { margin: 0 0 4px; font-size: 14px; line-height: 1.5; }
+  .t-hendelse a { font-size: 13px; color: var(--aksent); }
+
   /* konfliktkart */
   :root { --krig: #b4442c; --konflikt: #c38016; --spenning: #3d7393; }
   @media (prefers-color-scheme: dark) { :root { --krig: #e27a5f; --konflikt: #e6b155; --spenning: #7db3d1; } }
@@ -304,6 +329,7 @@
     <div class="under">Sikkerhet og forsvar fra Norge og verden · oppdatert {{OPPDATERT}}</div>
     <div class="verktoy">
       <button id="apne-konfliktkart" aria-controls="konfliktkart" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Konfliktkart</button>
+      <button id="apne-tidslinje" aria-controls="tidslinje" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Tidslinje fra 2022</button>
       <button id="apne-ordliste" aria-controls="ordliste"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Forkortelser</button>
       <a href="{{TILBAKEMELDING}}" class="epost" data-emne="Tilbakemelding om Forsvarsnytt" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Gi tilbakemelding</a>
     </div>
@@ -363,8 +389,18 @@
 </div>
 <div class="sidefaner" id="sidefaner">
   <button class="ordliste-fane" id="konflikt-fane" aria-controls="konfliktkart" hidden>Konfliktkart</button>
+  <button class="ordliste-fane" id="tidslinje-fane" aria-controls="tidslinje" hidden>Tidslinje</button>
   <button class="ordliste-fane" id="ordliste-fane" aria-controls="ordliste">Forkortelser</button>
 </div>
+<aside class="ordliste bred" id="tidslinje" aria-label="Tidslinje" aria-hidden="true">
+  <div class="ordliste-topp">
+    <h2>Tidslinje fra 2022</h2>
+    <button class="lukk" id="lukk-tidslinje" aria-label="Lukk tidslinje">×</button>
+  </div>
+  <div class="t-filter" id="t-filter" role="group" aria-label="Vis kategori"></div>
+  <div class="t-valg"><div class="ar" id="t-ar"></div><button class="t-snu" id="t-snu">Nyeste først</button></div>
+  <div class="ordliste-innhold" id="t-innhold"></div>
+</aside>
 <aside class="ordliste bred" id="konfliktkart" aria-label="Konfliktkart" aria-hidden="true">
   <div class="ordliste-topp">
     <h2>Konflikter og spenningsområder</h2>
@@ -836,6 +872,70 @@ if (KONFLIKTER && KONFLIKTER.length && KART) {
   document.getElementById("apne-konfliktkart").hidden = false;
   document.getElementById("konflikt-fane").hidden = false;
   tegnKart(); visKonfliktliste();
+}
+
+
+// ---------- tidslinje ----------
+const TIDSLINJE = /*TIDSLINJE*/null;
+let tKategori = "alle", tNyesteForst = false;
+const MND = ["januar","februar","mars","april","mai","juni","juli","august","september","oktober","november","desember"];
+
+function tegnTidslinje() {
+  const boks = document.getElementById("t-innhold"); boks.innerHTML = "";
+  let liste = TIDSLINJE.hendelser.filter(h => tKategori === "alle" || h.kategori === tKategori);
+  if (tNyesteForst) liste = [...liste].reverse();
+  const ol = document.createElement("div"); ol.className = "t-liste";
+  let aar = null;
+  for (const h of liste) {
+    const [a, mnd, dag] = h.dato.split("-");
+    if (a !== aar) { aar = a; const ah = document.createElement("div"); ah.className = "t-aar"; ah.id = "t-aar-" + a; ah.textContent = a; ol.append(ah); }
+    const e = document.createElement("div"); e.className = "t-hendelse"; e.style.setProperty("--farge", `var(--t-${h.kategori})`);
+    const meta = document.createElement("div"); meta.className = "t-meta";
+    const d = document.createElement("span"); d.textContent = `${parseInt(dag)}. ${MND[parseInt(mnd) - 1]} ${a}`;
+    const k = document.createElement("span"); k.className = "t-kat"; k.textContent = TIDSLINJE.kategorier[h.kategori];
+    meta.append(d, k);
+    const t = document.createElement("h3"); t.textContent = h.tittel;
+    const p = document.createElement("p"); p.textContent = h.tekst;
+    e.append(meta, t, p);
+    if (h.kilde) {
+      const l = document.createElement("a"); l.href = h.kilde.lenke; l.target = "_blank"; l.rel = "noopener";
+      l.textContent = "Kilde: " + h.kilde.navn + " ↗"; e.append(l);
+    }
+    ol.append(e);
+  }
+  boks.append(ol);
+  const kilde = document.createElement("div"); kilde.className = "liten-merknad";
+  kilde.textContent = "Tidslinjen er skrevet for Forsvarsnytt med egne ord, med lenke til kilden for hver hendelse. Sist gjennomgått 28.10.2026. Ser du en feil? Gi tilbakemelding.";
+  boks.append(kilde);
+  // årsknapper
+  const ar = document.getElementById("t-ar"); ar.innerHTML = "";
+  [...new Set(liste.map(h => h.dato.slice(0, 4)))].forEach(a => {
+    const b = document.createElement("button"); b.textContent = a;
+    b.onclick = e => { e.stopPropagation(); document.getElementById("t-aar-" + a).scrollIntoView({ behavior: "smooth", block: "start" }); };
+    ar.append(b);
+  });
+}
+
+if (TIDSLINJE && TIDSLINJE.hendelser.length) {
+  const filter = document.getElementById("t-filter");
+  [["alle", "Alle"], ...Object.entries(TIDSLINJE.kategorier)].forEach(([id, navn]) => {
+    if (id !== "alle" && !TIDSLINJE.hendelser.some(h => h.kategori === id)) return;
+    const b = document.createElement("button"); b.setAttribute("aria-pressed", id === tKategori);
+    if (id !== "alle") { const i = document.createElement("i"); i.style.background = `var(--t-${id})`; b.append(i); }
+    b.append(navn);
+    b.onclick = e => { e.stopPropagation(); tKategori = id; filter.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); tegnTidslinje(); };
+    filter.append(b);
+  });
+  document.getElementById("t-snu").onclick = e => {
+    e.stopPropagation(); tNyesteForst = !tNyesteForst;
+    e.target.textContent = tNyesteForst ? "Eldste først" : "Nyeste først"; tegnTidslinje();
+    document.getElementById("t-innhold").scrollTop = 0;
+  };
+  SKUFFER.tidslinje = { el: document.getElementById("tidslinje"), knapper: ["#apne-tidslinje", "#tidslinje-fane"] };
+  kobleSkuff("tidslinje", "lukk-tidslinje");
+  document.getElementById("apne-tidslinje").hidden = false;
+  document.getElementById("tidslinje-fane").hidden = false;
+  tegnTidslinje();
 }
 
 // ---------- e-post ----------

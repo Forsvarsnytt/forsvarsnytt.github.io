@@ -30,15 +30,15 @@ posisjon: 33.6, 35.7
 land: Lebanon
 siden: oktober 2023
 søkeord: lebanon, libanon, hezbollah, hizbollah, beirut
-tekst: Hizbollah begynte å skyte mot Israel etter 7. oktober 2023, og høsten 2024 ble det åpen krig mellom Israel og Hizbollah. En våpenhvile ble inngått i november 2024, men Israel har fortsatt utført angrep i Libanon.
+tekst: Hizbollah begynte å skyte mot Israel etter 7. oktober 2023, og høsten 2024 ble det åpen krig mellom Israel og Hizbollah. En våpenhvile ble inngått i november 2024, men kampene har blusset opp igjen, også i forbindelse med krigen mot Iran i 2026.
 
-## Iran og regionen
-type: spenning
+## Krigen mot Iran
+type: krig
 posisjon: 32.4, 53.7
 land: Iran
-siden: Langvarig, krig i juni 2025
-søkeord: iran, iranian, iransk, irgc, tehran, teheran, revolusjonsgarden
-tekst: Iran står i konflikt med Israel og USA, blant annet om atomprogrammet og støtten til væpnede grupper i regionen. I juni 2025 angrep Israel og USA iranske militær- og atomanlegg i en krig som varte i tolv dager.
+siden: 28. februar 2026
+søkeord: iran, iranian, iransk, iranske, irgc, tehran, teheran, revolusjonsgarden, hormuz, hormuzstredet
+tekst: USA og Israel innledet omfattende angrep mot Iran 28. februar 2026, etter at forhandlinger om atomprogrammet hadde brutt sammen. Iran svarte med angrep mot Israel, amerikanske baser og Gulf-stater, og skipstrafikken gjennom Hormuzstredet stoppet nesten opp. En våpenhvile fra april brøt sammen i juli 2026. Allerede i juni 2025 var det en tolv dager lang krig mellom Israel og Iran.
 
 ## Jemen og Rødehavet
 type: konflikt

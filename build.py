@@ -219,6 +219,37 @@ def les_ordliste():
     return grupper
 
 
+TIDSLINJE_KATEGORIER = {"ukraina": "Ukraina-krigen", "nato": "NATO og allianser", "norge": "Norge",
+                         "midtosten": "Midtøsten", "afrika": "Afrika", "verden": "Verden"}
+
+
+def les_tidslinje():
+    """Leser tidslinje.txt: «## ÅÅÅÅ-MM-DD | kategori | Overskrift», tekst og «kilde: Navn | lenke»."""
+    fil = ROT / "tidslinje.txt"
+    hendelser, h = [], None
+    if not fil.exists():
+        return hendelser
+    for linje in fil.read_text(encoding="utf-8").splitlines():
+        l = linje.strip()
+        if l.startswith("## "):
+            deler = [d.strip() for d in l[3:].split("|")]
+            if len(deler) == 3 and re.match(r"\d{4}-\d{2}-\d{2}$", deler[0]):
+                h = {"dato": deler[0], "kategori": deler[1].lower() if deler[1].lower() in TIDSLINJE_KATEGORIER else "verden",
+                     "tittel": deler[2], "tekst": "", "kilde": None}
+                hendelser.append(h)
+            else:
+                h = None
+        elif h is not None and l and not l.startswith("#"):
+            if l.lower().startswith("kilde:"):
+                navn, _, lenke = l[6:].partition("|")
+                lenke = lenke.strip()
+                if lenke.startswith("http"):
+                    h["kilde"] = {"navn": navn.strip(), "lenke": lenke}
+            else:
+                h["tekst"] = (h["tekst"] + " " + l).strip()
+    return sorted(hendelser, key=lambda h: h["dato"])
+
+
 def til_js(data):
     return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
 
@@ -280,6 +311,7 @@ def main():
             .replace("/*UKER*/null", til_js(uker))
             .replace("/*KONFLIKTER*/null", til_js(konfliktliste))
             .replace("/*KART*/null", til_js(kart))
+            .replace("/*TIDSLINJE*/null", til_js({"hendelser": les_tidslinje(), "kategorier": TIDSLINJE_KATEGORIER}))
             .replace("/*ORDLISTE*/null", til_js(les_ordliste()))
             .replace("{{TILBAKEMELDING}}", tilbakemelding)
             .replace("/*TEMAER*/null", til_js([{"id": t["id"], "navn": t["navn"]} for t in cfg["temaer"]]))

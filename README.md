@@ -64,6 +64,14 @@ Siden oppdateres etter et par minutter. Den nyeste uka vises øverst, og eldre u
 
 Forkortelsene i «Forkortelser»-vinduet ligger i `ordliste.txt`. Én forkortelse per linje (`NSM = Nasjonal sikkerhetsmyndighet`), og `## Navn` lager en ny gruppe. Rediger filen rett på GitHub for å legge til flere.
 
+## Konfliktkart
+
+Konfliktene ligger i `konflikter.txt`, med type (krig, konflikt eller spenning), posisjon, land som skal fargelegges, søkeord og en kort bakgrunnstekst. Nyhetene under hver konflikt hentes automatisk: alle saker på siden og i arkivet som inneholder et av søkeordene. Kartet er Natural Earth (public domain), med Krim som en del av Ukraina, i tråd med folkeretten. Gå gjennom bakgrunnstekstene av og til, siden situasjonen endrer seg.
+
+## Tidslinje fra 2022
+
+Hendelsene ligger i `tidslinje.txt`, med dato, kategori, overskrift, en kort tekst med egne ord og en kilde. Legg til nye hendelser nederst, med samme format. Hver hendelse skal ha en kilde, helst fra FN, NATO, regjeringen.no eller en annen pålitelig kilde.
+
 ## Tilbakemeldinger og kontakt
 
 Knappene «Gi tilbakemelding» og «Ta kontakt her» åpner en e-post til adressen i `feeds.json` (`"kontakt_epost"`), med ferdig emnelinje. Adressen ligger baklengs i nettsidens kode og settes sammen i nettleseren, slik at den er vanskeligere for spamroboter å plukke opp. Henvendelser fra utgivere som vil ha noe endret eller fjernet, skal følges opp raskt.
