@@ -1,6 +1,7 @@
 {
   "_info": "Kilder og temaer. 'filter: true' betyr at bare saker som matcher et nøkkelord tas med (for generelle nyhetskilder). 'tema' er standardtema hvis ingen nøkkelord treffer.",
   "dager_tilbake": 7,
+  "ai_modell": "claude-haiku-5-5",
   "maks_per_kilde": 30,
   "kilder": [
     {"navn": "NRK Urix", "url": "https://www.nrk.no/urix/toppsaker.rss", "tema": "verden", "filter": true},

@@ -50,6 +50,31 @@
   article p { margin: 0; color: var(--dempet); font-size: 14px;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
+  /* oppsummering */
+  .opps { background: var(--flate); border: 1px solid var(--linje); border-left: 4px solid var(--aksent);
+    border-radius: 10px; padding: 16px 18px; margin: 18px 0 4px; }
+  .opps-topp { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .opps-topp strong { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+  .bytt { display: inline-flex; background: var(--chip); border-radius: 8px; padding: 3px; }
+  .bytt button { border: none; background: none; color: var(--tekst); font: inherit; font-size: 14px;
+    padding: 4px 12px; border-radius: 6px; cursor: pointer; }
+  .bytt button[aria-pressed="true"] { background: var(--flate); font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+  .bytt button:disabled { opacity: .4; cursor: default; }
+  .opps-periode { color: var(--dempet); font-size: 13px; margin: 10px 0 4px; }
+  .opps-ingress { margin: 0 0 6px; font-size: 16px; }
+  .opps ol { margin: 0; padding: 0; list-style: none; counter-reset: p; }
+  .opps li { counter-increment: p; padding: 12px 0 0 32px; position: relative; border-top: 1px solid var(--linje); margin-top: 12px; }
+  .opps li::before { content: counter(p); position: absolute; left: 0; top: 12px; width: 22px; height: 22px;
+    border-radius: 50%; background: var(--aksent); color: var(--aksent-tekst); font-size: 12px; font-weight: 700;
+    display: grid; place-items: center; }
+  .opps li b { display: block; font-size: 16px; line-height: 1.35; }
+  .opps li p { margin: 3px 0 4px; color: var(--dempet); font-size: 15px; }
+  .opps .kildelenker { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; }
+  .opps .kildelenker a { color: var(--aksent); }
+  .vis-mer { border: none; background: none; color: var(--aksent); font: inherit; font-size: 14px;
+    font-weight: 600; padding: 12px 0 0; cursor: pointer; }
+  .opps-merknad { font-size: 12px; color: var(--dempet); margin-top: 12px; }
+
   /* panel med sammendrag */
   dialog { border: none; padding: 0; background: var(--flate); color: var(--tekst);
     width: min(640px, calc(100% - 32px)); max-height: calc(100% - 64px); border-radius: 14px;
@@ -81,6 +106,19 @@
     <h1>Forsvars<span>nytt</span></h1>
     <div class="under">Sikkerhet og forsvar fra Norge og verden · oppdatert {{OPPDATERT}}</div>
   </header>
+  <section class="opps" id="opps" hidden aria-labelledby="opps-tittel">
+    <div class="opps-topp">
+      <strong id="opps-tittel">Det viktigste</strong>
+      <div class="bytt" role="group" aria-label="Periode">
+        <button data-type="dag">Dag</button><button data-type="uke">Uke</button><button data-type="maaned">Måned</button>
+      </div>
+    </div>
+    <div class="opps-periode" id="opps-periode"></div>
+    <p class="opps-ingress" id="opps-ingress"></p>
+    <ol id="opps-punkter"></ol>
+    <button class="vis-mer" id="vis-mer" hidden></button>
+    <div class="opps-merknad" id="opps-merknad"></div>
+  </section>
   <nav id="faner" aria-label="Temaer"></nav>
   <input class="sok" id="sok" type="search" placeholder="Søk i overskrifter …" aria-label="Søk">
   <main id="liste"></main>
@@ -101,6 +139,7 @@
 <script>
 const SAKER = /*DATA*/null;
 const TEMAER = /*TEMAER*/null;
+const OPPS = /*OPPS*/null;
 const navn = Object.fromEntries(TEMAER.map(t => [t.id, t.navn]));
 let valgt = "alle";
 try { valgt = new URLSearchParams(location.hash.slice(1)).get("tema") || "alle"; } catch (e) {}
@@ -179,6 +218,50 @@ function apne(s) {
 }
 document.getElementById("lukk").onclick = () => panel.close();
 panel.addEventListener("click", e => { if (e.target === panel) panel.close(); });  // klikk utenfor lukker
+
+// ---------- oppsummering ----------
+let oppsType = null, visAlle = false;
+const TITLER = { dag: "Dagens viktigste", uke: "Ukens viktigste", maaned: "Månedens viktigste" };
+
+function visOpps() {
+  const o = OPPS[oppsType];
+  document.querySelectorAll(".bytt button").forEach(b => b.setAttribute("aria-pressed", b.dataset.type === oppsType));
+  document.getElementById("opps-tittel").textContent = TITLER[oppsType];
+  document.getElementById("opps-periode").textContent = o.periode;
+  document.getElementById("opps-ingress").textContent = o.ingress;
+  const ol = document.getElementById("opps-punkter");
+  ol.innerHTML = "";
+  const synlige = visAlle ? o.punkter : o.punkter.slice(0, 3);
+  for (const p of synlige) {
+    const li = document.createElement("li");
+    const b = document.createElement("b"); b.textContent = p.tittel;
+    const t = document.createElement("p"); t.textContent = p.tekst;
+    const kl = document.createElement("div"); kl.className = "kildelenker";
+    for (const l of p.lenker) {
+      const a = document.createElement("a"); a.href = l.lenke; a.target = "_blank"; a.rel = "noopener";
+      a.textContent = l.kilde + " ↗"; kl.append(a);
+    }
+    li.append(b, t, kl); ol.append(li);
+  }
+  const mer = document.getElementById("vis-mer");
+  mer.hidden = o.punkter.length <= 3;
+  mer.textContent = visAlle ? "Vis færre" : `Vis alle ${o.punkter.length} saker`;
+  const laget = new Date(o.laget);
+  document.getElementById("opps-merknad").textContent =
+    `Skrevet av AI (Claude) ${laget.toLocaleDateString("nb-NO", { day: "numeric", month: "long", timeZone: "Europe/Oslo" })} ` +
+    `ut fra overskrifter og ingresser fra kildene${o.grunnlag ? " · " + o.grunnlag.toLowerCase() : ""}. Kan inneholde feil – sjekk kildene.`;
+}
+
+if (OPPS && (OPPS.dag || OPPS.uke || OPPS.maaned)) {
+  document.getElementById("opps").hidden = false;
+  document.querySelectorAll(".bytt button").forEach(b => {
+    b.disabled = !OPPS[b.dataset.type];
+    b.onclick = () => { oppsType = b.dataset.type; visAlle = false; visOpps(); };
+  });
+  document.getElementById("vis-mer").onclick = () => { visAlle = !visAlle; visOpps(); };
+  oppsType = ["dag", "uke", "maaned"].find(t => OPPS[t]);
+  visOpps();
+}
 
 document.getElementById("sok").addEventListener("input", vis);
 lagFaner(); vis();

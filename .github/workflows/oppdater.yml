@@ -2,19 +2,26 @@ name: Oppdater Forsvarsnytt
 
 on:
   schedule:
-    - cron: "17 * * * *"
+    - cron: "17 * * * *"   # nyheter hver time
+    - cron: "43 18 * * *"  # oppsummering hver kveld (19:43 vintertid / 20:43 sommertid)
   workflow_dispatch:
+    inputs:
+      oppsummering:
+        description: "Lag oppsummering nå?"
+        type: choice
+        options: [ingen, dag, uke, maaned, alle]
+        default: ingen
   push:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   bygg:
@@ -24,7 +31,24 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python build.py
+
+      - name: Hent nyheter og lag siden
+        run: python build.py
+
+      - name: Lag oppsummering med Claude
+        if: github.event.schedule == '43 18 * * *' || (github.event_name == 'workflow_dispatch' && inputs.oppsummering != 'ingen')
+        continue-on-error: true   # siden publiseres selv om oppsummeringen feiler
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python oppsummer.py ${{ github.event_name == 'workflow_dispatch' && inputs.oppsummering || 'auto' }}
+          python build.py --bare-side
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/oppsummeringer.json
+          git diff --cached --quiet || git commit -m "Ny oppsummering"
+          git pull --rebase && git push
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

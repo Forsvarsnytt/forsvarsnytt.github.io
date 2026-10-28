@@ -100,8 +100,7 @@ def rens(tekst, maks=700):
 
 # ---------- hovedprogram ----------
 
-def main():
-    cfg = json.loads((ROT / "feeds.json").read_text(encoding="utf-8"))
+def hent_saker(cfg):
     temaer = cfg["temaer"]
     matchere = {t["id"]: lag_matcher(t["ord"]) for t in temaer}
     sikkerhet = lag_matcher(cfg["sikkerhetsord"])
@@ -147,21 +146,43 @@ def main():
         status.append((k["navn"], f"{antall} saker"))
 
     saker.sort(key=lambda s: s["tid"] or "", reverse=True)
-
-    UT.mkdir(exist_ok=True)
-    mal = (ROT / "mal.html").read_text(encoding="utf-8")
-    nå = datetime.now(OSLO).strftime("%d.%m.%Y kl. %H:%M")
-    side = (mal
-            .replace("/*DATA*/null", json.dumps(saker, ensure_ascii=False).replace("</", "<\\/"))
-            .replace("/*TEMAER*/null", json.dumps([{"id": t["id"], "navn": t["navn"]} for t in temaer], ensure_ascii=False))
-            .replace("{{OPPDATERT}}", nå))
-    (UT / "index.html").write_text(side, encoding="utf-8")
-
-    print(f"Laget site/index.html med {len(saker)} saker")
     for navn, s in status:
         print(f"  {navn:20} {s}")
     if not saker:
         sys.exit("Ingen saker hentet – sjekk kildene i feeds.json")
+    return saker
+
+
+def til_js(data):
+    return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+
+def main():
+    cfg = json.loads((ROT / "feeds.json").read_text(encoding="utf-8"))
+    UT.mkdir(exist_ok=True)
+
+    if "--bare-side" in sys.argv:  # bruk sakene som allerede er hentet, bare lag siden på nytt
+        saker = json.loads((UT / "saker.json").read_text(encoding="utf-8"))
+    else:
+        saker = hent_saker(cfg)
+        (UT / "saker.json").write_text(json.dumps(saker, ensure_ascii=False), encoding="utf-8")
+
+    opps = {"dag": None, "uke": None, "maaned": None}
+    opps_fil = ROT / "data" / "oppsummeringer.json"
+    if opps_fil.exists():
+        lagret = json.loads(opps_fil.read_text(encoding="utf-8"))
+        opps.update({"dag": (lagret.get("dager") or [None])[-1],
+                     "uke": lagret.get("uke"), "maaned": lagret.get("maaned")})
+
+    mal = (ROT / "mal.html").read_text(encoding="utf-8")
+    nå = datetime.now(OSLO).strftime("%d.%m.%Y kl. %H:%M")
+    side = (mal
+            .replace("/*DATA*/null", til_js(saker))
+            .replace("/*OPPS*/null", til_js(opps))
+            .replace("/*TEMAER*/null", til_js([{"id": t["id"], "navn": t["navn"]} for t in cfg["temaer"]]))
+            .replace("{{OPPDATERT}}", nå))
+    (UT / "index.html").write_text(side, encoding="utf-8")
+    print(f"Laget site/index.html med {len(saker)} saker")
 
 
 if __name__ == "__main__":
