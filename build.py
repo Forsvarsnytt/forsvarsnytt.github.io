@@ -196,6 +196,26 @@ def hent_saker(cfg):
     return saker
 
 
+def les_ordliste():
+    """Leser ordliste.txt: «FORKORTELSE = forklaring», grupper med «## Navn»."""
+    fil = ROT / "ordliste.txt"
+    grupper, gruppe = [], None
+    if not fil.exists():
+        return grupper
+    for linje in fil.read_text(encoding="utf-8").splitlines():
+        l = linje.strip()
+        if l.startswith("## "):
+            gruppe = {"navn": l[3:].strip(), "ord": []}
+            grupper.append(gruppe)
+        elif l and not l.startswith("#") and "=" in l:
+            kort, lang = (d.strip() for d in l.split("=", 1))
+            if gruppe is None:
+                gruppe = {"navn": "Forkortelser", "ord": []}
+                grupper.append(gruppe)
+            gruppe["ord"].append({"kort": kort, "lang": lang})
+    return grupper
+
+
 def til_js(data):
     return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
 
@@ -245,12 +265,17 @@ def main():
             if o and (idag - datetime.fromisoformat(o["laget"]).date()).days <= maks_alder[t]:
                 opps[t] = o
 
+    # tilbakemeldingsknappen: egen lenke fra feeds.json (f.eks. et skjema), ellers et nytt GitHub-innspill
+    tilbakemelding = cfg.get("tilbakemelding_url") or (f"https://github.com/{repo}/issues/new?title=Tilbakemelding" if repo else "#")
+
     mal = (ROT / "mal.html").read_text(encoding="utf-8")
     nå = datetime.now(OSLO).strftime("%d.%m.%Y kl. %H:%M")
     side = (mal
             .replace("/*DATA*/null", til_js(saker))
             .replace("/*OPPS*/null", til_js(opps))
             .replace("/*UKER*/null", til_js(uker))
+            .replace("/*ORDLISTE*/null", til_js(les_ordliste()))
+            .replace("{{TILBAKEMELDING}}", tilbakemelding)
             .replace("/*TEMAER*/null", til_js([{"id": t["id"], "navn": t["navn"]} for t in cfg["temaer"]]))
             .replace("{{OPPDATERT}}", nå)
             .replace("{{KONTAKT}}", kontakt))

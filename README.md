@@ -60,6 +60,14 @@ Siden oppdateres etter et par minutter. Den nyeste uka vises øverst, og eldre u
 - Linjer som starter med `<!--` er kommentarer og vises ikke.
 - Skriv bare ut fra åpne kilder, og aldri om noe du vet gjennom tjenesten.
 
+## Forkortelser
+
+Forkortelsene i «Forkortelser»-vinduet ligger i `ordliste.txt`. Én forkortelse per linje (`NSM = Nasjonal sikkerhetsmyndighet`), og `## Navn` lager en ny gruppe. Rediger filen rett på GitHub for å legge til flere.
+
+## Tilbakemeldinger
+
+Knappen «Gi tilbakemelding» åpner som standard et nytt innspill (issue) på GitHub. Det krever at leseren har en GitHub-konto. Vil du heller bruke et skjema som alle kan fylle ut, for eksempel Microsoft Forms eller Google Forms, legger du lenken inn i `feeds.json` som `"tilbakemelding_url": "https://…"`.
+
 ## Mest omtalt og oppsummeringer
 
 Øverst på siden vises **mest omtalte saker** siste døgn, uke og måned. Det er hendelser som flere kilder skriver om samtidig, og det er gratis og automatisk (`mest_omtalt.py`). For å kunne vise uke og måned lagres et lite arkiv i `data/arkiv/`, én fil per dag. Arkivet lagres i repoet hver kveld.

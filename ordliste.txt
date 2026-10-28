@@ -1,0 +1,74 @@
+# FORKORTELSER – vises i «Forkortelser»-vinduet på siden.
+# Én forkortelse per linje: FORKORTELSE = forklaring
+# Linjer som starter med ## lager en ny gruppe. Linjer som starter med # vises ikke.
+# Legg gjerne til flere. Sjekk at forklaringen er riktig før du lagrer.
+
+## Norske etater og avdelinger
+FD = Forsvarsdepartementet
+FST = Forsvarsstaben
+FOH = Forsvarets operative hovedkvarter
+FMA = Forsvarsmateriell
+FB = Forsvarsbygg
+FLO = Forsvarets logistikkorganisasjon
+FFI = Forsvarets forskningsinstitutt
+FHS = Forsvarets høgskole
+KS = Krigsskolen
+HV = Heimevernet
+FSK = Forsvarets spesialkommando
+MJK = Marinejegerkommandoen
+HMKG = Hans Majestet Kongens Garde
+TMBN = Telemark bataljon
+Brig N = Brigade Nord
+E-tjenesten = Etterretningstjenesten
+NSM = Nasjonal sikkerhetsmyndighet (også: Naval Strike Missile, et norskutviklet sjømålsmissil)
+PST = Politiets sikkerhetstjeneste
+DSB = Direktoratet for samfunnssikkerhet og beredskap
+LTP = Langtidsplan for forsvarssektoren
+HNS = Host Nation Support (vertslandsstøtte)
+
+## NATO og internasjonalt samarbeid
+NATO = North Atlantic Treaty Organization (Den nordatlantiske traktatorganisasjonen)
+SACEUR = Supreme Allied Commander Europe (NATOs øverstkommanderende i Europa)
+SHAPE = Supreme Headquarters Allied Powers Europe (NATOs militære hovedkvarter i Europa)
+JFC = Joint Force Command (NATO-hovedkvarter, f.eks. JFC Norfolk)
+JEF = Joint Expeditionary Force (britiskledet samarbeid der Norge deltar)
+NORDEFCO = Nordic Defence Cooperation (nordisk forsvarssamarbeid)
+EU = Den europeiske union
+FN = De forente nasjoner
+OSSE = Organisasjonen for sikkerhet og samarbeid i Europa
+AU = Den afrikanske union
+ECOWAS = Det økonomiske fellesskapet for vestafrikanske stater
+UNIFIL = FNs fredsbevarende styrke i Libanon
+KFOR = Kosovo Force (NATO-ledet styrke i Kosovo)
+MoD = Ministry of Defence (forsvarsdepartement, bl.a. i Storbritannia)
+DoD = Department of Defense (USAs forsvarsdepartement)
+
+## Militære begreper
+C2 = Command and Control (ledelse og kontroll)
+ISR = Intelligence, Surveillance and Reconnaissance (etterretning, overvåking og rekognosering)
+EW = Electronic Warfare (elektronisk krigføring)
+OSINT = Open Source Intelligence (etterretning fra åpne kilder)
+SOF = Special Operations Forces (spesialstyrker)
+CBRN = Kjemiske, biologiske, radiologiske og nukleære trusler
+UAV = Unmanned Aerial Vehicle (drone)
+MBT = Main Battle Tank (stridsvogn)
+
+## Våpensystemer
+NASAMS = National Advanced Surface-to-Air Missile System (norskutviklet luftvernsystem)
+JSM = Joint Strike Missile (norskutviklet missil for kampfly)
+CV90 = Combat Vehicle 90 (stormpanservogn)
+HIMARS = High Mobility Artillery Rocket System (amerikansk rakettartilleri)
+ATACMS = Army Tactical Missile System (amerikansk ballistisk missil)
+AWACS = Airborne Warning and Control System (radarfly for luftbåren varsling og kontroll)
+
+## Andre aktører
+RSF = Rapid Support Forces (paramilitær styrke i Sudan)
+SAF = Sudanese Armed Forces (Sudans hær)
+IDF = Israel Defense Forces (Israels forsvarsstyrker)
+IRGC = Islamic Revolutionary Guard Corps (Irans revolusjonsgarde)
+
+## Forskning og analyse
+ISW = Institute for the Study of War (amerikansk tenketank)
+SIPRI = Stockholm International Peace Research Institute
+NUPI = Norsk utenrikspolitisk institutt
+PRIO = Institutt for fredsforskning
