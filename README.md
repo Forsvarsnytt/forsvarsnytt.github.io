@@ -66,6 +66,8 @@ python build.py
 - **Som standard publiseres bare overskrift, kilde, tidspunkt og lenke.** Overskrifter og lenker regnes normalt ikke som gjengivelse av verket, og EUs opphavsrettsdirektiv (artikkel 15) gjør uttrykkelig unntak for lenker og svært korte utdrag.
 - **Ingress og bilder fra kildene vises ikke**, fordi de er vernet og flere kilder forbyr gjenbruk i vilkårene sine. Vil du vise dem for en kilde, må kilden ha gitt tillatelse eller ha en åpen lisens. Da settes `"vis_ingress": true` og/eller `"vis_bilder": true` på kilden i `feeds.json`, sammen med `"tillatelse": "<hvor tillatelsen står>"`.
 - **Sjekk vilkårene før du legger til en ny kilde.** Står det at innhold ikke kan brukes på andre nettsider, eller at automatisk innhenting er forbudt, skal kilden ikke brukes. Al Jazeera og Defense News er tatt ut av denne grunnen.
+- **NRK** tillater bruk av RSS-strømmene på egne nettsider etter retningslinjene på https://www.nrk.no/rss/. Kravene er at innholdet merkes tydelig som NRKs, at tekster og titler ikke endres, og at det lenkes med vanlige lenker direkte til nrk.no. Derfor vises NRK-ingressen uendret. NRK kan endre vilkårene uten varsel, så sjekk siden av og til.
+- Titler endres aldri. Skriptet fjerner bare HTML-koder og ekstra mellomrom.
 - Illustrasjonene på siden er tegnet for siden og kan brukes fritt.
 - Bunnen av siden har en kontaktlenke, slik at utgivere kan be om endringer. Slike henvendelser skal følges opp raskt.
 - Bruk bare åpne kilder, og aldri informasjon du har fått gjennom tjenesten.

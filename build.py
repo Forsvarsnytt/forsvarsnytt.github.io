@@ -123,7 +123,7 @@ def rens(tekst, maks=700):
     tekst = html.unescape(tekst or "")
     tekst = re.sub(r"<[^>]+>", " ", tekst)
     tekst = re.sub(r"\s+", " ", tekst).strip()
-    if len(tekst) <= maks:
+    if maks is None or len(tekst) <= maks:
         return tekst
     kutt = tekst[:maks]
     slutt = max(kutt.rfind(". "), kutt.rfind("! "), kutt.rfind("? "))
@@ -150,7 +150,7 @@ def hent_saker(cfg):
 
         antall = 0
         for e in innhold[: cfg["maks_per_kilde"]]:
-            tittel = rens(e["tittel"], 200)
+            tittel = rens(e["tittel"], None)  # titler skal aldri endres eller kortes ned
             lenke = e["lenke"]
             if not tittel or not lenke.startswith("http"):
                 continue
@@ -159,7 +159,7 @@ def hent_saker(cfg):
                 continue
             if e["tid"] and e["tid"] < grense:
                 continue
-            ingress = rens(e["ingress"])
+            ingress = rens(e["ingress"], None if k.get("vis_ingress") else 700)  # tillatt ingress vises uendret
             tekst = f"{tittel} {ingress}".lower()
 
             treff = {tid: len(m.findall(tekst)) for tid, m in matchere.items() if m}

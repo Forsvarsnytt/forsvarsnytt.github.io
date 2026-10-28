@@ -5,8 +5,8 @@
   "ai_modell": "claude-haiku-5-5",
   "maks_per_kilde": 30,
   "kilder": [
-    {"navn": "NRK Urix", "url": "https://www.nrk.no/urix/toppsaker.rss", "tema": "verden", "filter": true},
-    {"navn": "NRK Norge", "url": "https://www.nrk.no/norge/toppsaker.rss", "tema": "norge", "filter": true},
+    {"navn": "NRK Urix", "url": "https://www.nrk.no/urix/toppsaker.rss", "tema": "verden", "filter": true, "vis_ingress": true, "tillatelse": "https://www.nrk.no/rss/ – retningslinjer for bruk av RSS fra NRK (lest 28.10.2026)"},
+    {"navn": "NRK Norge", "url": "https://www.nrk.no/norge/toppsaker.rss", "tema": "norge", "filter": true, "vis_ingress": true, "tillatelse": "https://www.nrk.no/rss/ – retningslinjer for bruk av RSS fra NRK (lest 28.10.2026)"},
     {"navn": "Forsvarets forum", "url": "https://www.forsvaretsforum.no/?lab_viewport=rss", "tema": "norge", "filter": false},
     {"navn": "Kyiv Independent", "url": "https://kyivindependent.com/news-archive/rss/", "tema": "ukraina", "filter": false},
     {"navn": "BBC Europa", "url": "https://feeds.bbci.co.uk/news/world/europe/rss.xml", "tema": "verden", "filter": true},

@@ -55,6 +55,12 @@
   .tema { background: var(--chip); color: var(--tekst); border-radius: 4px; padding: 1px 7px; font-size: 12px; }
   article button { all: unset; display: block; color: var(--tekst); font-weight: 600; font-size: 17px;
     margin: 6px 0 2px; line-height: 1.35; cursor: pointer; }
+  article { position: relative; }
+  .kortlenke { display: block; color: var(--tekst); font-weight: 600; font-size: 17px; margin: 6px 0 2px;
+    line-height: 1.35; text-decoration: none; }
+  .kortlenke::after { content: ""; position: absolute; inset: 0; border-radius: 10px; }  /* hele kortet er lenken */
+  .kortlenke:focus-visible { outline: 2px solid var(--aksent); outline-offset: 2px; border-radius: 2px; }
+  article:hover .kortlenke { color: var(--aksent); }
   article button:focus-visible { outline: 2px solid var(--aksent); outline-offset: 2px; border-radius: 2px; }
   article:hover button { color: var(--aksent); }
   article p { margin: 0; color: var(--dempet); font-size: 14px;
@@ -231,11 +237,20 @@ function vis() {
     }
     const a = document.createElement("article");
     const tekst = document.createElement("div");
-    const tittel = document.createElement("button"); tittel.textContent = s.tittel;
+    let tittel;
+    if (s.ingress) {
+      // kilden tillater ingress: kortet åpner et panel med ingressen og en vanlig lenke til saken
+      tittel = document.createElement("button");
+      a.onclick = () => apne(s);
+    } else {
+      // ellers er tittelen en vanlig lenke rett til saken hos kilden
+      tittel = document.createElement("a");
+      tittel.href = s.lenke; tittel.target = "_blank"; tittel.rel = "noopener"; tittel.className = "kortlenke";
+    }
+    tittel.textContent = s.tittel;
     tekst.append(lagMeta(s, d), tittel);
     if (s.ingress) { const p = document.createElement("p"); p.textContent = s.ingress; tekst.append(p); }
     a.append(tekst, lagBilde(s));
-    a.onclick = () => apne(s);
     liste.append(a);
   }
 }
