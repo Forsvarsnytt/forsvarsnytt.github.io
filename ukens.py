@@ -14,6 +14,15 @@ ROT = Path(__file__).parent
 MAPPE = ROT / "ukens"
 
 
+def nokkel(lenke):
+    """Gjenkjenner samme sak selv om lenken er litt ulik (www, bbc.co.uk/bbc.com, ?sporing, endret tittel i adressen).
+    Bruker nettsted + siste del av adressen, som oftest er sakens ID."""
+    u = urlparse(lenke)
+    vert = u.netloc.lower().removeprefix("www.").replace("bbc.co.uk", "bbc.com")
+    deler = [d for d in u.path.split("/") if d]
+    return vert + "/" + (deler[-1] if deler else "")
+
+
 def les_fil(fil):
     uke = {"fil": fil.stem, "tittel": fil.stem, "lesetips": [], "sporsmal": []}
     del_ = None
@@ -36,11 +45,16 @@ def les_fil(fil):
             uke["tittel"] = l[2:].strip()
         elif not l:
             avslutt_avsnitt()
-        elif del_ == "lesetips" and l.startswith(("-", "*")):
-            innhold = l[1:].strip()
-            m = re.match(r"(https?://\S+)\s*[|–-]?\s*(.*)", innhold)
-            if m:
-                uke["lesetips"].append({"lenke": m.group(1), "kommentar": m.group(2).strip()})
+        elif del_ == "lesetips":
+            # godtar linjer med og uten «-» foran, og med og uten mellomrom rundt «|»
+            innhold = l.lstrip("-* ").strip()
+            if "|" in innhold:
+                lenke, kommentar = (d.strip() for d in innhold.split("|", 1))
+            else:
+                m = re.match(r"(\S+)\s*[–-]?\s*(.*)", innhold)
+                lenke, kommentar = m.group(1), m.group(2).strip()
+            if re.match(r"https?://\S+$", lenke):
+                uke["lesetips"].append({"lenke": lenke, "kommentar": kommentar})
         elif del_ == "sporsmal":
             if l.startswith(("-", "*")):
                 avslutt_avsnitt()
@@ -55,12 +69,12 @@ def lag(saker):
     """Returnerer ukene, nyeste først. Lesetips får tittel og kilde fra sakene der lenken finnes."""
     if not MAPPE.exists():
         return []
-    kjente = {s["lenke"]: s for s in saker}
+    kjente = {nokkel(s["lenke"]): s for s in saker}
     arkiv = ROT / "data" / "arkiv"
     if arkiv.exists():
         for f in arkiv.glob("*.json"):
             for s in json.loads(f.read_text(encoding="utf-8")):
-                kjente.setdefault(s["lenke"], s)
+                kjente.setdefault(nokkel(s["lenke"]), s)
 
     uker = []
     for fil in sorted(MAPPE.glob("*.md"), reverse=True):
@@ -68,7 +82,7 @@ def lag(saker):
             continue
         uke = les_fil(fil)
         for tips in uke["lesetips"]:
-            sak = kjente.get(tips["lenke"])
+            sak = kjente.get(nokkel(tips["lenke"]))
             tips["tittel"] = sak["tittel"] if sak else None
             tips["kilde"] = sak["kilde"] if sak else urlparse(tips["lenke"]).netloc.removeprefix("www.")
         if uke["lesetips"] or uke["sporsmal"]:
