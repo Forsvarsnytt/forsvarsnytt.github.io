@@ -818,10 +818,9 @@ let valgtKonflikt = null;
 
 function tegnKart() {
   const svg = document.getElementById("kart-svg"), NS = "http://www.w3.org/2000/svg";
-  // på smale skjermer: zoom inn på Europa, Afrika og Asia, og større markører
+  // hele kartet vises fra start; på smale skjermer får markørene større radius, så de er lette å se og treffe
   const smal = window.matchMedia("(max-width: 600px)").matches;
-  if (smal) svg.setAttribute("viewBox", "435 25 435 265");
-  const r = smal ? 7 : 6, treffR = smal ? 18 : 16;
+  const r = smal ? 11 : 6, treffR = smal ? 26 : 16;
   const farge = {};
   for (const k of KONFLIKTER) for (const l of k.land) if (!farge[l] || k.type === "krig") farge[l] = k.type;
   const landLag = document.createElementNS(NS, "g");
