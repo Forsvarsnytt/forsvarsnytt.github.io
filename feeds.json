@@ -7,7 +7,7 @@
   "kilder": [
     {"navn": "NRK Urix", "url": "https://www.nrk.no/urix/toppsaker.rss", "tema": "verden", "filter": true},
     {"navn": "NRK Norge", "url": "https://www.nrk.no/norge/toppsaker.rss", "tema": "norge", "filter": true},
-    {"navn": "Forsvarets forum", "url": "https://www.forsvaretsforum.no/rss", "tema": "norge", "filter": false},
+    {"navn": "Forsvarets forum", "url": "https://www.forsvaretsforum.no/?lab_viewport=rss", "tema": "norge", "filter": false},
     {"navn": "High North News", "url": "https://www.highnorthnews.com/en/rss.xml", "tema": "nord", "filter": false},
     {"navn": "Kyiv Independent", "url": "https://kyivindependent.com/news-archive/rss/", "tema": "ukraina", "filter": false},
     {"navn": "BBC Europa", "url": "https://feeds.bbci.co.uk/news/world/europe/rss.xml", "tema": "verden", "filter": true},
