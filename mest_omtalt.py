@@ -32,8 +32,9 @@ def ord_i(tittel):
 
 # ---------- arkiv ----------
 
-def oppdater_arkiv(saker, nå):
-    """Legger nye saker inn i dagsfilene og returnerer alle arkiverte saker."""
+def oppdater_arkiv(saker, nå, beholdes=lambda s: True):
+    """Legger nye saker inn i dagsfilene og returnerer alle arkiverte saker.
+    Saker der beholdes(sak) er False (f.eks. fra kilder som er fjernet), slettes fra arkivet."""
     ARKIV.mkdir(parents=True, exist_ok=True)
     per_dag = {}
     for s in saker:
@@ -57,7 +58,11 @@ def oppdater_arkiv(saker, nå):
         if fil.stem < grense:
             fil.unlink()  # rydder bort det som er eldre enn arkivet skal holde
             continue
-        alle += json.loads(fil.read_text(encoding="utf-8"))
+        innhold = json.loads(fil.read_text(encoding="utf-8"))
+        beholdt = [s for s in innhold if beholdes(s)]
+        if len(beholdt) != len(innhold):
+            fil.write_text(json.dumps(beholdt, ensure_ascii=False, indent=0), encoding="utf-8")
+        alle += beholdt
     return alle
 
 
@@ -127,9 +132,9 @@ def rangert(saker, maks):
     return punkter
 
 
-def lag(saker_naa, nå_oslo):
+def lag(saker_naa, nå_oslo, beholdes=lambda s: True):
     nå = nå_oslo.astimezone(timezone.utc)
-    arkiv = oppdater_arkiv(saker_naa, nå)
+    arkiv = oppdater_arkiv(saker_naa, nå, beholdes)
     # slå sammen arkiv og ferske saker, uten duplikater
     alle = {s["lenke"]: s for s in arkiv}
     for s in saker_naa:

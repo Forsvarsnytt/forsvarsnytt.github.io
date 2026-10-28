@@ -138,6 +138,9 @@ def hent_saker(cfg):
     temaer = cfg["temaer"]
     matchere = {t["id"]: lag_matcher(t["ord"]) for t in temaer}
     sikkerhet = lag_matcher(cfg["sikkerhetsord"])
+    # temaord teller også i filteret, unntatt helt generelle ord (f.eks. «Norway»)
+    generelle = set(cfg.get("generelle_ord", []))
+    filterord = lag_matcher([o for t in temaer for o in t["ord"] if o not in generelle]) or re.compile("(?!)")
     grense = datetime.now(timezone.utc) - timedelta(days=cfg["dager_tilbake"])
 
     saker, sett, status = [], set(), []
@@ -164,7 +167,7 @@ def hent_saker(cfg):
 
             treff = {tid: len(m.findall(tekst)) for tid, m in matchere.items() if m}
             beste = max(treff, key=treff.get) if treff and max(treff.values()) > 0 else None
-            if k["filter"] and not beste and not sikkerhet.search(tekst):
+            if k["filter"] and not sikkerhet.search(tekst) and not filterord.search(tekst):
                 continue  # generell kilde, men ikke en forsvars-/sikkerhetssak
 
             sett.add(nokkel)
@@ -223,7 +226,11 @@ def main():
     kontakt = f"https://github.com/{repo}/issues" if repo else "#"
 
     # mest omtalte saker (gratis, uten AI)
-    opps = mest_omtalt.lag(saker, datetime.now(OSLO))
+    # arkivet skal bare inneholde saker fra kilder som fortsatt er i bruk, og som passerer filteret
+    kilder = {k["navn"]: k for k in cfg["kilder"]}
+    def beholdes(s):
+        return s["kilde"] in kilder
+    opps = mest_omtalt.lag(saker, datetime.now(OSLO), beholdes)
 
     # AI-oppsummeringer tar over der de finnes og er ferske
     opps_fil = ROT / "data" / "oppsummeringer.json"
