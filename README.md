@@ -1,5 +1,7 @@
 # Forsvarsnytt
 
+Nettsiden ligger på **https://forsvarsnytt.github.io**.
+
 En nettside som samler forsvars- og sikkerhetsnyheter fra Norge og verden på ett sted, sortert etter tema: Norge, Ukraina, Nordområdene og NATO, Afrika, Midtøsten, Verdens styrker og Verden ellers.
 
 Siden oppdateres automatisk hver time og ligger gratis på GitHub Pages.
@@ -21,7 +23,7 @@ Siden oppdateres automatisk hver time og ligger gratis på GitHub Pages.
    - Hvis `.github`-mappen ikke blir med (skjulte mapper kan forsvinne ved opplasting): velg «Add file → Create new file», skriv `.github/workflows/oppdater.yml` som filnavn, og lim inn innholdet fra filen.
 4. **Slå på GitHub Pages**: gå til **Settings → Pages**, og under «Source» velger du **GitHub Actions**.
 5. **Kjør første oppdatering**: gå til fanen **Actions**, velg «Oppdater Forsvarsnytt» og trykk **Run workflow**.
-6. Etter et par minutter ligger siden på `https://<brukernavnet-ditt>.github.io/forsvarsnytt/`.
+6. Etter et par minutter ligger siden på `https://<organisasjonsnavn>.github.io` (repoet må hete `<organisasjonsnavn>.github.io`).
 
 ## Sjekk at kildene virker
 
