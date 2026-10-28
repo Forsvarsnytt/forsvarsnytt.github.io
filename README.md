@@ -64,9 +64,9 @@ Siden oppdateres etter et par minutter. Den nyeste uka vises øverst, og eldre u
 
 Forkortelsene i «Forkortelser»-vinduet ligger i `ordliste.txt`. Én forkortelse per linje (`NSM = Nasjonal sikkerhetsmyndighet`), og `## Navn` lager en ny gruppe. Rediger filen rett på GitHub for å legge til flere.
 
-## Tilbakemeldinger
+## Tilbakemeldinger og kontakt
 
-Knappen «Gi tilbakemelding» åpner som standard et nytt innspill (issue) på GitHub. Det krever at leseren har en GitHub-konto. Vil du heller bruke et skjema som alle kan fylle ut, for eksempel Microsoft Forms eller Google Forms, legger du lenken inn i `feeds.json` som `"tilbakemelding_url": "https://…"`.
+Knappene «Gi tilbakemelding» og «Ta kontakt her» åpner en e-post til adressen i `feeds.json` (`"kontakt_epost"`), med ferdig emnelinje. Adressen ligger baklengs i nettsidens kode og settes sammen i nettleseren, slik at den er vanskeligere for spamroboter å plukke opp. Henvendelser fra utgivere som vil ha noe endret eller fjernet, skal følges opp raskt.
 
 ## Mest omtalt og oppsummeringer
 

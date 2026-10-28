@@ -278,7 +278,8 @@ def main():
             .replace("{{TILBAKEMELDING}}", tilbakemelding)
             .replace("/*TEMAER*/null", til_js([{"id": t["id"], "navn": t["navn"]} for t in cfg["temaer"]]))
             .replace("{{OPPDATERT}}", nå)
-            .replace("{{KONTAKT}}", kontakt))
+            .replace("{{KONTAKT}}", kontakt)
+            .replace("/*EPOST*/null", til_js(cfg["kontakt_epost"][::-1] if cfg.get("kontakt_epost") else None)))
     (UT / "index.html").write_text(side, encoding="utf-8")
     print(f"Laget site/index.html med {len(saker)} saker")
 
