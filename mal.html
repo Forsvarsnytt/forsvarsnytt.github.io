@@ -184,6 +184,14 @@
   :root[data-tema="mork"] { --krig: #e27a5f; --konflikt: #e6b155; --spenning: #7db3d1; }
   .ordliste.bred { width: min(920px, 100%); }
   .kart-boks { padding: 0 18px; }
+  .kart-ramme { position: relative; }
+  .kart-zoom { position: absolute; top: 8px; right: 8px; display: flex; flex-direction: column; gap: 4px; }
+  .kart-zoom button { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--linje); background: var(--flate);
+    color: var(--tekst); font: inherit; font-size: 18px; line-height: 1; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+  .kart-zoom button:hover { border-color: var(--aksent); color: var(--aksent); }
+  .kart-svg { touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
+  .kart-svg.drar { cursor: grabbing; }
+  .kart-svg .land, .markor .prikk { vector-effect: non-scaling-stroke; }
   .kart-svg { width: 100%; height: auto; display: block; background: var(--kart-hav);
     border-radius: 10px; border: 1px solid var(--linje); }
   .kart-svg .land { fill: var(--kart-land); stroke: var(--kart-kant); stroke-width: .5; }
@@ -420,7 +428,14 @@
   </div>
   <div class="ordliste-innhold">
     <div class="kart-boks" style="padding:0">
-      <svg class="kart-svg" id="kart-svg" viewBox="215 18 785 330" role="img" aria-label="Verdenskart med konflikter"></svg>
+      <div class="kart-ramme">
+        <svg class="kart-svg" id="kart-svg" viewBox="215 18 785 330" role="img" aria-label="Verdenskart med konflikter. Zoom med to fingre eller musehjulet, og dra for å flytte."></svg>
+        <div class="kart-zoom" role="group" aria-label="Zoom i kartet">
+          <button type="button" id="zoom-inn" aria-label="Zoom inn">+</button>
+          <button type="button" id="zoom-ut" aria-label="Zoom ut">−</button>
+          <button type="button" id="zoom-nullstill" aria-label="Tilbakestill kartet">⟲</button>
+        </div>
+      </div>
       <div class="forklaring">
         <span><i style="background:var(--krig)"></i>Krig</span>
         <span><i style="background:var(--konflikt)"></i>Væpnet konflikt</span>
@@ -824,12 +839,93 @@ function tegnKart() {
     const g = document.createElementNS(NS, "g");
     g.setAttribute("class", "markor " + k.type); g.setAttribute("tabindex", "0"); g.setAttribute("role", "button");
     g.setAttribute("aria-label", k.navn); g.dataset.navn = k.navn;
-    g.innerHTML = `<circle class="treff" cx="${x}" cy="${y}" r="${treffR}"/><circle class="puls" cx="${x}" cy="${y}" r="${r}"/><circle class="prikk" cx="${x}" cy="${y}" r="${r}"/>`;
+    g.innerHTML = `<circle class="treff" cx="${x}" cy="${y}" r="${treffR}" data-r="${treffR}"/><circle class="puls" cx="${x}" cy="${y}" r="${r}" data-r="${r}"/><circle class="prikk" cx="${x}" cy="${y}" r="${r}" data-r="${r}"/>`;
     const t = document.createElementNS(NS, "title"); t.textContent = k.navn; g.append(t);
     g.onclick = e => { e.stopPropagation(); velgKonflikt(k); };
     g.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); velgKonflikt(k); } };
     svg.append(g);
   });
+}
+
+
+// zoom og flytting i konfliktkartet (to fingre / musehjul / dra), uten at resten av siden beveger seg
+function aktiverKartZoom() {
+  const svg = document.getElementById("kart-svg");
+  const start = svg.getAttribute("viewBox").split(" ").map(Number);
+  const grunn = { x: start[0], y: start[1], w: start[2], h: start[3] };
+  const HELE = { x: 0, y: 0, w: 1000, h: 395 };          // hele kartet
+  const MIN_B = grunn.w / 10, MAX_B = HELE.w;            // hvor langt man kan zoome inn og ut
+  let vb = { ...grunn };
+  const fingre = new Map();
+  let gest = null, dratt = false;
+
+  function tegn() {
+    // hold kartutsnittet innenfor kartet
+    vb.w = Math.max(MIN_B, Math.min(MAX_B, vb.w)); vb.h = vb.w * grunn.h / grunn.w;
+    vb.x = vb.w >= HELE.w ? (HELE.w - vb.w) / 2 : Math.max(HELE.x, Math.min(HELE.w - vb.w, vb.x));
+    vb.y = vb.h >= HELE.h ? (HELE.h - vb.h) / 2 : Math.max(HELE.y, Math.min(HELE.h - vb.h, vb.y));
+    svg.setAttribute("viewBox", `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+    const f = vb.w / grunn.w;                            // markørene beholder samme størrelse på skjermen
+    svg.querySelectorAll(".markor circle").forEach(c => c.setAttribute("r", c.dataset.r * f));
+  }
+  function tilKart(px, py) {
+    const r = svg.getBoundingClientRect();
+    return [vb.x + (px - r.left) / r.width * vb.w, vb.y + (py - r.top) / r.height * vb.h];
+  }
+  function zoom(faktor, px, py) {
+    const r = svg.getBoundingClientRect();
+    if (px === undefined) { px = r.left + r.width / 2; py = r.top + r.height / 2; }
+    const [kx, ky] = tilKart(px, py);
+    vb.w = Math.max(MIN_B, Math.min(MAX_B, vb.w / faktor)); vb.h = vb.w * grunn.h / grunn.w;
+    vb.x = kx - (px - r.left) / r.width * vb.w; vb.y = ky - (py - r.top) / r.height * vb.h;
+    tegn();
+  }
+  function startGest() {
+    const p = [...fingre.values()];
+    gest = { vb: { ...vb }, p0: p.map(q => ({ ...q })) };
+    if (p.length === 2) {
+      gest.avstand = Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+      gest.midt = { x: (p[0].x + p[1].x) / 2, y: (p[0].y + p[1].y) / 2 };
+      gest.kartMidt = tilKart(gest.midt.x, gest.midt.y);
+    }
+  }
+  svg.addEventListener("pointerdown", e => {
+    fingre.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    dratt = false; startGest();
+  });
+  svg.addEventListener("pointermove", e => {
+    if (!fingre.has(e.pointerId) || !gest) return;
+    fingre.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    const p = [...fingre.values()], r = svg.getBoundingClientRect();
+    if (p.length === 1) {
+      const dx = p[0].x - gest.p0[0].x, dy = p[0].y - gest.p0[0].y;
+      if (!dratt && Math.hypot(dx, dy) < 5) return;      // små bevegelser regnes som trykk
+      if (!dratt) { dratt = true; svg.setPointerCapture(e.pointerId); svg.classList.add("drar"); }
+      vb.x = gest.vb.x - dx / r.width * gest.vb.w; vb.y = gest.vb.y - dy / r.height * gest.vb.h;
+      tegn();
+    } else if (p.length === 2 && gest.avstand) {
+      dratt = true;
+      const avstand = Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+      const midt = { x: (p[0].x + p[1].x) / 2, y: (p[0].y + p[1].y) / 2 };
+      vb.w = Math.max(MIN_B, Math.min(MAX_B, gest.vb.w * gest.avstand / avstand)); vb.h = vb.w * grunn.h / grunn.w;
+      vb.x = gest.kartMidt[0] - (midt.x - r.left) / r.width * vb.w;
+      vb.y = gest.kartMidt[1] - (midt.y - r.top) / r.height * vb.h;
+      tegn();
+    }
+  });
+  const slipp = e => {
+    fingre.delete(e.pointerId); svg.classList.remove("drar");
+    if (fingre.size) startGest(); else gest = null;
+  };
+  svg.addEventListener("pointerup", slipp);
+  svg.addEventListener("pointercancel", slipp);
+  // et trykk som egentlig var en dra-bevegelse skal ikke velge en konflikt
+  svg.addEventListener("click", e => { if (dratt) { e.stopPropagation(); e.preventDefault(); dratt = false; } }, true);
+  svg.addEventListener("wheel", e => { e.preventDefault(); zoom(Math.pow(1.0015, -e.deltaY), e.clientX, e.clientY); }, { passive: false });
+  document.getElementById("zoom-inn").onclick = e => { e.stopPropagation(); zoom(1.5); };
+  document.getElementById("zoom-ut").onclick = e => { e.stopPropagation(); zoom(1 / 1.5); };
+  document.getElementById("zoom-nullstill").onclick = e => { e.stopPropagation(); vb = { ...grunn }; tegn(); };
+  tegn();
 }
 
 function visKonfliktliste() {
@@ -887,7 +983,7 @@ if (KONFLIKTER && KONFLIKTER.length && KART) {
   kobleSkuff("konfliktkart", "lukk-konfliktkart");
   document.getElementById("apne-konfliktkart").hidden = false;
   document.getElementById("konflikt-fane").hidden = false;
-  tegnKart(); visKonfliktliste();
+  tegnKart(); aktiverKartZoom(); visKonfliktliste();
 }
 
 
