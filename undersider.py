@@ -58,6 +58,9 @@ def kjente_saker(saker):
     return sorted(alle.values(), key=lambda s: s.get("tid") or "", reverse=True)
 
 
+KREDITERING = {}  # fylles fra build.py: {kildenavn: {"tekst": ..., "lenke": ...}}
+
+
 def nyhetsblokk(ord_, alle, maks=10, ikke=()):
     m = re.compile(r"\b(" + "|".join(re.escape(o) for o in ord_) + r")\b", re.I)
     uten = re.compile(r"\b(" + "|".join(re.escape(o) for o in ikke) + r")\b", re.I) if ikke else None
@@ -71,8 +74,11 @@ def nyhetsblokk(ord_, alle, maks=10, ikke=()):
         if s.get("tid"):
             a, mnd, d = s["tid"][:10].split("-")
             dato = f" · {int(d)}. {MND[int(mnd) - 1]}"
+        k = KREDITERING.get(s["kilde"])
+        kred = (f' · <a class="kreditering" href="{html.escape(k["lenke"])}" target="_blank" rel="noopener">'
+                f'{html.escape(k["tekst"])}</a>') if k else ""
         rader.append(f'<li><a href="{html.escape(s["lenke"])}" target="_blank" rel="noopener">{html.escape(s["tittel"])}</a>'
-                     f'<small>{html.escape(s["kilde"])}{dato}</small></li>')
+                     f'<small>{html.escape(s["kilde"])}{dato}{kred}</small></li>')
     return '<ul class="u-nyheter">' + "".join(rader) + "</ul>"
 
 
@@ -155,6 +161,7 @@ def lag(saker, mal_html, stil, felles):
     if not MAPPE.exists():
         return [], {}
     alle = kjente_saker(saker)
+    KREDITERING.clear(); KREDITERING.update(felles.get("kreditering", {}))
     sider = []
     for fil in sorted(MAPPE.glob("*.txt")):
         tittel, ingress, innhold, toc = render(fil, alle)

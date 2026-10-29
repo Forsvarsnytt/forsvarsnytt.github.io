@@ -230,6 +230,7 @@
   .k-nyheter li { padding: 8px 0; border-top: 1px solid var(--linje); }
   .k-nyheter a { color: var(--tekst); font-weight: 600; text-decoration: none; }
   .k-nyheter a:hover { color: var(--aksent); text-decoration: underline; }
+  .k-nyheter small .kreditering { font-size: 12px; }
   .k-nyheter small { display: block; color: var(--dempet); font-size: 12px; margin-top: 2px; }
   .tilbake { border: none; background: none; color: var(--aksent); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; padding: 10px 0 0; }
   .liten-merknad { color: var(--dempet); font-size: 12px; margin-top: 16px; }
@@ -484,6 +485,13 @@ const SAKER = /*DATA*/null;
 const TEMAER = /*TEMAER*/null;
 const OPPS = /*OPPS*/null;
 const UKER = /*UKER*/null;
+const KREDITERING = /*KREDITERING*/null || {};
+// lager «Fra BBC News»-lenken (eller annen kreditering kilden krever) for en kilde, eller null
+function lagKred(kilde) {
+  const k = KREDITERING[kilde]; if (!k) return null;
+  const a = document.createElement("a"); a.className = "kreditering"; a.href = k.lenke; a.target = "_blank"; a.rel = "noopener";
+  a.textContent = k.tekst; a.onclick = e => e.stopPropagation(); return a;
+}
 const ORDLISTE = /*ORDLISTE*/null;
 const navn = Object.fromEntries(TEMAER.map(t => [t.id, t.navn]));
 let valgt = "alle";
@@ -691,6 +699,7 @@ function visOpps() {
     for (const l of p.lenker) {
       const a = document.createElement("a"); a.href = l.lenke; a.target = "_blank"; a.rel = "noopener";
       a.textContent = l.kilde + " ↗"; kl.append(a);
+      const kr = lagKred(l.kilde); if (kr) kl.append(kr);
     }
     li.append(b, t, kl); ol.append(li);
   }
@@ -974,6 +983,7 @@ function velgKonflikt(k) {
       const a = document.createElement("a"); a.href = s.lenke; a.target = "_blank"; a.rel = "noopener"; a.textContent = s.tittel;
       const sm = document.createElement("small");
       sm.textContent = s.kilde + (s.tid ? " · " + new Date(s.tid).toLocaleDateString("nb-NO", { day: "numeric", month: "long", timeZone: "Europe/Oslo" }) : "");
+      const kr = lagKred(s.kilde); if (kr) { sm.append(" · ", kr); }
       li.append(a, sm); ul.append(li);
     }
     d.append(ul);
@@ -1162,6 +1172,7 @@ function visUke(i) {
     a.textContent = t.tittel || t.lenke.replace(/^https?:\/\/(www\.)?/, "");
     const k = document.createElement("span"); k.className = "kilde"; k.textContent = t.kilde;
     li.append(a, k);
+    const kr = lagKred(t.kilde); if (kr) { kr.style.marginLeft = "6px"; kr.style.fontSize = "13px"; li.append(kr); }
     if (t.kommentar) { const p = document.createElement("p"); p.textContent = t.kommentar; li.append(p); }
     return li;
   }));

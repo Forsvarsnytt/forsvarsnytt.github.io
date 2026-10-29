@@ -325,7 +325,11 @@ def main():
     def sett_meny(liste):
         sidetitler[:] = liste
 
-    felles = {"meny": meny, "sett_meny": sett_meny, "topp": banner, "oppdatert": nå, "kontakt": "#", "epost": epost}
+    # kildenes krav til kreditering (f.eks. «Fra BBC News»), slik at det kan vises overalt der sakene dukker opp
+    kreditering = {k["navn"]: k["kreditering"] for k in cfg["kilder"] if k.get("kreditering")}
+
+    felles = {"meny": meny, "sett_meny": sett_meny, "topp": banner, "oppdatert": nå, "kontakt": "#", "epost": epost,
+              "kreditering": kreditering}
     side_mal = (ROT / "side-mal.html").read_text(encoding="utf-8") if (ROT / "side-mal.html").exists() else None
     if side_mal:
         _, temasider = undersider.lag(saker, side_mal, stil, felles)
@@ -335,6 +339,7 @@ def main():
 
     side = (mal
             .replace("{{TEMAMENY}}", meny("./"))
+            .replace("/*KREDITERING*/null", til_js(kreditering))
             .replace("/*DATA*/null", til_js(saker))
             .replace("/*OPPS*/null", til_js(opps))
             .replace("/*UKER*/null", til_js(uker))
