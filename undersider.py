@@ -58,9 +58,11 @@ def kjente_saker(saker):
     return sorted(alle.values(), key=lambda s: s.get("tid") or "", reverse=True)
 
 
-def nyhetsblokk(ord_, alle, maks=10):
+def nyhetsblokk(ord_, alle, maks=10, ikke=()):
     m = re.compile(r"\b(" + "|".join(re.escape(o) for o in ord_) + r")\b", re.I)
-    treff = [s for s in alle if m.search(s["tittel"] + " " + (s.get("ingress") or ""))][:maks]
+    uten = re.compile(r"\b(" + "|".join(re.escape(o) for o in ikke) + r")\b", re.I) if ikke else None
+    treff = [s for s in alle if m.search(s["tittel"] + " " + (s.get("ingress") or ""))
+             and not (uten and uten.search(s["tittel"]))][:maks]
     if not treff:
         return '<div class="u-tom">Ingen saker om dette ennå. Lista fylles automatisk når kildene skriver om temaet.</div>'
     rader = []
@@ -136,8 +138,11 @@ def render(fil, alle):
         elif l.startswith(":::merknad"):
             tom_avsnitt(); ut.append(f'<div class="u-merknad">{inline(l[10:].strip())}</div>')
         elif l.startswith(":::nyheter"):
-            tom_avsnitt(); ord_ = [o.strip() for o in l[10:].split(",") if o.strip()]
-            ut.append(nyhetsblokk(ord_, alle))
+            # «:::nyheter ord, ord | ikke: ord, ord» – saker med ordene, men uten ordene etter «ikke:» i overskriften
+            tom_avsnitt(); med, _, uten = l[10:].partition("| ikke:")
+            ord_ = [o.strip() for o in med.split(",") if o.strip()]
+            ikke = [o.strip() for o in uten.split(",") if o.strip()]
+            ut.append(nyhetsblokk(ord_, alle, ikke=ikke))
         else:
             avsnitt.append(l)
         i += 1

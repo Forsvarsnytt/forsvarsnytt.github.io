@@ -1,37 +1,82 @@
-<!-- TEMASIDE: Teknologi og Ukraina-krigen. Formatet er forklart øverst i undersider.py. Sist gjennomgått 29.10.2026. -->
-# Teknologi og Ukraina-krigen
-> Krigen i Ukraina har forandret hvordan kriger føres. Billige droner, elektronisk krigføring og langtrekkende angrep har blitt like viktige som stridsvogner og artilleri. Her er de viktigste endringene siden 2022, og siste nytt om teknologi og krigføring.
+<!-- TEMASIDE: Ny militærteknologi. Formatet er forklart øverst i undersider.py. Sist gjennomgått 29.10.2026. -->
+# Ny militærteknologi
+> Krigen i Ukraina har blitt et testområde for ny militærteknologi. Nye droner, roboter, kunstig intelligens og laservåpen utvikles og forbedres i et tempo verden ikke har sett før, og det påvirker hvordan alle land, også Norge, bygger opp forsvaret sitt. Her er de viktigste nyvinningene, og siste nytt om utviklingen.
 
-## Siste nytt om teknologi og krigføring
-:::merknad Denne lista oppdateres automatisk hver time med saker fra kildene på Forsvarsnytt som handler om droner, luftvern, elektronisk krigføring, missiler og ny militærteknologi.
-:::nyheter drone, drones, droner, dronen, dronene, fpv, uav, uavs, unmanned, ubemannede, shahed, geran, interceptor, electronic warfare, elektronisk krigføring, jamming, air defence, air defense, luftvern, patriot, nasams, missile, missiles, missil, missiler, ballistic, hypersonic, artificial intelligence, kunstig intelligens, autonomous, autonome, sea drone, sjødrone, satellite, satellitt, starlink
+## Siste nytt om ny teknologi
+:::merknad Lista oppdateres automatisk hver time med saker fra kildene på Forsvarsnytt om nye våpen, droner, roboter, kunstig intelligens og annen militærteknologi. Saker som først og fremst handler om angrep, holdes utenfor.
+:::nyheter unveils, unveiled, new drone, new drones, new missile, new weapon, prototype, prototyp, laser, laservåpen, robot, robots, roboter, ugv, ugvs, autonomous, autonome, artificial intelligence, kunstig intelligens, interceptor, interceptors, avskjæringsdrone, sea drone, sea drones, sjødrone, sjødroner, fiber-optic, fiberoptisk, hypersonic, hypersonisk, defence industry, defense industry, forsvarsindustri, forsvarsindustrien, kongsberg, nammo, innovation, innovasjon, technology, teknologi, satellite, satellites, satellitt, electronic warfare, elektronisk krigføring, saildrone, saildrones, counter-drone, counter-uas, antidrone, utvikle, missile production, ammunition production, ammunisjonsproduksjon | ikke: attack, attacks, angrep, angriper, killed, kills, drept, dead, døde, strike on, strikes on, wounded, skadet, casualties, medal
 
-## Slik har krigføringen endret seg
-Utviklingen har gått i bølger: Den ene siden finner et nytt våpen eller en ny taktikk, og den andre finner et mottiltak etter noen måneder. Tidslinjen viser noen av de viktigste skiftene.
+## Nye typer droner
+Den største endringen er hvor mange nye typer droner som har kommet, og hvor raskt de utvikles. Mange lages av billige, kommersielle deler og forbedres på uker i stedet for år.
 
-@ 2022-06 | Langtrekkende presisjonsild: HIMARS | Ukraina får amerikanske HIMARS-rakettkastere og kan treffe russiske ammunisjonslagre og kommandoplasser langt bak fronten. Russland må flytte lagrene lenger unna, noe som gjør logistikken tyngre. | DFRLab (Atlantic Council) | https://dfrlab.org/2022/07/07/russian-war-report-ukraine-uses-himars-effectively-to-hit-russian-ammo-dumps/
-@ 2022-09 | Iranske Shahed-droner mot byer og strømnett | Russland begynner å bruke billige iranskutviklede enveisdroner (Shahed-136, senere produsert i Russland som Geran-2) mot ukrainske byer og energianlegg. De er billige nok til å sendes i store mengder, og presser luftvernet. | Euronews | https://www.euronews.com/2022/10/19/ukraine-crisis-iran-arms-explainer
-@ 2023 | Elektronisk krigføring blir avgjørende | Begge sider bruker store mengder utstyr for å forstyrre (jamme) radiosignaler og GPS. Det gjør at mange droner og presisjonsvåpen mister kontakten eller treffer feil, og det blir et konstant kappløp mellom forstyrring og nye frekvenser. | AP via ABC15 | https://www.abc15.com/news/national/russia-ukraine-conflict/deadly-secret-electronic-warfare-shapes-russia-ukraine-war
-@ 2023-05 | Patriot skyter ned Kinzhal | Ukraina skyter ned et russisk Kinzhal-missil med det amerikanske luftvernsystemet Patriot. Det viser at vestlig luftvern kan stoppe svært raske ballistiske missiler. | The Aviationist | https://theaviationist.com/2023/05/10/kinzhal-vs-patriot/
-@ 2024 | Sjødroner presser Svartehavsflåten | Ukrainske ubemannede overflatefartøyer (sjødroner) senker og skader flere russiske krigsskip. Russland flytter store deler av Svartehavsflåten bort fra Krim, uten at Ukraina har en tradisjonell marine. | Kyiv Independent | https://kyivindependent.com/ukraines-magura-naval-drones
-@ 2024-02 | Egen våpengren for droner | Ukraina bestemmer seg for å opprette en egen forsvarsgren for ubemannede systemer, Unmanned Systems Forces. Droner går fra å være et hjelpemiddel til å bli en hovedkapasitet. | Wikipedia | https://en.wikipedia.org/wiki/Unmanned_Systems_Forces_(Ukraine)
-@ 2024 | Glidebomber endrer frontlinjen | Russland bruker i stor skala gamle flybomber med påmonterte vinger og styring (UMPK). Flyene kan slippe dem fra trygg avstand, og de er vanskelige å skyte ned. | FDD's Long War Journal | https://www.fdd.org/analysis/2024/07/19/what-we-know-about-russias-new-3-ton-glide-bomb/
-@ 2024 | Fiberoptiske droner | Droner som styres gjennom en tynn fiberkabel i stedet for radio, dukker opp ved fronten. De kan ikke forstyrres med elektronisk krigføring, og blir et viktig svar på jammingen. | CEPA | https://cepa.org/article/a-new-and-more-deadly-drone-on-russias-battlefields/
-@ 2024-11 | Nytt mellomdistansemissil: Oreshnik | Russland angriper Dnipro med et nytt ballistisk mellomdistansemissil. Angrepet blir oppfattet som et politisk signal til Vesten like mye som et militært angrep. | Wikipedia | https://en.wikipedia.org/wiki/Oreshnik_(missile)
-@ 2025-04 | Avskjæringsdroner mot Shahed | Ukraina tar i bruk små, raske droner som jakter på og skyter ned Shahed-droner. De er langt billigere enn luftvernmissiler, og gjør det mulig å møte store droneangrep uten å bruke opp dyrt luftvern. | Ukrainska Pravda | https://www.pravda.com.ua/eng/news/2025/04/09/7506727/
-@ 2025-06 | Operasjon «Spiderweb» | Ukraina angriper flere russiske flybaser langt inne i Russland med droner smuglet inn i lastebiler, og skader et stort antall strategiske bombefly. Angrepet viser at billige droner kan true svært dyre våpensystemer langt fra fronten. | UK Defence Journal | https://ukdefencejournal.org.uk/ukraine-destroys-russian-bombers-in-historic-drone-raid/
+### Fiberoptiske droner
+Droner som styres gjennom en tynn fiberkabel i stedet for radiosignaler. De kan ikke forstyrres med elektronisk krigføring, og ble et viktig svar på at mange radiostyrte droner mistet kontakten.
+kilde: CEPA | https://cepa.org/article/a-new-and-more-deadly-drone-on-russias-battlefields/
 
-## De viktigste lærdommene
-- **Masse slår kvalitet i mange situasjoner.** Tusenvis av billige droner kan gjøre stor skade på dyre systemer, og det koster mer å forsvare seg enn å angripe.
-- **Den som ser, kan treffe.** Droner over fronten gjør det svært vanskelig å skjule seg, og store kjøretøykolonner blir lette mål.
-- **Elektronisk krigføring er overalt.** Systemer som er avhengige av GPS og radio, må tåle forstyrrelser, og det gir fortrinn til løsninger som fiberoptiske droner og egen navigasjon.
-- **Luftvern i flere lag.** Dyrt luftvern som Patriot trengs mot missiler, mens billigere løsninger, som avskjæringsdroner og kanoner, må ta seg av dronene.
-- **Rask utvikling og egen produksjon.** Den som kan utvikle, produsere og forbedre våpen raskt, ofte på uker, får et forsprang.
+### Avskjæringsdroner
+Små, raske droner laget for å jakte på og stoppe andre droner. De koster en brøkdel av et luftvernmissil, og gjør det mulig å forsvare seg mot mange droner uten å bruke opp dyrt luftvern.
+kilde: Ukrainska Pravda | https://www.pravda.com.ua/eng/news/2025/04/09/7506727/
 
-## Hva betyr dette for Norge?
-Lærdommene fra Ukraina preger norsk forsvarsplanlegging. Da regjeringen styrket langtidsplanen i mars 2026, ble droner og forsvar mot droner, elektronisk krigføring, satellittbasert kommunikasjon og et eget senter for kunstig intelligens trukket fram som satsingsområder.
+### Sjødroner
+Ukraina har utviklet ubemannede båter i flere generasjoner. I mai 2025 ble en ny versjon, Magura V7, brukt med luftvernmissiler om bord, noe som skal være første gang en sjødrone har skutt ned kampfly.
+kilde: Forces News | https://www.forcesnews.com/ukraine/ukraine-uses-sea-drones-down-russian-fighter-jets-historic-first
+
+### Bakkeroboter
+Ubemannede bakkekjøretøy (UGV) frakter ammunisjon, drivstoff og mat fram til stillingene og henter ut sårede soldater, slik at færre mennesker må inn i de farligste områdene. I april 2026 sa Ukraina at landet vil anskaffe minst 50 000 slike roboter.
+kilde: Euromaidan Press | https://euromaidanpress.com/2026/04/28/ukraine-plans-50000-ground-robots/
+
+## Kunstig intelligens og autonomi
+Kunstig intelligens brukes mest til å gjenkjenne mål og til å fly den siste strekningen selv når radioforbindelsen blir forstyrret. Ifølge en analyse fra CSIS har dette økt avstanden der droner kan oppdage mål fra rundt 300 meter til rundt 1 kilometer. Droner kan også navigere med kamera i stedet for GPS.
+- **Full autonomi finnes ikke ennå.** Mennesker tar fortsatt de endelige beslutningene, og systemene kan overstyres.
+- **Svermer** av droner som samarbeider på egen hånd, er fortsatt på forsøksstadiet.
+- **Begrensninger:** KI-en sliter med lokkemål, kamuflasje, dårlig vær og mørke.
+kilde: CSIS – Ukraine's Future Vision and Current Capabilities for Waging AI-Enabled Autonomous Warfare (mars 2025) | https://www.csis.org/analysis/ukraines-future-vision-and-current-capabilities-waging-ai-enabled-autonomous-warfare
+
+## Laservåpen
+Laservåpen har gått fra forsøk til bruk. De kan skyte ned droner og raketter for en svært lav pris per skudd, men virker best på kort avstand og i godt vær.
+!! ~£10 | per skudd med det britiske laservåpenet DragonFire
+!! 2027 | da DragonFire skal være på plass på et britisk krigsskip
+- **Iron Beam:** Israel fikk sitt første operative laservåpen for luftvern i desember 2025. Det er laget for å stoppe raketter, granater og droner.
+kilde: The Defense Post | https://thedefensepost.com/2025/12/30/israel-first-iron-beam
+- **DragonFire:** Storbritannias laservåpen skjøt i forsøk ned droner med fart på opptil 650 km/t, og skal monteres på et krigsskip innen 2027, rundt fem år tidligere enn planlagt.
+kilde: UK Defence Equipment & Support | https://des.mod.uk/boost-for-armed-forces-as-new-laser-weapon-takes-down-high-speed-drones
+
+## Nye missiler
+- **FP-5 Flamingo:** Et ukrainskutviklet langtrekkende kryssermissil, vist fram i august 2025. Produsenten oppgir en rekkevidde på opptil 3000 km. Det viser hvordan Ukraina bygger opp sin egen våpenindustri.
+kilde: Euronews | https://euronews.com/next/2025/08/26/flamingo-will-ukraines-new-wonder-weapon-replace-the-taurus
+- **Luftvern mot raske missiler:** I mai 2023 skjøt Ukraina ned et russisk Kinzhal-missil med Patriot, et viktig bevis på at vestlig luftvern kan stoppe svært raske ballistiske missiler.
+kilde: The Aviationist | https://theaviationist.com/2023/05/10/kinzhal-vs-patriot/
+
+## En ny måte å utvikle våpen på
+Ukraina har vist at det går an å utvikle og forbedre våpen svært raskt når soldater, ingeniører og bedrifter jobber tett sammen.
+- **Brave1** (2023) er en statlig plattform som gir penger og støtte til selskaper som utvikler forsvarsteknologi, og lar dem teste løsningene sine sammen med soldater.
+kilde: AIN | https://en.ain.ua/2023/05/02/ukrainian-brave1-cluster
+- **Egen forsvarsgren for droner** (2024): Ukraina opprettet Unmanned Systems Forces, og gjorde droner til en hovedkapasitet i stedet for et hjelpemiddel.
+kilde: Wikipedia | https://en.wikipedia.org/wiki/Unmanned_Systems_Forces_(Ukraine)
+- **Elektronisk krigføring** driver utviklingen: Når et system blir forstyrret, kommer nye frekvenser, navigasjon uten GPS eller fiberkabler, ofte i løpet av noen uker.
+kilde: AP via ABC15 | https://www.abc15.com/news/national/russia-ukraine-conflict/deadly-secret-electronic-warfare-shapes-russia-ukraine-war
+
+## Norsk teknologi
+- **Kongsberg** åpnet i juni 2024 en ny missilfabrikk i Kongsberg for de norskutviklede missilene NSM (sjømålsmissil) og JSM (for kampfly), for å kunne produsere langt flere.
+kilde: Naval News | https://www.navalnews.com/?p=59309
+- **Langtidsplanen:** Da regjeringen styrket langtidsplanen i mars 2026, ble droner og forsvar mot droner, elektronisk krigføring, satellittkommunikasjon og et eget senter for kunstig intelligens trukket fram som satsingsområder, sammen med penger til norsk og europeisk forsvarsindustri.
 kilde: Regjeringen | https://www.regjeringen.no/no/aktuelt/statsministerens-innledning-pa-pressekonferanse-om-endringer-i-langtidsplanen-for-forsvarssektoren/id3155070/
 
 Les mer om hva Norge investerer i på siden om langtidsplanen.
 
-:::merknad Tidslinjen over er skrevet for Forsvarsnytt med egne ord, med lenke til kilden for hver endring. Datoene viser omtrent når endringen ble kjent, siden mange av utviklingene skjedde gradvis. Ny utvikling legges til fortløpende, mens nyhetene øverst oppdateres automatisk.
+## Utviklingen år for år
+@ 2022 | Billige langtrekkende droner | Iranskutviklede Shahed-droner, senere produsert i Russland, viser at enkle og billige enveisdroner kan brukes i stor skala. Det setter fart i utviklingen av billigere luftvern. | Euronews | https://www.euronews.com/2022/10/19/ukraine-crisis-iran-arms-explainer
+@ 2023 | Elektronisk krigføring blir avgjørende | Jamming av radio og GPS blir så utbredt at alle nye droner og presisjonsvåpen må kunne tåle det. | AP via ABC15 | https://www.abc15.com/news/national/russia-ukraine-conflict/deadly-secret-electronic-warfare-shapes-russia-ukraine-war
+@ 2023-05 | Plattform for forsvarsteknologi | Ukraina oppretter Brave1, som gir penger og støtte til selskaper som utvikler forsvarsteknologi. | AIN | https://en.ain.ua/2023/05/02/ukrainian-brave1-cluster
+@ 2024 | Egen forsvarsgren for droner og sjødroner i flere generasjoner | Ukraina oppretter Unmanned Systems Forces, og sjødronene utvikles videre. | Wikipedia | https://en.wikipedia.org/wiki/Unmanned_Systems_Forces_(Ukraine)
+@ 2024-06 | Ny missilfabrikk i Norge | Kongsberg åpner en ny fabrikk for NSM og JSM. | Naval News | https://www.navalnews.com/?p=59309
+@ 2024 | Fiberoptiske droner | Droner som styres via fiberkabel, dukker opp og kan ikke jammes. | CEPA | https://cepa.org/article/a-new-and-more-deadly-drone-on-russias-battlefields/
+@ 2025-03 | Kunstig intelligens i droner | CSIS beskriver hvordan KI lar droner finne mål og fly den siste strekningen selv, men at full autonomi fortsatt er langt unna. | CSIS | https://www.csis.org/analysis/ukraines-future-vision-and-current-capabilities-waging-ai-enabled-autonomous-warfare
+@ 2025-04 | Avskjæringsdroner | Ukraina viser fram nye droner laget for å stoppe andre droner. | Ukrainska Pravda | https://www.pravda.com.ua/eng/news/2025/04/09/7506727/
+@ 2025-05 | Sjødrone med luftvernmissiler | Magura V7 tas i bruk med luftvernmissiler om bord. | Forces News | https://www.forcesnews.com/ukraine/ukraine-uses-sea-drones-down-russian-fighter-jets-historic-first
+@ 2025-08 | Ukrainsk langtrekkende kryssermissil | FP-5 Flamingo vises fram. | Euronews | https://euronews.com/next/2025/08/26/flamingo-will-ukraines-new-wonder-weapon-replace-the-taurus
+@ 2025-11 | Laservåpen på krigsskip | Storbritannia fremskynder DragonFire til 2027 etter vellykkede forsøk. | UK Defence Equipment & Support | https://des.mod.uk/boost-for-armed-forces-as-new-laser-weapon-takes-down-high-speed-drones
+@ 2025-12 | Første operative laservåpen for luftvern | Israel tar i bruk Iron Beam. | The Defense Post | https://thedefensepost.com/2025/12/30/israel-first-iron-beam
+@ 2026-04 | Bakkeroboter i stor skala | Ukraina vil anskaffe minst 50 000 ubemannede bakkekjøretøy. | Euromaidan Press | https://euromaidanpress.com/2026/04/28/ukraine-plans-50000-ground-robots/
+
+:::merknad Siden er skrevet for Forsvarsnytt med egne ord, med lenke til kilden for hvert punkt. Opplysninger om nye våpen kommer ofte fra produsentene eller fra partene i krigen selv, og kan være vanskelige å bekrefte uavhengig. Nye utviklinger legges til fortløpende, mens nyhetene øverst oppdateres automatisk.
