@@ -72,6 +72,12 @@ Konfliktene ligger i `konflikter.txt`, med type (krig, konflikt eller spenning),
 
 Hendelsene ligger i `tidslinje.txt`, med dato, kategori, overskrift, en kort tekst med egne ord og en kilde. Legg til nye hendelser nederst, med samme format. Hver hendelse skal ha en kilde, helst fra FN, NATO, regjeringen.no eller en annen pålitelig kilde.
 
+## Temasider
+
+Sidene «Teknologi og Ukraina-krigen», «Langtidsplanen forklart» og «Beredskap hjemme» lages fra tekstfilene i mappen `sider/`. Nummeret foran filnavnet bestemmer rekkefølgen i menyen, og filen `1-teknologi.txt` blir siden `teknologi.html`. Formatet står forklart øverst i `undersider.py`: `#` er tittel, `>` ingress, `##` overskrift, `- ` punkt, `[ ] ` sjekkpunkt, `!! tall | tekst` nøkkeltall, `@ dato | tittel | tekst | kilde | lenke` hendelse, `kilde: navn | lenke` kilde, og `:::nyheter ord, ord` gir en liste med siste saker om temaet som oppdateres automatisk.
+
+Legg til en ny side ved å lage en ny fil, for eksempel `sider/4-nordomradene.txt`. Den dukker opp i menyen av seg selv.
+
 ## Tilbakemeldinger og kontakt
 
 Knappene «Gi tilbakemelding» og «Ta kontakt her» åpner en e-post til adressen i `feeds.json` (`"kontakt_epost"`), med ferdig emnelinje. Adressen ligger baklengs i nettsidens kode og settes sammen i nettleseren, slik at den er vanskeligere for spamroboter å plukke opp. Henvendelser fra utgivere som vil ha noe endret eller fjernet, skal følges opp raskt.

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITTEL}} – Forsvarsnytt</title>
+<script>try { var t = localStorage.getItem("forsvarsnytt-tema"); if (t === "lys" || t === "mork") document.documentElement.dataset.tema = t; } catch (e) {}</script>
+<style>
+{{STIL}}
+  /* temasider */
+  .side { max-width: 820px; }
+  .side-topp { margin: 26px 0 6px; }
+  .side-topp h1 { font-size: 30px; line-height: 1.2; text-transform: none; letter-spacing: -0.02em; margin: 0 0 10px; }
+  .side-ingress { font-size: 18px; line-height: 1.55; color: var(--dempet); margin: 0 0 14px; }
+  .toc { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
+  .toc a { font-size: 13px; text-decoration: none; color: var(--tekst); background: var(--chip); padding: 4px 10px; border-radius: 999px; }
+  .toc a:hover { color: var(--aksent); }
+  .innhold h2 { all: unset; display: block; font-size: 22px; font-weight: 800; margin: 34px 0 10px; padding-bottom: 6px;
+    border-bottom: 2px solid var(--tekst); scroll-margin-top: 16px; }
+  .innhold h3 { font-size: 17px; margin: 20px 0 6px; text-transform: none; letter-spacing: 0; color: var(--tekst); }
+  .innhold p { font-size: 16px; line-height: 1.65; margin: 0 0 12px; }
+  .innhold ul { margin: 0 0 14px; padding-left: 22px; font-size: 16px; line-height: 1.6; }
+  .innhold li { margin-bottom: 4px; }
+  .innhold a { color: var(--aksent); }
+  .u-kilde { font-size: 13px; color: var(--dempet); margin: -4px 0 14px; }
+  .u-merknad { background: var(--chip); border-left: 4px solid var(--aksent); padding: 12px 14px; border-radius: 8px;
+    font-size: 15px; line-height: 1.55; margin: 6px 0 16px; }
+  .u-fliser { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; margin: 10px 0 16px; }
+  .u-flis { background: var(--flate); border: 1px solid var(--linje); border-radius: 10px; padding: 14px; }
+  .u-flis b { display: block; font-size: 26px; line-height: 1.1; color: var(--aksent); margin-bottom: 4px; }
+  .u-flis span { font-size: 14px; color: var(--dempet); line-height: 1.4; }
+  .u-tid { position: relative; padding-left: 22px; margin: 8px 0 18px; }
+  .u-tid::before { content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--linje); }
+  .u-hend { position: relative; padding: 2px 0 14px; }
+  .u-hend::before { content: ""; position: absolute; left: -21px; top: 6px; width: 12px; height: 12px; border-radius: 50%;
+    background: var(--aksent); border: 2px solid var(--bg); box-shadow: 0 0 0 1px var(--aksent); }
+  .u-dato { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--aksent); }
+  .u-hend h3 { margin: 2px 0 3px; font-size: 16px; }
+  .u-hend p { font-size: 15px; margin: 0 0 3px; }
+  .u-hend .u-kilde { margin: 0; }
+  .u-sjekk { list-style: none; padding: 0 !important; }
+  .u-sjekk li { background: var(--flate); border: 1px solid var(--linje); border-radius: 8px; margin-bottom: 6px; }
+  .u-sjekk label { display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; cursor: pointer; }
+  .u-sjekk input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--aksent); flex: none; }
+  .u-sjekk input:checked + span { color: var(--dempet); text-decoration: line-through; }
+  .fremdrift { position: sticky; top: 0; z-index: 2; background: var(--bg); padding: 10px 0 8px; font-size: 14px; font-weight: 600;
+    border-bottom: 1px solid var(--linje); margin-bottom: 8px; }
+  .fremdrift .bar { height: 8px; border-radius: 99px; background: var(--chip); overflow: hidden; margin-top: 6px; }
+  .fremdrift .bar i { display: block; height: 100%; width: 0; background: var(--aksent); transition: width .3s; }
+  .u-nyheter { list-style: none; padding: 0 !important; margin: 6px 0 18px; }
+  .u-nyheter li { padding: 9px 0; border-top: 1px solid var(--linje); }
+  .u-nyheter a { color: var(--tekst) !important; font-weight: 600; text-decoration: none; }
+  .u-nyheter a:hover { color: var(--aksent) !important; text-decoration: underline; }
+  .u-nyheter small { display: block; color: var(--dempet); font-size: 12px; margin-top: 2px; }
+  .u-tom { color: var(--dempet); font-style: italic; margin: 6px 0 16px; }
+  .tilbake-lenke { color: var(--tekst); text-decoration: none; font-size: 14px; }
+  .tilbake-lenke:hover { color: var(--aksent); }
+  @media (max-width: 600px) { .side-topp h1 { font-size: 25px; } .side-ingress { font-size: 16px; } }
+  @media print { .banner, .temameny, .verktoy, footer, .toc, .fremdrift { display: none !important; } }
+</style>
+</head>
+<body>
+<header class="banner">
+{{FELLES_TOPP}}
+  <div class="banner-innhold">
+    <a href="./" style="text-decoration:none;color:inherit"><h1>Forsvars<span>nytt</span></h1></a>
+    <div class="under">Sikkerhet og forsvar fra Norge og verden · oppdatert {{OPPDATERT}}</div>
+    <div class="verktoy">
+      <a href="./">← Til forsiden</a>
+      <button id="tema-knapp" type="button"><span id="tema-tekst">Tema: auto</span></button>
+    </div>
+  </div>
+</header>
+{{MENY}}
+<div class="ramme side">
+  <div class="side-topp">
+    <h1>{{TITTEL}}</h1>
+    <p class="side-ingress">{{INGRESS}}</p>
+    <nav class="toc" aria-label="Innhold">{{TOC}}</nav>
+  </div>
+  <main class="innhold">
+{{INNHOLD}}
+  </main>
+  <footer>
+    <p><b>Om Forsvarsnytt.</b> Et ikke-kommersielt hobbyprosjekt som ikke er tilknyttet Forsvaret. Temasidene er skrevet for Forsvarsnytt med egne ord og lenker til kildene, som bør leses for fullstendig og oppdatert informasjon.</p>
+    <p>Ser du noe som er feil eller utdatert? <a href="{{KONTAKT}}" class="epost" data-emne="Tilbakemelding om Forsvarsnytt">Gi tilbakemelding</a>.</p>
+  </footer>
+</div>
+<script>
+// lys / mørk side
+(function () {
+  const knapp = document.getElementById("tema-knapp"), tekst = document.getElementById("tema-tekst");
+  const valg = ["auto", "lys", "mork"], navn = { auto: "Tema: auto", lys: "Tema: lys", mork: "Tema: mørk" };
+  let tema = document.documentElement.dataset.tema || "auto";
+  function sett(t) {
+    tema = t;
+    if (t === "auto") delete document.documentElement.dataset.tema; else document.documentElement.dataset.tema = t;
+    tekst.textContent = navn[t];
+    try { if (t === "auto") localStorage.removeItem("forsvarsnytt-tema"); else localStorage.setItem("forsvarsnytt-tema", t); } catch (e) {}
+  }
+  knapp.onclick = () => sett(valg[(valg.indexOf(tema) + 1) % valg.length]);
+  sett(tema);
+})();
+
+// sjekklister: huskes i nettleseren, med fremdrift
+(function () {
+  const bokser = [...document.querySelectorAll(".u-sjekk input")];
+  if (!bokser.length) return;
+  const f = document.createElement("div"); f.className = "fremdrift";
+  f.innerHTML = '<span id="fremdrift-tekst"></span><div class="bar"><i id="fremdrift-bar"></i></div>';
+  document.querySelector(".u-sjekk").before(f);
+  // flytt fremdriften opp under «Sjekkliste»-overskriften så den gjelder hele lista
+  const h = document.getElementById("sjekkliste");
+  if (h && h.nextElementSibling) h.nextElementSibling.after(f);
+  function oppdater() {
+    const n = bokser.filter(b => b.checked).length;
+    document.getElementById("fremdrift-tekst").textContent = `Du har ${n} av ${bokser.length} på plass`;
+    document.getElementById("fremdrift-bar").style.width = (100 * n / bokser.length) + "%";
+  }
+  bokser.forEach(b => {
+    try { b.checked = localStorage.getItem("fn-sjekk-" + b.dataset.nokkel) === "1"; } catch (e) {}
+    b.addEventListener("change", () => {
+      try { localStorage.setItem("fn-sjekk-" + b.dataset.nokkel, b.checked ? "1" : "0"); } catch (e) {}
+      oppdater();
+    });
+  });
+  oppdater();
+})();
+
+// e-post satt sammen i nettleseren (vanskeligere for spamroboter)
+(function () {
+  const baklengs = /*EPOST*/null;
+  if (!baklengs) return;
+  const adresse = baklengs.split("").reverse().join("");
+  document.querySelectorAll("a.epost").forEach(a => {
+    a.href = "mailto:" + adresse + "?subject=" + encodeURIComponent(a.dataset.emne || "Forsvarsnytt");
+  });
+})();
+</script>
+</body>
+</html>

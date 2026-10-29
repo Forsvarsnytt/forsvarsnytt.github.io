@@ -1,0 +1,78 @@
+<!-- TEMASIDE: Beredskap hjemme. Bygger på rådene fra DSB. Sist gjennomgått 29.10.2026. -->
+# Beredskap hjemme
+> Myndighetene anbefaler at flest mulig er forberedt på å klare seg selv i **én uke** hvis strøm, vann, mobilnett eller betalingssystemer faller ut, enten det skyldes ekstremvær, sabotasje eller krig. Her er rådene fra Direktoratet for samfunnssikkerhet og beredskap (DSB), med en sjekkliste du kan krysse av.
+
+## Kort fortalt
+!! 1 uke | så lenge du bør kunne klare deg selv
+!! 20 liter | drikkevann per person
+!! 7 dager | ekstra av faste medisiner
+!! NRK P1 | er beredskapskanalen på radio
+
+## Sjekkliste
+Kryss av det du har på plass. Avkrysningene lagres bare i din egen nettleser.
+
+### Vann og mat
+[ ] Rundt 20 liter drikkevann per person, på kanner eller flasker
+[ ] Mat til alle i husstanden i en uke, som tåler romtemperatur
+[ ] Mat som kan spises uten varming, som knekkebrød, havregryn, hermetikk, nøtter og tørket frukt
+[ ] Grill, kokeapparat eller stormkjøkken, med ekstra gass eller brennstoff
+[ ] Mat og vann til kjæledyr
+
+### Varme og lys
+[ ] Varme klær og pledd, dyner eller soveposer
+[ ] Fyrstikker og stearinlys
+[ ] Lommelykt eller hodelykt som går på batteri, sveiv eller solceller
+[ ] Ved, hvis du har vedovn, eller en gass- eller parafinovn laget for innendørs bruk
+[ ] En avtale om hvor du kan overnatte hvis det blir for kaldt hjemme
+
+### Informasjon
+[ ] DAB-radio som går på batterier, sveiv eller solceller
+[ ] Ekstra batterier og en oppladet batteribank
+[ ] Liste på papir med viktige telefonnumre, som legevakt, familie, venner og naboer
+
+### Helse og hygiene
+[ ] Faste medisiner og medisinsk utstyr for minst sju ekstra dager
+[ ] Førstehjelpsutstyr
+[ ] Jodtabletter hvis det er barn, voksne under 40 år, gravide eller ammende i husstanden
+[ ] Hygieneartikler som våtservietter, håndsprit og toalettpapir
+
+### Penger
+[ ] Litt kontanter
+[ ] Flere betalingskort
+kilde: DSB – Råd om egenberedskap (brosjyre) | https://www.dsb.no/siteassets/sikkerhverdag/egenberedskap/brosjyren/dsb-egenberedskap-bokmal-uu-web_ny.pdf
+
+:::merknad Jodtabletter skal **bare** tas når myndighetene sier fra om det. Følg rådene fra helsemyndighetene.
+
+## Tips om vann
+- Fyll rene kanner eller flasker med vann fra springen, eller kjøp flaskevann.
+- Har du lite plass, er flere små beholdere bedre enn noen få store.
+- Fyll aldri beholdere helt opp hvis de skal i fryseren, ellers kan de sprekke.
+- Rent vann på rene beholdere kan lagres i mange år. Det kan smake litt flatt etter en stund, men det er ikke farlig.
+kilde: DSB – Emergency water | https://www.dsb.no/en/Safe-everyday-life/Self-preparedness/emergency-water/
+
+## Hva betyr sirenene?
+Sivilforsvaret kan varsle befolkningen med tyfoner (sirener). Det finnes tre signaler:
+- **Viktig melding – søk informasjon:** tre serier med lange støt, med ett minutts pause mellom. Skru på radio eller TV, eller sjekk myndighetenes nettsider og kanaler.
+- **Fare for angrep – søk dekning:** korte støt i omtrent ett minutt. Søk dekning med en gang.
+- **Faren over:** én sammenhengende tone i et halvt minutt.
+
+Sirenene testes klokka 12 den andre onsdagen i januar og i juni, med signalet «Viktig melding – søk informasjon».
+kilde: DSB – What the air raid sirens mean | https://www.dsb.no/en/Safe-everyday-life/Self-preparedness/what-the-air-raid-sirens-means/
+
+## Hvis det blir krig
+- Regn med at strøm, vann fra springen, kortbetaling, internett og mobilnett kan falle ut, og at nødetatene må prioritere dem som trenger hjelp mest.
+- Hold deg oppdatert gjennom myndighetenes kanaler og redaktørstyrte medier. **NRK P1** er beredskapskanalen.
+- Finnes det ikke tilfluktsrom i nærheten, søk dekning i en kjeller eller et rom midt i bygningen, unna vinduer.
+- Planlegg hvor du kan dra hvis du må evakuere, og hvordan du kommer deg dit.
+- Ta med varme klær eller pledd, telefon og lader, bankkort, kontanter, mat og drikke, legitimasjon, medisiner og hjelpemidler som briller.
+- Finn ut hvor kommunen har møteplasser der du kan få informasjon og hjelp hvis strøm og mobilnett er borte lenge.
+kilde: DSB – Egenberedskap i krig | https://www.dsb.no/ros-og-beredskap/totalforsvarsaret-2026/egenberedskap-i-krig/
+
+## Totalforsvarsåret 2026
+2026 er Totalforsvarsåret i Norge. Totalforsvaret betyr at hele samfunnet, både Forsvaret, sivile myndigheter, næringslivet og befolkningen, skal støtte hverandre i kriser og krig. At hver enkelt husstand kan klare seg selv en uke, er en del av dette, fordi det gir myndighetene og nødetatene mulighet til å hjelpe dem som trenger det mest.
+kilde: DSB – Totalforsvarsåret 2026 | https://www.dsb.no/en/risk-vulnerability-and-preparedness/Total-Defence/
+
+## Siste nytt om beredskap
+:::nyheter beredskap, egenberedskap, totalforsvar, totalforsvaret, totalforsvarsåret, sivilforsvaret, dsb, tilfluktsrom, preparedness, civil defence, civil protection, strømbrudd, power outage, sabotage, sabotasje, cyberangrep, cyber attack, nsm
+
+:::merknad Rådene er hentet fra DSB og skrevet om med egne ord. DSB oppdaterer rådene av og til, så sjekk [DSBs sider om egenberedskap](https://www.dsb.no/en/Safe-everyday-life/Self-preparedness/) for den nyeste versjonen.

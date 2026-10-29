@@ -49,14 +49,14 @@
   h1 { margin: 0; font-size: 28px; letter-spacing: -0.02em; text-transform: uppercase; }
   h1 span { color: var(--aksent); }
   .under { color: var(--dempet); font-size: 14px; margin-top: 4px; }
-  nav { display: flex; gap: 6px; overflow-x: auto; padding: 14px 0 10px;
+  #faner { display: flex; gap: 6px; overflow-x: auto; padding: 14px 0 10px;
     position: sticky; top: 0; background: var(--bg); z-index: 2; scrollbar-width: none; }
-  nav::-webkit-scrollbar { display: none; }
-  nav button { flex: none; border: 1px solid var(--linje); background: var(--flate);
+  #faner::-webkit-scrollbar { display: none; }
+  #faner button { flex: none; border: 1px solid var(--linje); background: var(--flate);
     color: var(--tekst); border-radius: 999px; padding: 6px 12px; font: inherit;
     font-size: 14px; cursor: pointer; }
-  nav button[aria-pressed="true"] { background: var(--aksent); color: var(--aksent-tekst); border-color: var(--aksent); }
-  nav button small { opacity: .7; margin-left: 4px; }
+  #faner button[aria-pressed="true"] { background: var(--aksent); color: var(--aksent-tekst); border-color: var(--aksent); }
+  #faner button small { opacity: .7; margin-left: 4px; }
   .sok { width: 100%; padding: 10px 12px; border: 1px solid var(--linje); border-radius: 8px;
     background: var(--flate); color: var(--tekst); font: inherit; margin-bottom: 8px; }
   h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--dempet);
@@ -234,6 +234,16 @@
   .tilbake { border: none; background: none; color: var(--aksent); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; padding: 10px 0 0; }
   .liten-merknad { color: var(--dempet); font-size: 12px; margin-top: 16px; }
 
+
+  /* meny mellom sidene */
+  .temameny { background: var(--flate); border-bottom: 1px solid var(--linje); }
+  .temameny div { max-width: 960px; margin: 0 auto; padding: 0 16px; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+  .temameny div::-webkit-scrollbar { display: none; }
+  .temameny a { flex: none; padding: 11px 12px; font-size: 14px; font-weight: 600; color: var(--dempet); text-decoration: none;
+    border-bottom: 3px solid transparent; }
+  .temameny a:hover { color: var(--tekst); }
+  .temameny a[aria-current="page"] { color: var(--tekst); border-bottom-color: var(--aksent); }
+
   /* ukens hjørne */
   .hjorne { background: var(--flate); border: 1px solid var(--linje); border-radius: 10px;
     padding: 16px 18px 14px; margin: 18px 0 4px; }
@@ -355,6 +365,7 @@
     </div>
   </div>
 </header>
+{{TEMAMENY}}
 <div class="ramme">
   <section class="hjorne" id="hjorne" hidden aria-labelledby="hjorne-tittel">
     <div class="hjorne-topp">

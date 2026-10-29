@@ -17,6 +17,7 @@ import xml.etree.ElementTree as ET
 import mest_omtalt
 import ukens
 import konflikter
+import undersider
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
@@ -305,7 +306,35 @@ def main():
 
     mal = (ROT / "mal.html").read_text(encoding="utf-8")
     nå = datetime.now(OSLO).strftime("%d.%m.%Y kl. %H:%M")
+    epost = til_js(cfg["kontakt_epost"][::-1] if cfg.get("kontakt_epost") else None)
+
+    # temasider fra mappen sider/: samme stil og banner som forsiden
+    stil = re.search(r"<style>(.*?)</style>", mal, re.S).group(1)
+    banner = re.search(r'<header class="banner">(.*?)<div class="banner-innhold">', mal, re.S).group(1)
+    banner = re.sub(r'<button class="banner-pause".*?</button>', "", banner, flags=re.S)
+    sidetitler = []
+
+    def meny(aktiv):
+        lenker = [("./", "Forsiden")] + sidetitler
+        deler = []
+        for f, t in lenker:
+            gjeldende = ' aria-current="page"' if f == aktiv else ""
+            deler.append(f'<a href="{f}"{gjeldende}>{html.escape(t)}</a>')
+        return '<nav class="temameny" aria-label="Sider"><div>' + "".join(deler) + "</div></nav>"
+
+    def sett_meny(liste):
+        sidetitler[:] = liste
+
+    felles = {"meny": meny, "sett_meny": sett_meny, "topp": banner, "oppdatert": nå, "kontakt": "#", "epost": epost}
+    side_mal = (ROT / "side-mal.html").read_text(encoding="utf-8") if (ROT / "side-mal.html").exists() else None
+    if side_mal:
+        _, temasider = undersider.lag(saker, side_mal, stil, felles)
+        for filnavn, innhold in temasider.items():
+            (UT / filnavn).write_text(innhold, encoding="utf-8")
+        print(f"Laget {len(temasider)} temasider: {', '.join(temasider)}")
+
     side = (mal
+            .replace("{{TEMAMENY}}", meny("./"))
             .replace("/*DATA*/null", til_js(saker))
             .replace("/*OPPS*/null", til_js(opps))
             .replace("/*UKER*/null", til_js(uker))
@@ -317,7 +346,7 @@ def main():
             .replace("/*TEMAER*/null", til_js([{"id": t["id"], "navn": t["navn"]} for t in cfg["temaer"]]))
             .replace("{{OPPDATERT}}", nå)
             .replace("{{KONTAKT}}", kontakt)
-            .replace("/*EPOST*/null", til_js(cfg["kontakt_epost"][::-1] if cfg.get("kontakt_epost") else None)))
+            .replace("/*EPOST*/null", epost))
     (UT / "index.html").write_text(side, encoding="utf-8")
     print(f"Laget site/index.html med {len(saker)} saker")
 
