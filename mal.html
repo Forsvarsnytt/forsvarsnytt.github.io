@@ -262,6 +262,7 @@
     border-radius: 999px; padding: 4px 11px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
   .n-filter button i, .n-gren i, .n-liste i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
   .n-filter button[aria-pressed="true"] { background: var(--tekst); color: var(--bg); border-color: var(--tekst); }
+  .n-hint { font-size: 12px; color: var(--dempet); margin: 6px 0 0; text-align: center; }
   .n-tall { font-size: 13px; color: var(--dempet); margin: 0 0 8px; }
   .n-landsdel { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--dempet); font-weight: 600; margin: 14px 0 6px; }
   .n-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 6px; }
@@ -502,6 +503,7 @@
             <button type="button" id="nzoom-nullstill" aria-label="Tilbakestill kartet">⟲</button>
           </div>
         </div>
+        <div class="n-hint">Zoom med to fingre, musehjulet eller + og −. Dra for å flytte kartet.</div>
         <div class="n-filter" id="n-filter" role="group" aria-label="Vis steder med"></div>
       </div>
       <div id="n-innhold"></div>
