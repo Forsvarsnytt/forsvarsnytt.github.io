@@ -236,6 +236,57 @@
   .liten-merknad { color: var(--dempet); font-size: 12px; margin-top: 16px; }
 
 
+  /* Norgeskart med Forsvarets tjenestesteder */
+  :root { --g-haeren: #4b7a2a; --g-sjoforsvaret: #1d3f7a; --g-luftforsvaret: #2490b8; --g-heimevernet: #8a6a1f;
+    --g-spesialstyrker: #5b3d7a; --g-cyber: #b0347a; --g-utdanning: #c2671b; --g-felles: #6b6f68; --g-nato: #b4442c; }
+  @media (prefers-color-scheme: dark) { :root:not([data-tema="lys"]) { --g-haeren: #93c46a; --g-sjoforsvaret: #8eb0f0; --g-luftforsvaret: #7fd0ec;
+    --g-heimevernet: #d8b45c; --g-spesialstyrker: #bf9fe6; --g-cyber: #ef90c4; --g-utdanning: #f0a560; --g-felles: #b4b9b0; --g-nato: #e27a5f; } }
+  :root[data-tema="mork"] { --g-haeren: #93c46a; --g-sjoforsvaret: #8eb0f0; --g-luftforsvaret: #7fd0ec;
+    --g-heimevernet: #d8b45c; --g-spesialstyrker: #bf9fe6; --g-cyber: #ef90c4; --g-utdanning: #f0a560; --g-felles: #b4b9b0; --g-nato: #e27a5f; }
+  .n-oppsett { display: grid; gap: 14px; }
+  @media (min-width: 780px) {
+    .n-oppsett { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+    .n-kartdel { position: sticky; top: 0; }
+  }
+  .n-kartdel .kart-svg { width: min(100%, calc((100vh - 150px) * 0.888)); margin: 0 auto; }
+  .kart-svg .naboland { fill: color-mix(in srgb, var(--kart-land) 55%, var(--kart-hav)); stroke: var(--kart-kant); stroke-width: .4; vector-effect: non-scaling-stroke; }
+  .kart-svg .norge { fill: var(--kart-land); stroke: var(--kart-kant); stroke-width: .8; vector-effect: non-scaling-stroke; }
+  .markor.sted .prikk { fill: var(--farge); stroke: var(--flate); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+  .markor.sted.valgt .prikk { stroke: var(--tekst); stroke-width: 3; }
+  .markor.sted.skjult { display: none; }
+  .n-navn { font: 600 11px system-ui, sans-serif; fill: var(--tekst); paint-order: stroke; stroke: var(--kart-hav); stroke-width: 3px;
+    stroke-linejoin: round; pointer-events: none; }
+  .n-navn.skjult { display: none; }
+  .n-filter { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 2px; }
+  .n-filter button { border: 1px solid var(--linje); background: var(--flate); color: var(--tekst); font: inherit; font-size: 13px;
+    border-radius: 999px; padding: 4px 11px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+  .n-filter button i, .n-gren i, .n-liste i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
+  .n-filter button[aria-pressed="true"] { background: var(--tekst); color: var(--bg); border-color: var(--tekst); }
+  .n-tall { font-size: 13px; color: var(--dempet); margin: 0 0 8px; }
+  .n-landsdel { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--dempet); font-weight: 600; margin: 14px 0 6px; }
+  .n-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 6px; }
+  .n-liste button { all: unset; box-sizing: border-box; cursor: pointer; display: flex; align-items: center; gap: 8px;
+    padding: 8px 10px; border: 1px solid var(--linje); border-radius: 8px; font-size: 14px; background: var(--flate); }
+  .n-liste button:hover, .n-liste button:focus-visible { border-color: var(--aksent); }
+  .n-liste small { margin-left: auto; color: var(--dempet); font-size: 12px; }
+  .n-detalj h3 { all: unset; display: block; font-size: 21px; font-weight: 700; margin: 6px 0 2px; color: var(--tekst); }
+  .n-detalj .n-kommune { color: var(--dempet); font-size: 14px; }
+  .n-detalj p { margin: 10px 0 6px; font-size: 15px; line-height: 1.55; }
+  .n-gren { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+    color: var(--farge); margin: 14px 0 4px; }
+  .n-gren i { background: var(--farge); }
+  .n-avd { list-style: none; margin: 0; padding: 0; }
+  .n-avd li { padding: 6px 0 6px 17px; border-top: 1px solid var(--linje); font-size: 15px; }
+  .n-avd li b { font-weight: 600; }
+  .n-avd li span { display: block; color: var(--dempet); font-size: 13px; }
+  .n-lenke { display: inline-block; margin: 14px 0 4px; color: var(--aksent); font-weight: 600; font-size: 14px; }
+  .n-forklar { margin: 16px 0 0; font-size: 14px; }
+  .n-forklar summary { cursor: pointer; font-weight: 600; color: var(--aksent); }
+  .n-forklar dl { margin: 8px 0 0; }
+  .n-forklar .rad { display: grid; grid-template-columns: 22px 1fr; gap: 4px 6px; padding: 6px 0; border-top: 1px solid var(--linje); }
+  .n-forklar dt i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; margin-top: 4px; }
+  .n-forklar dd { margin: 0; line-height: 1.45; } .n-forklar dd b { display: block; }
+
   /* meny mellom sidene */
   .temameny { background: var(--flate); border-bottom: 1px solid var(--linje); }
   .temameny div { max-width: 960px; margin: 0 auto; padding: 0 16px; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
@@ -359,6 +410,7 @@
     <div class="under">Sikkerhet og forsvar fra Norge og verden · oppdatert {{OPPDATERT}}</div>
     <div class="verktoy">
       <button id="apne-konfliktkart" aria-controls="konfliktkart" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Konfliktkart</button>
+      <button id="apne-norgeskart" aria-controls="norgeskart" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Forsvaret i Norge</button>
       <button id="apne-tidslinje" aria-controls="tidslinje" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Tidslinje fra 2022</button>
       <button id="tema-knapp" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span id="tema-tekst">Tema: auto</span></button>
       <button id="apne-ordliste" aria-controls="ordliste"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Forkortelser</button>
@@ -413,7 +465,7 @@
     <p><b>Om Forsvarsnytt.</b> Et ikke-kommersielt hobbyprosjekt som samler lenker til forsvars- og sikkerhetsnyheter.
     Siden er ikke tilknyttet Forsvaret eller noen av kildene.</p>
     <p>Overskriftene hentes fra kildenes åpne RSS-strømmer og lenker til de opprinnelige sakene. Alt innhold tilhører kildene,
-    og hele sakene leses hos dem. Illustrasjonene er laget for denne siden. Verdenskartet er fra Natural Earth (public domain).</p>
+    og hele sakene leses hos dem. Illustrasjonene er laget for denne siden. Kartene er fra Natural Earth (public domain).</p>
     <p>Har du forslag eller ser du noe som er feil? <a href="{{TILBAKEMELDING}}" class="epost" data-emne="Tilbakemelding om Forsvarsnytt" target="_blank" rel="noopener">Gi tilbakemelding</a>.</p>
     <p>Er du utgiver og vil at noe skal endres eller fjernes? <a href="{{KONTAKT}}" class="epost" data-emne="Henvendelse fra utgiver">Ta kontakt her</a>, så ordnes det raskt.</p>
     <p class="epost-vis" hidden>E-post: <span id="epost-tekst"></span></p>
@@ -421,6 +473,7 @@
 </div>
 <div class="sidefaner" id="sidefaner">
   <button class="ordliste-fane" id="konflikt-fane" aria-controls="konfliktkart" hidden>Konfliktkart</button>
+  <button class="ordliste-fane" id="norge-fane" aria-controls="norgeskart" hidden>Norgeskart</button>
   <button class="ordliste-fane" id="tidslinje-fane" aria-controls="tidslinje" hidden>Tidslinje</button>
   <button class="ordliste-fane" id="ordliste-fane" aria-controls="ordliste">Forkortelser</button>
 </div>
@@ -432,6 +485,29 @@
   <div class="t-filter" id="t-filter" role="group" aria-label="Vis kategori"></div>
   <div class="t-valg"><div class="ar" id="t-ar"></div><button class="t-snu" id="t-snu">Nyeste først</button></div>
   <div class="ordliste-innhold" id="t-innhold"></div>
+</aside>
+<aside class="ordliste bred" id="norgeskart" aria-label="Forsvaret i Norge" aria-hidden="true">
+  <div class="ordliste-topp">
+    <h2>Forsvaret i Norge</h2>
+    <button class="lukk" id="lukk-norgeskart" aria-label="Lukk Norgeskartet">×</button>
+  </div>
+  <div class="ordliste-innhold" id="n-rull">
+    <div class="n-oppsett">
+      <div class="n-kartdel">
+        <div class="kart-ramme">
+          <svg class="kart-svg" id="n-svg" viewBox="0 0 490 552" role="img" aria-label="Kart over Norge med Forsvarets tjenestesteder. Zoom med to fingre eller musehjulet, og dra for å flytte."></svg>
+          <div class="kart-zoom" role="group" aria-label="Zoom i kartet">
+            <button type="button" id="nzoom-inn" aria-label="Zoom inn">+</button>
+            <button type="button" id="nzoom-ut" aria-label="Zoom ut">−</button>
+            <button type="button" id="nzoom-nullstill" aria-label="Tilbakestill kartet">⟲</button>
+          </div>
+        </div>
+        <div class="n-filter" id="n-filter" role="group" aria-label="Vis steder med"></div>
+      </div>
+      <div id="n-innhold"></div>
+    </div>
+    <div class="liten-merknad">Bare åpne opplysninger som Forsvaret selv publiserer på sine sider om tjenestestedene (forsvaret.no), sist gjennomgått 29.10.2026. Plasseringen på kartet er omtrentlig og viser bare sted eller kommune. Avdelinger flytter og endrer navn, så les mer hos Forsvaret for oppdatert informasjon. Kart: Natural Earth (public domain). Ser du en feil? Gi tilbakemelding.</div>
+  </div>
 </aside>
 <aside class="ordliste bred" id="konfliktkart" aria-label="Konfliktkart" aria-hidden="true">
   <div class="ordliste-topp">
@@ -868,11 +944,11 @@ function tegnKart() {
 
 
 // zoom og flytting i konfliktkartet (to fingre / musehjul / dra), uten at resten av siden beveger seg
-function aktiverKartZoom() {
-  const svg = document.getElementById("kart-svg");
+// brukes av både konfliktkartet og Norgeskartet
+function aktiverKartZoom(svgId = "kart-svg", HELE = { x: 0, y: 0, w: 1000, h: 395 }, prefiks = "zoom", etterTegn = null) {
+  const svg = document.getElementById(svgId);
   const start = svg.getAttribute("viewBox").split(" ").map(Number);
   const grunn = { x: start[0], y: start[1], w: start[2], h: start[3] };
-  const HELE = { x: 0, y: 0, w: 1000, h: 395 };          // hele kartet
   const MIN_B = grunn.w / 10, MAX_B = HELE.w;            // hvor langt man kan zoome inn og ut
   let vb = { ...grunn };
   const fingre = new Map();
@@ -886,6 +962,7 @@ function aktiverKartZoom() {
     svg.setAttribute("viewBox", `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
     const f = vb.w / grunn.w;                            // markørene beholder samme størrelse på skjermen
     svg.querySelectorAll(".markor circle").forEach(c => c.setAttribute("r", c.dataset.r * f));
+    if (etterTegn) etterTegn(f);
   }
   function tilKart(px, py) {
     const r = svg.getBoundingClientRect();
@@ -941,10 +1018,12 @@ function aktiverKartZoom() {
   // et trykk som egentlig var en dra-bevegelse skal ikke velge en konflikt
   svg.addEventListener("click", e => { if (dratt) { e.stopPropagation(); e.preventDefault(); dratt = false; } }, true);
   svg.addEventListener("wheel", e => { e.preventDefault(); zoom(Math.pow(1.0015, -e.deltaY), e.clientX, e.clientY); }, { passive: false });
-  document.getElementById("zoom-inn").onclick = e => { e.stopPropagation(); zoom(1.5); };
-  document.getElementById("zoom-ut").onclick = e => { e.stopPropagation(); zoom(1 / 1.5); };
-  document.getElementById("zoom-nullstill").onclick = e => { e.stopPropagation(); vb = { ...grunn }; tegn(); };
+  document.getElementById(prefiks + "-inn").onclick = e => { e.stopPropagation(); zoom(1.5); };
+  document.getElementById(prefiks + "-ut").onclick = e => { e.stopPropagation(); zoom(1 / 1.5); };
+  document.getElementById(prefiks + "-nullstill").onclick = e => { e.stopPropagation(); vb = { ...grunn }; tegn(); };
   tegn();
+  // lar andre deler av siden flytte kartet til et punkt (brukes når man velger et sted i lista)
+  return { tilPunkt(x, y, bredde) { vb.w = Math.min(vb.w, bredde); vb.h = vb.w * grunn.h / grunn.w; vb.x = x - vb.w / 2; vb.y = y - vb.h / 2; tegn(); } };
 }
 
 function visKonfliktliste() {
@@ -1004,6 +1083,202 @@ if (KONFLIKTER && KONFLIKTER.length && KART) {
   document.getElementById("apne-konfliktkart").hidden = false;
   document.getElementById("konflikt-fane").hidden = false;
   tegnKart(); aktiverKartZoom(); visKonfliktliste();
+}
+
+
+// ---------- Norgeskart med Forsvarets tjenestesteder ----------
+const NORGE = /*NORGE*/null;
+const GREN_TEKST = {
+  "hæren": "Landstyrkene. Brigade Nord i Indre Troms og Finnmarksbrigaden i Finnmark er de store avdelingene.",
+  "sjøforsvaret": "Marinen med fregatter, ubåter, korvetter og minefartøyer, og Kystvakten.",
+  "luftforsvaret": "Kampfly, helikoptre, transportfly, luftvern og overvåking av norsk luftrom.",
+  "heimevernet": "Lokale styrker over hele landet som skal beskytte viktige steder. Organisert i heimevernsdistrikter.",
+  "spesialstyrker": "Forsvarets spesialkommando (FSK) og Marinejegerkommandoen (MJK).",
+  "cyber": "Drifter og beskytter Forsvarets data- og kommunikasjonssystemer.",
+  "utdanning": "Krigsskolene og Forsvarets høgskole, som utdanner offiserer.",
+  "felles": "Ledelse og fellestjenester, som logistikk (FLO), personell, sanitet og militærpoliti.",
+  "nato": "Allierte og NATO-anlegg i Norge, som NATOs luftoperasjonssenter i Bodø og amerikanske forhåndslagre.",
+};
+const LANDSDEL = [["Nord-Norge", s => s.posisjon[0] >= 65.5], ["Trøndelag og Nordvestlandet", s => s.posisjon[0] >= 62.3 || (s.posisjon[0] >= 62 && s.posisjon[1] < 9)],
+  ["Vestlandet og Sørlandet", s => s.posisjon[1] < 8.5], ["Østlandet", () => true]];
+const gnokkel = g => g.replace("æ", "ae").replace("ø", "o");  // css-navn
+let nFilter = "alle", nZoom = null;
+
+function nXY([lat, lon]) {
+  const i = NORGE.info;
+  return [(lon - i.lon0) * i.k * i.s, (i.lat_topp - lat) * i.s];
+}
+function harGren(s, g) { return g === "alle" || s.gren === g || s.avdelinger.some(a => a.gren === g); }
+
+function tegnNorge() {
+  const svg = document.getElementById("n-svg"), NS = "http://www.w3.org/2000/svg";
+  const smal = window.matchMedia("(max-width: 600px)").matches;
+  const r = smal ? 7 : 5.5, treffR = smal ? 16 : 11;
+  for (const [navn, d] of Object.entries(NORGE.kart)) {
+    const p = document.createElementNS(NS, "path"); p.setAttribute("d", d);
+    p.setAttribute("class", navn === "Norge" || navn === "Norway" ? "norge" : "naboland");
+    svg.append(p);
+  }
+  const navnLag = document.createElementNS(NS, "g");
+  // sydligste først, så nordlige steder (der det er mer plass) havner øverst
+  [...NORGE.steder].sort((a, b) => a.posisjon[0] - b.posisjon[0]).forEach(s => {
+    const [x, y] = nXY(s.posisjon);
+    const g = document.createElementNS(NS, "g");
+    g.setAttribute("class", "markor sted"); g.setAttribute("tabindex", "0"); g.setAttribute("role", "button");
+    g.setAttribute("aria-label", s.navn); g.dataset.navn = s.navn;
+    g.style.setProperty("--farge", `var(--g-${gnokkel(s.gren)})`);
+    g.innerHTML = `<circle class="treff" cx="${x}" cy="${y}" r="${treffR}" data-r="${treffR}" fill="transparent"/><circle class="prikk" cx="${x}" cy="${y}" r="${r}" data-r="${r}"/>`;
+    const t = document.createElementNS(NS, "title"); t.textContent = s.navn; g.append(t);
+    g.onclick = e => { e.stopPropagation(); velgSted(s, false); };
+    g.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); velgSted(s, false); } };
+    svg.append(g);
+    const tekst = document.createElementNS(NS, "text"); tekst.setAttribute("class", "n-navn"); tekst.dataset.navn = s.navn;
+    tekst.dataset.x = x; tekst.dataset.y = y; tekst.textContent = s.navn.replace(/\s*\(.*\)/, "");
+    // ligger et annet sted rett til høyre, settes navnet på venstre side av prikken
+    if (NORGE.steder.some(a => { const [ax, ay] = nXY(a.posisjon); return a !== s && ax > x && ax - x < 8 && Math.abs(ay - y) < 6; })) {
+      tekst.dataset.venstre = "1"; tekst.setAttribute("text-anchor", "end");
+    }
+    navnLag.append(tekst);
+  });
+  svg.append(navnLag);
+}
+
+// navnene vises når man har zoomet inn nok til at de ikke ligger oppå hverandre
+function plasserNavn(f) {
+  document.querySelectorAll("#n-svg .n-navn").forEach(t => {
+    const s = NORGE.steder.find(x => x.navn === t.dataset.navn);
+    t.setAttribute("x", +t.dataset.x + (t.dataset.venstre ? -9 : 9) * f); t.setAttribute("y", +t.dataset.y + 4 * f);
+    t.style.fontSize = (11 * f) + "px"; t.style.strokeWidth = (3 * f) + "px";
+    t.classList.toggle("skjult", f > 0.45 || !harGren(s, nFilter));
+  });
+}
+
+function filtrerNorge() {
+  document.querySelectorAll("#n-svg .markor.sted").forEach(m => {
+    m.classList.toggle("skjult", !harGren(NORGE.steder.find(s => s.navn === m.dataset.navn), nFilter));
+  });
+  document.querySelectorAll("#n-filter button").forEach(b => b.setAttribute("aria-pressed", b.dataset.gren === nFilter));
+  plasserNavn(+(document.getElementById("n-svg").getAttribute("viewBox").split(" ")[2]) / 490);
+}
+
+function lagFilter() {
+  const boks = document.getElementById("n-filter");
+  const brukt = Object.keys(NORGE.grener).filter(g => NORGE.steder.some(s => harGren(s, g)));
+  [["alle", "Alle"], ...brukt.map(g => [g, NORGE.grener[g]])].forEach(([id, navn]) => {
+    const b = document.createElement("button"); b.dataset.gren = id;
+    if (id !== "alle") { const i = document.createElement("i"); i.style.background = `var(--g-${gnokkel(id)})`; b.append(i); }
+    b.append(navn);
+    b.onclick = e => { e.stopPropagation(); nFilter = id; filtrerNorge(); visStedliste(); };
+    boks.append(b);
+  });
+}
+
+function visStedliste() {
+  document.querySelectorAll("#n-svg .markor").forEach(m => m.classList.remove("valgt"));
+  const boks = document.getElementById("n-innhold"); boks.innerHTML = "";
+  const steder = NORGE.steder.filter(s => harGren(s, nFilter));
+  const h = document.createElement("h3"); h.className = "k-detalj"; h.style.cssText = "all:unset;display:block;font-size:18px;font-weight:700;margin:2px 0 4px";
+  h.textContent = nFilter === "alle" ? "Forsvarets tjenestesteder" : NORGE.grener[nFilter];
+  const tall = document.createElement("div"); tall.className = "n-tall";
+  const avd = steder.reduce((n, s) => n + s.avdelinger.filter(a => harGren({ gren: a.gren, avdelinger: [] }, nFilter)).length, 0);
+  tall.textContent = `${steder.length} steder · ${avd} avdelinger og enheter · trykk på et sted for å se hva som er der`;
+  boks.append(h, tall);
+  if (nFilter !== "alle" && GREN_TEKST[nFilter]) { const p = document.createElement("p"); p.style.cssText = "margin:0 0 6px;font-size:14px;line-height:1.5"; p.textContent = GREN_TEKST[nFilter]; boks.append(p); }
+  const brukt = new Set();
+  for (const [del, test] of LANDSDEL) {
+    const her = steder.filter(s => !brukt.has(s) && test(s)).sort((a, b) => a.navn.localeCompare(b.navn, "nb"));
+    if (!her.length) continue;
+    her.forEach(s => brukt.add(s));
+    const dh = document.createElement("div"); dh.className = "n-landsdel"; dh.textContent = del;
+    const liste = document.createElement("div"); liste.className = "n-liste";
+    for (const s of her) {
+      const b = document.createElement("button");
+      const i = document.createElement("i"); i.style.background = `var(--g-${gnokkel(s.gren)})`;
+      const n = document.createElement("span"); n.textContent = s.navn;
+      const k = document.createElement("small"); k.textContent = s.kommune;
+      b.append(i, n, k); b.onclick = e => { e.stopPropagation(); velgSted(s, true); };
+      liste.append(b);
+    }
+    boks.append(dh, liste);
+  }
+  // forklaring av fargene
+  const det = document.createElement("details"); det.className = "n-forklar";
+  const sum = document.createElement("summary"); sum.textContent = "Hva betyr fargene?";
+  const dl = document.createElement("dl");
+  for (const [g, navn] of Object.entries(NORGE.grener)) {
+    const rad = document.createElement("div"); rad.className = "rad";
+    const dt = document.createElement("dt"); const i = document.createElement("i"); i.style.background = `var(--g-${gnokkel(g)})`; dt.append(i);
+    const dd = document.createElement("dd"); const b = document.createElement("b"); b.textContent = navn; dd.append(b, GREN_TEKST[g] || "");
+    rad.append(dt, dd); dl.append(rad);
+  }
+  det.append(sum, dl); boks.append(det);
+}
+
+function velgSted(s, flyttKart) {
+  document.querySelectorAll("#n-svg .markor").forEach(m => m.classList.toggle("valgt", m.dataset.navn === s.navn));
+  if (flyttKart && nZoom) { const [x, y] = nXY(s.posisjon); nZoom.tilPunkt(x, y, 180); }
+  const boks = document.getElementById("n-innhold"); boks.innerHTML = "";
+  const d = document.createElement("div"); d.className = "n-detalj";
+  const merke = document.createElement("span"); merke.className = "k-merke"; merke.style.background = `var(--g-${gnokkel(s.gren)})`;
+  merke.style.color = "var(--flate)"; merke.textContent = NORGE.grener[s.gren];
+  const h = document.createElement("h3"); h.textContent = s.navn;
+  const k = document.createElement("div"); k.className = "n-kommune"; k.textContent = s.kommune + " kommune";
+  d.append(merke, h, k);
+  if (s.tekst) { const p = document.createElement("p"); p.textContent = s.tekst; d.append(p); }
+  // avdelingene gruppert etter forsvarsgren, i samme rekkefølge som fargeforklaringen
+  for (const g of Object.keys(NORGE.grener)) {
+    const avd = s.avdelinger.filter(a => a.gren === g);
+    if (!avd.length) continue;
+    const gh = document.createElement("div"); gh.className = "n-gren"; gh.style.setProperty("--farge", `var(--g-${gnokkel(g)})`);
+    gh.append(document.createElement("i"), NORGE.grener[g]);
+    const ul = document.createElement("ul"); ul.className = "n-avd";
+    for (const a of avd) {
+      const li = document.createElement("li"); const b = document.createElement("b"); b.textContent = a.navn; li.append(b);
+      if (a.info) { const sp = document.createElement("span"); sp.textContent = a.info; li.append(sp); }
+      ul.append(li);
+    }
+    d.append(gh, ul);
+  }
+  if (s.lenke) {
+    const a = document.createElement("a"); a.className = "n-lenke"; a.href = s.lenke; a.target = "_blank"; a.rel = "noopener";
+    a.textContent = s.lenke.includes("forsvaret.no") ? "Les mer om stedet hos Forsvaret ↗" : "Les mer hos NATO ↗";
+    d.append(a);
+  }
+  const nh = document.createElement("div"); nh.className = "hjorne-del"; nh.textContent = s.antall ? `Siste nytt (${s.antall} ${s.antall === 1 ? "sak" : "saker"} i arkivet)` : "Siste nytt";
+  d.append(nh);
+  if (s.nyheter.length) {
+    const ul = document.createElement("ul"); ul.className = "k-nyheter";
+    for (const n of s.nyheter) {
+      const li = document.createElement("li");
+      const a = document.createElement("a"); a.href = n.lenke; a.target = "_blank"; a.rel = "noopener"; a.textContent = n.tittel;
+      const sm = document.createElement("small");
+      sm.textContent = n.kilde + (n.tid ? " · " + new Date(n.tid).toLocaleDateString("nb-NO", { day: "numeric", month: "long", timeZone: "Europe/Oslo" }) : "");
+      const kr = lagKred(n.kilde); if (kr) sm.append(" · ", kr);
+      li.append(a, sm); ul.append(li);
+    }
+    d.append(ul);
+  } else {
+    const ingen = document.createElement("div"); ingen.style.cssText = "color:var(--dempet);font-size:14px;padding:4px 0";
+    ingen.textContent = "Ingen saker om dette stedet i arkivet ennå. Arkivet fylles opp for hver dag.";
+    d.append(ingen);
+  }
+  const tilbake = document.createElement("button"); tilbake.className = "tilbake"; tilbake.textContent = "← Alle steder";
+  tilbake.onclick = e => { e.stopPropagation(); visStedliste(); };
+  d.append(tilbake);
+  boks.append(d);
+  // på smale skjermer står detaljene under kartet, så vi ruller ned til dem
+  if (window.matchMedia("(max-width: 779px)").matches) boks.scrollIntoView({ behavior: "smooth", block: "start" });
+  else document.getElementById("n-rull").scrollTop = 0;
+}
+
+if (NORGE && NORGE.steder.length) {
+  SKUFFER.norgeskart = { el: document.getElementById("norgeskart"), knapper: ["#apne-norgeskart", "#norge-fane"] };
+  kobleSkuff("norgeskart", "lukk-norgeskart");
+  document.getElementById("apne-norgeskart").hidden = false;
+  document.getElementById("norge-fane").hidden = false;
+  tegnNorge(); lagFilter();
+  nZoom = aktiverKartZoom("n-svg", { x: 0, y: 0, w: 490, h: 552 }, "nzoom", plasserNavn);
+  filtrerNorge(); visStedliste();
 }
 
 

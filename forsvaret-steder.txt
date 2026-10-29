@@ -1,0 +1,438 @@
+# FORSVARETS TJENESTESTEDER – vises i «Norgeskart»-vinduet på siden.
+# Kilde: Forsvarets egne sider om tjenestesteder (forsvaret.no/om-forsvaret/tjenestesteder), lest 29.10.2026.
+# Bare åpne opplysninger som Forsvaret selv publiserer: navn, kommune og avdelinger. Posisjonen er omtrentlig (sted/kommune).
+# ALDRI legg inn noe du vet gjennom tjenesten.
+#
+# Hvert sted starter med ## Navn. Feltene:
+#   posisjon:  breddegrad, lengdegrad (omtrentlig, sted eller kommune)
+#   kommune:   kommunen stedet ligger i
+#   gren:      hovedgren som bestemmer fargen: hæren, sjøforsvaret, luftforsvaret, heimevernet, spesialstyrker, cyber, utdanning, felles, nato
+#   lenke:     Forsvarets side om stedet
+#   - gren | Avdeling | kort forklaring (forklaringen kan stå tom)
+#   tekst:     valgfri kort beskrivelse
+#   søkeord:   ord som brukes for å finne nyheter om stedet (uten søkeord brukes navnet)
+# Linjer som starter med # vises ikke.
+
+## Setermoen
+posisjon: 68.86, 18.35
+kommune: Bardu
+søkeord: Setermoen, Panserbataljonen
+gren: hæren
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/setermoen
+tekst: En av Hærens viktigste leirer i Indre Troms. Forsvaret har utdannet soldater her siden 1898.
+- hæren | Panserbataljonen | Mekanisert bataljon i Brigade Nord
+- hæren | Artilleribataljonen | Brigade Nord
+- hæren | Sanitetsbataljonen | Brigade Nord
+- hæren | Etterretningsbataljonen | Hovedkvarter, direkte underlagt sjef Hæren
+- felles | Operasjonsstøtteavdeling |
+- felles | Forsvarets verksted Troms-Finnmark | Landverksted (FLO)
+- felles | Forsyningsseksjon Setermoen-Skjold | FLO
+
+## Bardufoss
+posisjon: 69.06, 18.54
+kommune: Målselv
+søkeord: Bardufoss, Rusta leir, Hærstaben, Brigade Nord
+gren: hæren
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/bardufoss
+tekst: Både Hærens ledelse og en flystasjon for Luftforsvarets helikoptre ligger på Bardufoss.
+- hæren | Hærstaben | Hærens ledelse (Rusta leir)
+- hæren | Brigadestaben | Staben i Brigade Nord
+- hæren | Sambandsbataljonen |
+- hæren | Stridstrenbataljonen |
+- hæren | Militærpolitikompaniet |
+- hæren | Trenregimentet | Driver Hærens baser
+- luftforsvaret | Maritim helikopterving |
+- luftforsvaret | 337 skvadron | Helikoptre for Kystvakten
+- luftforsvaret | 339 skvadron | Bell 412-helikoptre
+- luftforsvaret | Luftforsvarets flygeskole |
+- felles | Regional logistikkledelse Nord | FLO
+- felles | Flyterminal | FLO
+
+## Skjold
+posisjon: 69.02, 19.29
+kommune: Målselv
+søkeord: Skjold leir, Ingeniørbataljonen
+gren: hæren
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/skjold
+- hæren | 2. bataljon | Brigade Nord
+- hæren | Ingeniørbataljonen | Brigade Nord
+- felles | Skjold tekniske verksted |
+- felles | Forsvarets verksted Troms-Finnmark | FLO
+
+## Sørreisa
+posisjon: 69.15, 18.16
+kommune: Sørreisa
+søkeord: Sørreisa
+gren: luftforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/sorreisa
+tekst: Overvåker og kontrollerer norsk luftrom.
+- luftforsvaret | Joint Air Operations Centre, avdeling Sørreisa |
+- luftforsvaret | Luftforsvarets kontroll- og varslingsskole |
+- felles | Forsyningsseksjon Bardufoss | FLO
+
+## Harstad (Trondenes)
+posisjon: 68.80, 16.54
+kommune: Harstad
+søkeord: Trondenes, Kystjegerkommandoen, kystjeger
+gren: sjøforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/harstad
+- sjøforsvaret | Kystjegerkommandoen | Trondenes leir
+- hæren | Hærens musikkorps |
+- felles | Rekrutterings- og seleksjonssenter Nord-Norge |
+- felles | Forsvarets personell- og vernepliktssenter | Personell- og lønnsavdelingen
+- cyber | Cyberforsvaret | Avdeling
+- felles | Forsyningsseksjon Hålogaland | FLO
+
+## Evenes
+posisjon: 68.49, 16.68
+kommune: Evenes
+søkeord: Evenes, P-8, Poseidon
+gren: luftforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/evenes
+tekst: Flystasjon som er bygget opp for maritime patruljefly og kampfly på beredskap.
+- luftforsvaret | 133 luftving |
+- luftforsvaret | Luftvernbataljon |
+- luftforsvaret | Baseforsvarsskvadron |
+- cyber | Cyberforsvaret | Avdeling
+- felles | Forsyning | FLO
+
+## Ramsund
+posisjon: 68.48, 16.52
+kommune: Tjeldsund
+søkeord: Ramsund, Marinejegerkommandoen
+gren: sjøforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/ramsund
+- sjøforsvaret | Ramsund orlogsstasjon | Sjøforsvarets base i nord
+- spesialstyrker | Marinejegerkommandoen | Del av Forsvarets spesialstyrker
+- sjøforsvaret | Minedykkerkommandoen | Én avdeling
+- felles | Forsvarets verksted Ramsund | FLO
+
+## Bjerkvik
+posisjon: 68.55, 17.57
+kommune: Narvik
+gren: heimevernet
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/bjerkvik
+- heimevernet | Nord-Hålogaland heimevernsdistrikt (HV-16) | Distriktshovedkvarter
+- heimevernet | Vakt- og sikringsavdeling | Innsatsstyrke Claymore
+- felles | Forsvarets verksted Bjerkvik | FLO
+- felles | Forsyningslager Nord | FLO
+
+## Sortland
+posisjon: 68.70, 15.41
+kommune: Sortland
+søkeord: Sortland, Kystvakten, kystvakt, coast guard
+gren: sjøforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/sortland
+tekst: Kystvaktens hovedkvarter og hjemmebase for kystvaktfartøyene.
+- sjøforsvaret | Kystvaktstaben | Kystvaktens hovedkvarter
+- sjøforsvaret | Kystvaktfartøyene | Hjemmebase
+- felles | Forsyningsseksjon Hålogaland | FLO
+
+## Andøya
+posisjon: 69.29, 16.14
+kommune: Andøy
+søkeord: Andøya
+gren: luftforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/andoya
+- luftforsvaret | Andøya flystasjon |
+
+## Bodø og Reitan
+posisjon: 67.27, 14.40
+kommune: Bodø
+søkeord: Reitan, Forsvarets operative hovedkvarter, FOH, CAOC Bodø, Bodø flystasjon
+gren: felles
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/bodo
+tekst: Her ligger Forsvarets operative hovedkvarter, som leder militære operasjoner i Norge, og NATOs luftoperasjonssenter i nord.
+- felles | Forsvarets operative hovedkvarter (FOH) | Reitan
+- nato | Combined Air Operations Centre Bodø (CAOC) | NATOs luftoperasjonssenter
+- luftforsvaret | Luftforsvarets ledelse og sjef Luftforsvaret |
+- luftforsvaret | Luftforsvarsbase Bodø |
+- luftforsvaret | Redningshelikoptertjenesten |
+- cyber | Cyberforsvaret | Avdeling
+- felles | Luftfartsmuseet | Norsk Luftfartsmuseum
+
+## Drevjamoen
+posisjon: 65.97, 13.27
+kommune: Vefsn
+gren: heimevernet
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/drevjamoen
+- heimevernet | Sør-Hålogaland heimevernsdistrikt (HV-14) |
+- felles | Forsvarets logistikkorganisasjon |
+
+## Porsangmoen
+posisjon: 70.05, 25.03
+kommune: Porsanger
+søkeord: Porsangmoen, Finnmarksbrigaden, Porsanger bataljon
+gren: hæren
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/porsangmoen
+tekst: Sentrum for oppbyggingen av landforsvaret i Finnmark.
+- hæren | Finnmarksbrigaden | Brigadehovedkvarter og stab
+- hæren | Porsanger bataljon | Under oppbygging
+- heimevernet | Finnmark heimevernsdistrikt (HV-17) |
+- heimevernet | Heimevernets skole- og kompetansesenter |
+- nato | Alliert treningssenter |
+- cyber | Cyberforsvaret | Avdeling
+- felles | Forsvarets verksted Troms-Finnmark | FLO
+
+## Banak
+posisjon: 70.07, 24.97
+kommune: Porsanger
+søkeord: Banak
+gren: luftforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/banak
+- luftforsvaret | Luftforsvarets base Banak | Del av 132 luftving
+- luftforsvaret | 330 skvadron | Redningshelikoptre
+- cyber | Cyberforsvaret | Avdeling
+
+## Høybuktmoen
+posisjon: 69.72, 29.89
+kommune: Sør-Varanger
+søkeord: Høybuktmoen, Garnisonen i Sør-Varanger, GSV, grensevakt, grensevakten, Jegerbataljonen
+gren: hæren
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/hoybuktmoen
+tekst: Garnisonen i Sør-Varanger (GSV) vokter grensen mot Russland.
+- hæren | Jegerbataljonen GSV (Grensevakten) | Fem kompanier
+- felles | Forsvarets verksted Troms-Finnmark | FLO
+- cyber | Cyberforsvaret | Avdeling
+
+## Ørland
+posisjon: 63.70, 9.60
+kommune: Ørland
+søkeord: Ørland, F-35
+gren: luftforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/orland
+tekst: Hovedbasen for Norges F-35 kampfly.
+- luftforsvaret | 132 luftving |
+- luftforsvaret | F-35-skvadronene | 331 og 332 skvadron og treningsskvadronen
+- luftforsvaret | Luftvernbataljonen |
+- luftforsvaret | Baseforsvarsbataljonen |
+- luftforsvaret | 330 skvadron | Redningshelikoptre
+- luftforsvaret | Luftverntaktisk skole |
+- felles | Logistikkbase Luft |
+
+## Værnes
+posisjon: 63.46, 10.92
+kommune: Stjørdal
+søkeord: Værnes, Vertslandsstøttebataljonen
+gren: heimevernet
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/vaernes
+- heimevernet | Trøndelag heimevernsdistrikt (HV-12) | Hovedkvarter
+- felles | Vertslandsstøttebataljonen | Støtte til allierte styrker i Norge
+- nato | Marine Corps Prepositioning Program–Norway | Amerikanske forhåndslagre
+- felles | Regional logistikkledelse Midt | FLO
+
+## Trondheim
+posisjon: 63.43, 10.39
+kommune: Trondheim
+søkeord: Luftkrigsskolen
+gren: utdanning
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/trondheim
+- utdanning | Luftkrigsskolen |
+- luftforsvaret | Luftforsvarets musikkorps |
+- felles | Rustkammeret | Forsvarsmuseum
+
+## Setnesmoen
+posisjon: 62.56, 7.71
+kommune: Rauma
+gren: heimevernet
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/setnesmoen
+- heimevernet | Møre og Fjordane heimevernsdistrikt (HV-11) | Hovedkvarter
+
+## Dombås
+posisjon: 62.07, 9.12
+kommune: Dovre
+gren: heimevernet
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/dombas
+- heimevernet | Heimevernets skole- og kompetansesenter |
+
+## Haakonsvern
+posisjon: 60.33, 5.25
+kommune: Bergen
+søkeord: Haakonsvern, fregatt, fregatter, frigate, frigates, ubåt, ubåter
+gren: sjøforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/haakonsvern
+tekst: Sjøforsvarets hovedbase og hjemmehavn for fregatter, ubåter, korvetter og minefartøyer.
+- sjøforsvaret | Sjøforsvarets hovedbase Haakonsvern | Sjøforsvarets hovedkvarter
+- sjøforsvaret | Fregatter, ubåter, korvetter og minefartøyer |
+- spesialstyrker | Marinejegerkommandoen |
+- luftforsvaret | Maritim helikopterving |
+- felles | Regional logistikkommando Vest | FLO
+
+## Bergen
+posisjon: 60.39, 5.32
+kommune: Bergen
+søkeord: Sjøkrigsskolen, Bergenhus
+gren: utdanning
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/bergen
+- utdanning | Sjøkrigsskolen | Laksevåg
+- heimevernet | Bergenhus heimevernsdistrikt (HV-09) | Bergenhus festning
+- sjøforsvaret | Ubåtbunkeren | Vedlikehold av ubåter
+
+## Madla
+posisjon: 58.95, 5.67
+kommune: Stavanger
+søkeord: Madla, KNM Harald Haarfagre
+gren: sjøforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/madla
+- sjøforsvaret | KNM Harald Haarfagre | Sjøforsvarets rekruttskole
+- felles | Forsvarets sanitet |
+
+## Sola
+posisjon: 58.88, 5.64
+kommune: Sola
+søkeord: Sola flystasjon, 330 skvadron
+gren: luftforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/sola
+- luftforsvaret | 130 luftving |
+- luftforsvaret | 330 skvadron | Redningshelikoptre (hovedbase)
+- heimevernet | Agder og Rogaland heimevernsdistrikt (HV-08) |
+
+## Vatneleiren
+posisjon: 58.83, 5.79
+kommune: Sandnes
+gren: heimevernet
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/vatneleiren
+- heimevernet | Agder og Rogaland heimevernsdistrikt (HV-08) | Hovedkvarter
+- heimevernet | Innsatsstyrke Osprey og innsatsstyrke Varg |
+
+## Jåttå (NATO)
+posisjon: 58.92, 5.73
+kommune: Stavanger
+søkeord: Joint Warfare Centre, Jåttå
+gren: nato
+lenke: https://www.jwc.nato.int/
+tekst: NATOs treningssenter for hovedkvarterer ligger i Stavanger.
+- nato | NATO Joint Warfare Centre |
+
+## Kjevik
+posisjon: 58.20, 8.08
+kommune: Kristiansand
+gren: utdanning
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/kjevik
+- utdanning | Luftforsvarets skolesenter | Hovedkvarter
+- utdanning | Luftforsvarets spesialistskole og tekniske skole |
+- heimevernet | Agder og Rogaland heimevernsdistrikt (HV-08) |
+
+## Heistadmoen
+posisjon: 59.66, 9.70
+kommune: Kongsberg
+gren: heimevernet
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/heistadmoen
+- heimevernet | Telemark og Buskerud heimevernsdistrikt (HV-03) | Hovedbase
+- heimevernet | Vakt- og sikringsavdeling | Innsatsstyrke Gunnerside
+
+## Horten
+posisjon: 59.41, 10.49
+kommune: Horten
+søkeord: Karljohansvern
+gren: sjøforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/horten
+- sjøforsvaret | Kongelige norske marines musikkorps | Karljohansvern
+- felles | Verksted for maritimt utstyr | FLO
+
+## Rygge
+posisjon: 59.38, 10.79
+kommune: Moss og Råde
+søkeord: Rygge
+gren: luftforsvaret
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/rygge
+- luftforsvaret | Luftforsvarsstaben |
+- luftforsvaret | 134 luftving |
+- luftforsvaret | 339 skvadron | Bell 412-helikoptre
+- luftforsvaret | 330 skvadron | Redningshelikoptre
+- luftforsvaret | Luftforsvarets våpenskole |
+- heimevernet | Oslofjord heimevernsdistrikt (HV-01) |
+
+## Oslo
+posisjon: 59.91, 10.74
+kommune: Oslo
+søkeord: Akershus festning, Forsvarsstaben, Krigsskolen, Huseby, Kongens Garde, Etterretningstjenesten
+gren: felles
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/oslo
+tekst: Forsvarets ledelse ligger på Akershus festning.
+- felles | Forsvarsstaben | Akershus festning
+- utdanning | Forsvarets høgskole | Akershus festning
+- felles | Forsvarsmuseet | Akershus festning
+- utdanning | Krigsskolen | Linderud
+- hæren | Hans Majestet Kongens Garde | Huseby leir
+- heimevernet | Oslo og Akershus heimevernsdistrikt (HV-02) | Lutvann leir
+- felles | Etterretningstjenesten | Lutvann leir
+
+## Kolsås
+posisjon: 59.92, 10.50
+kommune: Bærum
+søkeord: Kolsås
+gren: cyber
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/kolsas
+- cyber | Cyberforsvaret | Blant annet base- og alarmtjenester
+- felles | Forsvarsmateriell |
+- felles | Nasjonal sikkerhetsmyndighet (NSM) |
+- nato | NATO NEC CCIS |
+
+## Kjeller
+posisjon: 59.97, 11.04
+kommune: Lillestrøm
+søkeord: Kjeller, Forsvarsmateriell
+gren: felles
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/kjeller
+- felles | Forsvarets logistikkorganisasjon |
+- felles | Forsvarsmateriell |
+- cyber | Cyberforsvaret | Avdeling
+
+## Gardermoen og Sessvollmoen
+posisjon: 60.22, 11.10
+kommune: Ullensaker
+søkeord: Sessvollmoen, Gardermoen flystasjon, Hercules
+gren: felles
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/ullensaker
+- luftforsvaret | 335 skvadron | C-130J Hercules transportfly (Gardermoen)
+- felles | Forsvarets sanitet | Sessvollmoen
+- felles | Forsvarets militærpolitiavdeling | Hovedkvarter (Sessvollmoen)
+- felles | Forsvarets ABC-skole | Sessvollmoen
+- felles | Mottak- og transportbataljonen | FLO (Sessvollmoen)
+- felles | Forsvarets hundeskole | Hauerseter leir
+- felles | Forsvarets verksted Romerike | Trandum
+
+## Hamar
+posisjon: 60.79, 11.07
+kommune: Hamar
+søkeord: Forsvarets personell- og vernepliktssenter, verneplikt
+gren: felles
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/hamar
+- felles | Forsvarets personell- og vernepliktssenter (FPVS) | Hovedkontor
+- cyber | Cyberforsvaret | Avdeling
+
+## Terningmoen
+posisjon: 60.87, 11.53
+kommune: Elverum
+søkeord: Terningmoen, Heimevernet, heimevernet
+gren: heimevernet
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/terningmoen
+- heimevernet | Heimevernsstaben | Heimevernets ledelse
+- heimevernet | Opplandske heimevernsdistrikt (HV-05) |
+- hæren | Hærens skole for rekrutt- og fagutdanning |
+- hæren | Forsvarets vinterskole |
+- felles | Forsvarets verksted Østerdalen | FLO
+
+## Rena
+posisjon: 61.14, 11.37
+kommune: Åmot
+søkeord: Rena leir, Østerdal garnison, Telemark bataljon, Forsvarets spesialkommando, FSK
+gren: hæren
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/rena
+tekst: Østerdal garnison er en av Norges største militære leirer.
+- hæren | Telemark bataljon | Hærens hurtige reaksjonsstyrke
+- spesialstyrker | Forsvarets spesialkommando (FSK) |
+- hæren | Hærens våpenskole |
+- hæren | Stående kompanier | Ingeniør-, artilleri-, sanitets- og stridstrenbataljonen
+- felles | Forsvarets verksted Østerdalen | Hovedkontor
+
+## Jørstadmoen
+posisjon: 61.13, 10.40
+kommune: Lillehammer
+søkeord: Jørstadmoen, Cyberforsvaret
+gren: cyber
+lenke: https://www.forsvaret.no/om-forsvaret/tjenestesteder/jorstadmoen
+- cyber | Cyberforsvaret | Hovedkvarter
+- utdanning | Cyberingeniørskolen | Del av Forsvarets høgskole
+- hæren | Cyberteknikerskolen | Del av Hærens våpenskole
