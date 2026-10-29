@@ -68,6 +68,10 @@ Forkortelsene i «Forkortelser»-vinduet ligger i `ordliste.txt`. Én forkortels
 
 Konfliktene ligger i `konflikter.txt`, med type (krig, konflikt eller spenning), posisjon, land som skal fargelegges, søkeord og en kort bakgrunnstekst. Nyhetene under hver konflikt hentes automatisk: alle saker på siden og i arkivet som inneholder et av søkeordene. Kartet er Natural Earth (public domain), med Krim som en del av Ukraina, i tråd med folkeretten. Gå gjennom bakgrunnstekstene av og til, siden situasjonen endrer seg.
 
+### Landene i konfliktkartet
+
+Når man trykker på et land, vises norsk navn, medlemskap (NATO, EU, atommakt, fast medlem i FNs sikkerhetsråd, fra listene i `landinfo.py`), en kort beskrivelse fra `land.txt`, konfliktene landet er med i og siste nytt som nevner landet i overskriften. Beskrivelsene skrives med egne ord og bør handle om det som er nokså stabilt; det som endrer seg fort, hører hjemme i `konflikter.txt`.
+
 ### Norgeskartet (Forsvaret i Norge)
 
 Stedene ligger i `forsvaret-steder.txt`: navn, omtrentlig posisjon (sted eller kommune), kommune, hovedgren (fargen), lenke til Forsvarets side om stedet og én linje per avdeling (`- gren | Avdeling | kort forklaring`). Bruk **bare** det Forsvaret selv publiserer på forsvaret.no/om-forsvaret/tjenestesteder – aldri noe du vet gjennom tjenesten. Nyheter om hvert sted finnes automatisk med `søkeord:`. Kartet (`data/norgeskart.json`) er Natural Earth 1:50m (public domain).

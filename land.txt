@@ -1,0 +1,281 @@
+# LANDBESKRIVELSER – vises når man trykker på et land i konfliktkartet.
+# Skrevet for Forsvarsnytt med egne ord. Sist gjennomgått 29.10.2026.
+# Hold tekstene korte og om det som er nokså stabilt (sikkerhetspolitisk rolle, allianser, forsvar).
+# Det som endrer seg fort, står i konflikter.txt. Medlemskap (NATO, EU, atommakt) legges til automatisk fra landinfo.py.
+#
+# Format:
+#   ## Norsk navn (navnet i kartet, på engelsk slik det står i landinfo.py)
+#   tekst: kort beskrivelse
+#   søkeord: valgfrie ord for å finne nyheter (ellers brukes norsk og engelsk navn)
+
+## Norge (Norway)
+tekst: Grunnlegger av NATO i 1949 og NATOs øyne og ører i nord. Norge grenser til Russland i Finnmark og har ansvar for store havområder i nord. Forsvaret bygges opp etter langtidsplanen, med verneplikt for både kvinner og menn og et tett samarbeid med de nordiske landene og USA.
+søkeord: Norway, Norwegian, Norge, norsk, norske
+
+## Sverige (Sweden)
+tekst: Ble NATO-medlem i mars 2024 etter over 200 år uten militære allianser. Sverige har en sterk egen forsvarsindustri, med blant annet Gripen-kampfly og ubåter, og har gjeninnført verneplikt og totalforsvar.
+søkeord: Sweden, Swedish, Sverige, svensk, svenske
+
+## Finland (Finland)
+tekst: Ble NATO-medlem i april 2023 og har NATOs lengste grense mot Russland, rundt 1340 kilometer. Finland har allmenn verneplikt for menn og en av Europas største reservestyrker og artillerier.
+søkeord: Finland, Finnish, finsk, finske
+
+## Danmark (Denmark)
+tekst: Grunnlegger av NATO. Danmark har ansvar for forsvaret av Grønland og Færøyene og er en viktig del av sikkerheten i Østersjøen og Arktis.
+søkeord: Denmark, Danish, Danmark, dansk, danske
+
+## Grønland (Greenland)
+tekst: Selvstyrt del av Kongeriket Danmark og dermed en del av NATO. Grønland ligger strategisk mellom Nord-Amerika og Europa, og USA har en romovervåkingsbase der, Pituffik.
+søkeord: Greenland, Grønland
+
+## Island (Iceland)
+tekst: Grunnlegger av NATO, men har ikke eget militært forsvar. Island bidrar med sin plassering midt i Nord-Atlanteren, og NATO-land patruljerer luftrommet på omgang.
+søkeord: Iceland, Icelandic, Island
+
+## Storbritannia (United Kingdom)
+tekst: En av Europas ledende militærmakter og en av NATOs tre atommakter. Storbritannia leder Joint Expeditionary Force (JEF), et samarbeid med de nordiske og baltiske landene og Nederland, og trener jevnlig i Norge.
+søkeord: UK, Britain, British, United Kingdom, Storbritannia, britisk, britiske
+
+## USA (United States of America)
+tekst: Verdens største militærmakt og den viktigste allierte i NATO. USAs sikkerhetsgaranti, særlig atomparaplyen, er grunnlaget for forsvaret av Europa. USA har forhåndslagret materiell i Trøndelag og trener jevnlig i Norge.
+søkeord: US, U.S., USA, United States, American, Washington, Pentagon, amerikansk, amerikanske
+
+## Canada (Canada)
+tekst: Grunnlegger av NATO og arktisk nabo over polhavet. Canada leder NATOs styrke i Latvia og samarbeider med USA om luftforsvaret av Nord-Amerika gjennom NORAD.
+søkeord: Canada, Canadian, kanadisk
+
+## Tyskland (Germany)
+tekst: Europas største økonomi, som har økt forsvarsbudsjettet kraftig etter 2022. Tyskland har sin første faste brigade utenlands i Litauen, og kjøper ubåter sammen med Norge.
+søkeord: Germany, German, Tyskland, tysk, tyske, Berlin
+
+## Frankrike (France)
+tekst: Atommakt med eget, uavhengig atomvåpen og fast medlem i FNs sikkerhetsråd. Frankrike har en av Europas mest slagkraftige militærmakter og har lenge hatt styrker i Afrika, men har trukket seg ut av flere land i Sahel.
+søkeord: France, French, Frankrike, fransk, franske, Paris
+
+## Polen (Poland)
+tekst: Frontstat mot Russland og Hviterussland, som bruker en av de største andelene av økonomien på forsvar i NATO. Polen bygger opp en av Europas største hærer og er det viktigste knutepunktet for våpenhjelp til Ukraina.
+søkeord: Poland, Polish, Polen, polsk, polske, Warsaw
+
+## Nederland (Netherlands)
+tekst: Grunnlegger av NATO og en nær partner for Norge, blant annet med F-35 og i JEF-samarbeidet.
+søkeord: Netherlands, Dutch, Nederland, nederlandsk
+
+## Tyrkia (Turkey)
+tekst: Har NATOs nest største hær og kontrollerer stredene mellom Svartehavet og Middelhavet. Tyrkia har en voksende forsvarsindustri, ikke minst droner, og spiller en egen rolle i både Syria og Svartehavet.
+søkeord: Turkey, Türkiye, Turkish, Tyrkia, tyrkisk, Ankara
+
+## Hellas (Greece)
+tekst: NATO-medlem som bruker mye på forsvar, blant annet på grunn av et anstrengt forhold til Tyrkia i Egeerhavet og om Kypros.
+søkeord: Greece, Greek, Hellas, gresk
+
+## Estland (Estonia)
+tekst: Baltisk NATO-land med grense mot Russland. Estland bruker en stor andel av økonomien på forsvar og er kjent for satsingen på digital sikkerhet. NATOs senter for cyberforsvar ligger i Tallinn.
+søkeord: Estonia, Estonian, Estland, estisk
+
+## Latvia (Latvia)
+tekst: Baltisk NATO-land med grense mot Russland og Hviterussland. NATOs flernasjonale styrke i Latvia ledes av Canada, og landet har gjeninnført verneplikt.
+søkeord: Latvia, Latvian, latvisk
+
+## Litauen (Lithuania)
+tekst: Baltisk NATO-land som grenser til Hviterussland og den russiske enklaven Kaliningrad. Suwałki-korridoren mellom Litauen og Polen regnes som et av NATOs mest sårbare områder. Tyskland bygger opp en fast brigade i landet.
+søkeord: Lithuania, Lithuanian, Litauen, litauisk
+
+## Romania (Romania)
+tekst: NATO-land ved Svartehavet med grense mot Ukraina og Moldova. Romania har en av NATOs viktigste baser i regionen og en stor rolle i forsvaret av alliansens sørøstlige flanke.
+søkeord: Romania, Romanian, rumensk
+
+## Russland (Russia)
+tekst: Atommakt og fast medlem i FNs sikkerhetsråd, med den lengste landegrensen i verden. Russland grenser til Norge i Finnmark, og Nordflåten med atomubåtene har base på Kola, nær grensen. Etter fullskalainvasjonen av Ukraina i 2022 regner Norge og NATO Russland som den største trusselen mot sikkerheten.
+søkeord: Russia, Russian, Russland, russisk, russiske, Kremlin, Moscow, Putin
+
+## Hviterussland (Belarus)
+tekst: Nær alliert av Russland, som lot russiske styrker angripe Ukraina fra sitt territorium i 2022. Russland har plassert taktiske atomvåpen i landet.
+søkeord: Belarus, Belarusian, Hviterussland, Lukashenko
+
+## Ukraina (Ukraine)
+tekst: Har forsvart seg mot Russlands fullskalainvasjon siden februar 2022, og russiske styrker okkuperer deler av landet, også Krim. Norge er en av de største giverne av militær og sivil støtte. Les mer om krigen under konflikten på kartet.
+søkeord: Ukraine, Ukrainian, Ukraina, ukrainsk, ukrainske, Kyiv, Zelensky
+
+## Moldova (Moldova)
+tekst: Lite land mellom Ukraina og Romania, som er kandidat til EU-medlemskap. I utbryterregionen Transnistria står det russiske soldater.
+søkeord: Moldova, Moldovan, Transnistria
+
+## Georgia (Georgia)
+tekst: Var i krig med Russland i 2008. Russland støtter utbryterregionene Abkhasia og Sør-Ossetia, som utgjør rundt en femdel av landet.
+søkeord: Georgia, Georgian, Tbilisi
+
+## Armenia (Armenia)
+tekst: Har lenge hatt en konflikt med Aserbajdsjan om Nagorno-Karabakh, som Aserbajdsjan tok full kontroll over i 2023. Armenia har siden fjernet seg fra det russisk-ledede forsvarssamarbeidet CSTO.
+søkeord: Armenia, Armenian, Yerevan
+
+## Aserbajdsjan (Azerbaijan)
+tekst: Tok full kontroll over Nagorno-Karabakh i 2023. Landet er en viktig olje- og gassprodusent ved Det kaspiske hav.
+søkeord: Azerbaijan, Azerbaijani, Baku
+
+## Serbia (Republic of Serbia)
+tekst: Militært nøytralt land på Balkan med tette bånd til Russland og Kina, men også kandidat til EU-medlemskap. Serbia anerkjenner ikke Kosovo som selvstendig.
+søkeord: Serbia, Serbian, Belgrade
+
+## Kosovo (Kosovo)
+tekst: Erklærte seg selvstendig fra Serbia i 2008. NATO-styrken KFOR har vært i landet siden 1999, og Norge har bidratt med soldater.
+søkeord: Kosovo, KFOR
+
+## Bosnia-Hercegovina (Bosnia and Herzegovina)
+tekst: Delt i to deler etter krigen på 1990-tallet. EU-styrken EUFOR skal bidra til stabilitet, og spenningen mellom delene blusser opp av og til.
+søkeord: Bosnia, Bosnian, Republika Srpska
+
+## Kina (China)
+tekst: Atommakt og fast medlem i FNs sikkerhetsråd, med verdens største militærstyrke målt i antall soldater og den største marinen målt i antall skip. Kina har et tett samarbeid med Russland, gjør krav på Taiwan og store deler av Sørkinahavet, og viser økende interesse for Arktis.
+søkeord: China, Chinese, Kina, kinesisk, kinesiske, Beijing, Xi Jinping
+
+## Taiwan (Taiwan)
+tekst: Selvstyrt øy med eget demokrati, som Kina regner som en del av Kina. Taiwan produserer en stor del av verdens mest avanserte databrikker, og en konflikt i Taiwanstredet ville få store følger for hele verden.
+søkeord: Taiwan, Taiwanese, Taipei
+
+## Japan (Japan)
+tekst: Nær alliert av USA, med store amerikanske styrker på sitt territorium. Japan er i ferd med å doble forsvarsbudsjettet og bygger opp evnen til å slå tilbake på lang avstand.
+søkeord: Japan, Japanese, japansk, Tokyo
+
+## Sør-Korea (South Korea)
+tekst: Alliert av USA, med rundt 28 000 amerikanske soldater i landet. Sør-Korea har en stor forsvarsindustri som selger stridsvogner, artilleri og fly til blant annet Polen og Norge.
+søkeord: South Korea, South Korean, Sør-Korea, sørkoreansk, Seoul
+
+## Nord-Korea (North Korea)
+tekst: Lukket diktatur med atomvåpen og langtrekkende raketter, som har sendt soldater og ammunisjon til Russlands krig mot Ukraina.
+søkeord: North Korea, North Korean, Nord-Korea, nordkoreansk, Pyongyang, Kim Jong Un
+
+## India (India)
+tekst: Verdens folkerikeste land og en atommakt, med et anstrengt forhold til både Pakistan og Kina. India kjøper våpen fra både Russland og vestlige land.
+søkeord: India, Indian, indisk, New Delhi, Modi
+
+## Pakistan (Pakistan)
+tekst: Atommakt med et langvarig konfliktforhold til India, særlig om Kashmir. Landet er også rammet av militante grupper langs grensen mot Afghanistan.
+søkeord: Pakistan, Pakistani, pakistansk, Islamabad
+
+## Afghanistan (Afghanistan)
+tekst: Styrt av Taliban siden de vestlige styrkene trakk seg ut i august 2021. Norge var med i NATO-operasjonen i landet i 20 år.
+søkeord: Afghanistan, Afghan, Taliban, afghansk
+
+## Iran (Iran)
+tekst: Regional stormakt med et omstridt atomprogram, langtrekkende raketter og droner, og nettverk av allierte grupper i Midtøsten. Iran har levert droner til Russland. Les mer om den siste utviklingen under konflikten på kartet.
+søkeord: Iran, Iranian, iransk, Tehran, Teheran
+
+## Irak (Iraq)
+tekst: Har vært preget av krig siden 2003 og kampen mot IS. Landet er en arena for rivaliseringen mellom USA og Iran, og Norge har bidratt med opplæring av irakiske styrker.
+søkeord: Iraq, Iraqi, Irak, irakisk, Baghdad
+
+## Israel (Israel)
+tekst: Har en av Midtøstens sterkeste militærmakter, et avansert luftvern i flere lag og nære bånd til USA. Israel regnes for å ha atomvåpen, men har aldri bekreftet det. Les mer under konfliktene på kartet.
+søkeord: Israel, Israeli, israelsk, israelske
+
+## Palestina (Palestine)
+tekst: De palestinske områdene består av Gaza og Vestbredden. Norge anerkjente Palestina som stat i 2024 og leder giverlandsgruppen for palestinerne.
+søkeord: Palestine, Palestinian, Palestina, palestinsk, Gaza, Vestbredden, West Bank
+
+## Libanon (Lebanon)
+tekst: Preget av en dyp økonomisk krise og den væpnede bevegelsen Hizbollah, som har vært i strid med Israel. FN-styrken UNIFIL har vært i Sør-Libanon siden 1978, og Norge har deltatt.
+søkeord: Lebanon, Lebanese, Libanon, Hezbollah, Hizbollah, Beirut
+
+## Syria (Syria)
+tekst: Var i borgerkrig fra 2011. Assad-regimet falt i desember 2024, og landet er i en skjør overgang med mange væpnede grupper og utenlandske makter til stede.
+søkeord: Syria, Syrian, syrisk, Damascus
+
+## Jemen (Yemen)
+tekst: Har vært i borgerkrig siden 2014. Houthiene, som kontrollerer store deler av landet, har angrepet skipsfarten i Rødehavet, en av verdens viktigste handelsruter.
+søkeord: Yemen, Yemeni, Jemen, Houthi, Houthis, houthiene
+
+## Saudi-Arabia (Saudi Arabia)
+tekst: En av verdens største våpenkjøpere og en regional rival til Iran. Landet ledet koalisjonen som gikk inn i krigen i Jemen i 2015.
+søkeord: Saudi, Saudi Arabia, saudiarabisk, Riyadh
+
+## Egypt (Egypt)
+tekst: Arabisk stormakt som kontrollerer Suezkanalen og grenser til Gaza, Sudan og Libya. Egypt spiller en viktig rolle som megler i Midtøsten.
+søkeord: Egypt, Egyptian, egyptisk, Cairo
+
+## Libya (Libya)
+tekst: Delt mellom rivaliserende myndigheter i vest og øst siden borgerkrigen etter 2011. Russland og Tyrkia har begge militær tilstedeværelse.
+søkeord: Libya, Libyan, libysk, Tripoli
+
+## Sudan (Sudan)
+tekst: I borgerkrig siden april 2023 mellom hæren og militsen RSF. FN har kalt det en av verdens største humanitære kriser. Les mer under konflikten på kartet.
+søkeord: Sudan, Sudanese, sudansk, Khartoum, Darfur, RSF
+
+## Sør-Sudan (South Sudan)
+tekst: Verdens yngste stat, selvstendig fra Sudan i 2011, med Norge som en viktig støttespiller. Landet har vært preget av borgerkrig og ustabilitet, og FN har en stor fredsstyrke der.
+søkeord: South Sudan, South Sudanese, Sør-Sudan, Juba
+
+## Etiopia (Ethiopia)
+tekst: Afrikas nest folkerikeste land. Krigen i Tigray 2020–2022 var en av de dødeligste i verden de siste årene, og det er fortsatt uro i flere regioner.
+søkeord: Ethiopia, Ethiopian, Etiopia, etiopisk, Tigray, Amhara
+
+## Somalia (Somalia)
+tekst: Har i mange år kjempet mot den militante islamistgruppen al-Shabaab med støtte fra en afrikansk fredsstyrke. Farvannene utenfor har vært kjent for piratvirksomhet.
+søkeord: Somalia, Somali, al-Shabaab, Mogadishu
+
+## Mali (Mali)
+tekst: Styrt av militæret etter kupp i 2020 og 2021. Mali kastet ut FN-styrken og franske styrker og samarbeider nå med Russland. Norge deltok i FN-operasjonen i landet. Les mer under konflikten Sahel.
+søkeord: Mali, Malian, Bamako
+
+## Burkina Faso (Burkina Faso)
+tekst: Styrt av militæret etter kupp i 2022 og hardt rammet av islamistiske grupper. Sammen med Mali og Niger har landet brutt med Vest-Afrikas regionale samarbeid ECOWAS og dannet en egen allianse.
+søkeord: Burkina Faso, Burkinabe, Ouagadougou
+
+## Niger (Niger)
+tekst: Militæret tok makten i 2023, og amerikanske og franske styrker har forlatt landet. Niger samarbeider nå med Mali og Burkina Faso i en egen allianse.
+søkeord: Niger, Nigerien, Niamey
+
+## Nigeria (Nigeria)
+tekst: Afrikas folkerikeste land, som i mange år har kjempet mot Boko Haram og andre væpnede grupper i nordøst, rundt Tsjadsjøen.
+søkeord: Nigeria, Nigerian, Boko Haram, Abuja
+
+## DR Kongo (Democratic Republic of the Congo)
+tekst: Stort og ressursrikt land der det har vært væpnede konflikter i øst i flere tiår. Opprørsgruppen M23 har fått støtte fra nabolandet Rwanda.
+søkeord: DR Congo, DRC, Congo, Kongo, Goma, M23
+
+## Rwanda (Rwanda)
+tekst: Lite land med et slagkraftig forsvar, som FN har beskyldt for å støtte opprørsgruppen M23 i Øst-Kongo.
+søkeord: Rwanda, Rwandan, Kigali
+
+## Myanmar (Myanmar)
+tekst: I borgerkrig siden militærkuppet i februar 2021, der mange væpnede grupper kjemper mot militærjuntaen.
+søkeord: Myanmar, Burma, Burmese
+
+## Haiti (Haiti)
+tekst: Store deler av hovedstaden kontrolleres av væpnede gjenger. En internasjonal styrke med FN-mandat skal hjelpe politiet med å gjenvinne kontrollen.
+søkeord: Haiti, Haitian, Port-au-Prince
+
+## Venezuela (Venezuela)
+tekst: Oljerikt land i Sør-Amerika med en langvarig politisk og økonomisk krise, som har sendt millioner av mennesker på flukt, og et anspent forhold til USA.
+søkeord: Venezuela, Venezuelan, Caracas
+
+## Kasakhstan (Kazakhstan)
+tekst: Stort land i Sentral-Asia med lang grense mot Russland. Kasakhstan er med i det russisk-ledede forsvarssamarbeidet CSTO, men prøver å balansere mellom Russland, Kina og Vesten.
+søkeord: Kazakhstan, Kazakh
+
+## Australia (Australia)
+tekst: Nær alliert av USA og Storbritannia. Gjennom AUKUS-avtalen skal Australia få atomdrevne ubåter.
+søkeord: Australia, Australian, AUKUS
+
+## Østerrike (Austria)
+tekst: EU-medlem som er militært nøytralt etter grunnloven og ikke med i NATO.
+søkeord: Austria, Austrian, Østerrike
+
+## Sveits (Switzerland)
+tekst: Kjent for sin nøytralitet, men har et sterkt forsvar med verneplikt. Sveits er verken med i NATO eller EU.
+søkeord: Switzerland, Swiss, Sveits, sveitsisk
+
+## Irland (Ireland)
+tekst: EU-medlem som har stått utenfor NATO og har en lang tradisjon for militær nøytralitet.
+søkeord: Ireland, Irish, Irland, irsk
+
+## Sør-Afrika (South Africa)
+tekst: Afrikas mest industrialiserte land og medlem av BRICS-samarbeidet. Sør-Afrika er det eneste landet som har bygget og deretter frivillig gitt fra seg atomvåpen.
+søkeord: South Africa, South African, Sør-Afrika
+
+## Brasil (Brazil)
+tekst: Sør-Amerikas største land og militærmakt, og medlem av BRICS-samarbeidet med blant andre Russland og Kina.
+søkeord: Brazil, Brazilian, Brasil
+
+## Mexico (Mexico)
+tekst: USAs nabo i sør, der kampen mot de store narkokartellene står sentralt i forholdet til USA.
+søkeord: Mexico, Mexican, cartel, cartels

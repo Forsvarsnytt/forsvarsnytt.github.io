@@ -18,6 +18,7 @@ import mest_omtalt
 import ukens
 import konflikter
 import norgeskart
+import landinfo
 import undersider
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
@@ -291,6 +292,7 @@ def main():
     uker = ukens.lag(saker)  # «Ukens hjørne» fra mappen ukens/
     konfliktliste, kart = konflikter.lag(saker)  # konfliktkartet fra konflikter.txt
     norge = norgeskart.lag(saker)  # Norgeskartet fra forsvaret-steder.txt
+    land = landinfo.lag(saker, kart or {})  # landbeskrivelser i konfliktkartet fra land.txt
 
     # AI-oppsummeringer tar over der de finnes og er ferske
     opps_fil = ROT / "data" / "oppsummeringer.json"
@@ -348,6 +350,7 @@ def main():
             .replace("/*KONFLIKTER*/null", til_js(konfliktliste))
             .replace("/*KART*/null", til_js(kart))
             .replace("/*NORGE*/null", til_js(norge))
+            .replace("/*LAND*/null", til_js(land))
             .replace("/*TIDSLINJE*/null", til_js({"hendelser": les_tidslinje(), "kategorier": TIDSLINJE_KATEGORIER}))
             .replace("/*ORDLISTE*/null", til_js(les_ordliste()))
             .replace("{{TILBAKEMELDING}}", tilbakemelding)
