@@ -6,7 +6,7 @@
 #   siden:     når konflikten startet
 #   søkeord:   ord som brukes til å finne nyheter om konflikten, adskilt med komma (hele ord)
 #   tekst:     kort, nøktern bakgrunn med egne ord
-# Linjer som starter med # vises ikke. Sist gjennomgått: 28.10.2026.
+# Linjer som starter med # vises ikke. Sist gjennomgått: 29.10.2026.
 
 ## Krigen i Ukraina
 type: krig
@@ -14,7 +14,7 @@ posisjon: 48.6, 35.5
 land: Ukraine
 siden: 2014, fullskala invasjon fra 24. februar 2022
 søkeord: ukraine, ukraina, ukrainian, ukrainsk, ukrainske, kyiv, kiev, kharkiv, zaporizhzhia, donetsk, donbas, kherson, crimea, krim, zelensky, zelenskyj, pokrovsk, odesa
-tekst: Russland gikk til fullskala invasjon av Ukraina 24. februar 2022, etter å ha annektert Krim og støttet væpnede separatister i Donbas siden 2014. Krigen er den største i Europa siden andre verdenskrig og står sentralt i norsk og alliert sikkerhetspolitikk.
+tekst: Russland gikk til fullskala invasjon av Ukraina 24. februar 2022, etter å ha annektert Krim og støttet væpnede separatister i Donbas siden 2014. Krigen er den største i Europa siden andre verdenskrig og står sentralt i norsk og alliert sikkerhetspolitikk. Det har vært flere runder med forhandlinger med USA som megler, men ingen fredsavtale. I oktober 2026 ble partene enige om en lokal våpenhvile i Oleshky i Kherson og nye samtaler i november.
 
 ## Gaza og Israel
 type: krig

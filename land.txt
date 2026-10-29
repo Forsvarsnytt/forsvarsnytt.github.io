@@ -21,11 +21,11 @@ tekst: Ble NATO-medlem i april 2023 og har NATOs lengste grense mot Russland, ru
 søkeord: Finland, Finnish, finsk, finske
 
 ## Danmark (Denmark)
-tekst: Grunnlegger av NATO. Danmark har ansvar for forsvaret av Grønland og Færøyene og er en viktig del av sikkerheten i Østersjøen og Arktis.
+tekst: Grunnlegger av NATO. Danmark har ansvar for forsvaret av Grønland og Færøyene og er en viktig del av sikkerheten i Østersjøen og Arktis. Striden med USA om Grønland har gjort at Danmark har styrket forsvaret i Arktis, med støtte fra flere europeiske allierte.
 søkeord: Denmark, Danish, Danmark, dansk, danske
 
 ## Grønland (Greenland)
-tekst: Selvstyrt del av Kongeriket Danmark og dermed en del av NATO. Grønland ligger strategisk mellom Nord-Amerika og Europa, og USA har en romovervåkingsbase der, Pituffik.
+tekst: Selvstyrt del av Kongeriket Danmark og dermed en del av NATO. Grønland ligger strategisk mellom Nord-Amerika og Europa, og USA har en romovervåkingsbase der, Pituffik. USAs krav om å overta øya har skapt en alvorlig strid med Danmark og Grønland, som har sagt klart nei.
 søkeord: Greenland, Grønland
 
 ## Island (Iceland)
@@ -105,7 +105,7 @@ tekst: Var i krig med Russland i 2008. Russland støtter utbryterregionene Abkha
 søkeord: Georgia, Georgian, Tbilisi
 
 ## Armenia (Armenia)
-tekst: Har lenge hatt en konflikt med Aserbajdsjan om Nagorno-Karabakh, som Aserbajdsjan tok full kontroll over i 2023. Armenia har siden fjernet seg fra det russisk-ledede forsvarssamarbeidet CSTO.
+tekst: Har lenge hatt en konflikt med Aserbajdsjan om Nagorno-Karabakh, som Aserbajdsjan tok full kontroll over i 2023. Armenia frøs deltakelsen i det russisk-ledede forsvarssamarbeidet CSTO i 2024 og har nærmet seg Vesten.
 søkeord: Armenia, Armenian, Yerevan
 
 ## Aserbajdsjan (Azerbaijan)
@@ -157,7 +157,7 @@ tekst: Styrt av Taliban siden de vestlige styrkene trakk seg ut i august 2021. N
 søkeord: Afghanistan, Afghan, Taliban, afghansk
 
 ## Iran (Iran)
-tekst: Regional stormakt med et omstridt atomprogram, langtrekkende raketter og droner, og nettverk av allierte grupper i Midtøsten. Iran har levert droner til Russland. Les mer om den siste utviklingen under konflikten på kartet.
+tekst: Regional stormakt med et omstridt atomprogram, langtrekkende raketter og droner, og nettverk av allierte grupper i Midtøsten. Iran har levert droner til Russland. Siden februar 2026 har landet vært i krig med USA og Israel, og den øverste lederen ble drept i de første angrepene. Les mer under konflikten på kartet.
 søkeord: Iran, Iranian, iransk, Tehran, Teheran
 
 ## Irak (Iraq)
@@ -213,7 +213,7 @@ tekst: Har i mange år kjempet mot den militante islamistgruppen al-Shabaab med 
 søkeord: Somalia, Somali, al-Shabaab, Mogadishu
 
 ## Mali (Mali)
-tekst: Styrt av militæret etter kupp i 2020 og 2021. Mali kastet ut FN-styrken og franske styrker og samarbeider nå med Russland. Norge deltok i FN-operasjonen i landet. Les mer under konflikten Sahel.
+tekst: Styrt av militæret etter kupp i 2020 og 2021. Mali kastet ut FN-styrken og franske styrker og samarbeider nå med Russland. Islamistiske grupper har i 2026 forsøkt å blokkere forsyningene til hovedstaden Bamako. Norge deltok i FN-operasjonen i landet. Les mer under konflikten Sahel.
 søkeord: Mali, Malian, Bamako
 
 ## Burkina Faso (Burkina Faso)
@@ -237,15 +237,15 @@ tekst: Lite land med et slagkraftig forsvar, som FN har beskyldt for å støtte 
 søkeord: Rwanda, Rwandan, Kigali
 
 ## Myanmar (Myanmar)
-tekst: I borgerkrig siden militærkuppet i februar 2021, der mange væpnede grupper kjemper mot militærjuntaen.
+tekst: I borgerkrig siden militærkuppet i februar 2021, der mange væpnede grupper kjemper mot militæret. Etter et valg som ble sterkt kritisert, ble kuppleder Min Aung Hlaing innsatt som president i april 2026.
 søkeord: Myanmar, Burma, Burmese
 
 ## Haiti (Haiti)
-tekst: Store deler av hovedstaden kontrolleres av væpnede gjenger. En internasjonal styrke med FN-mandat skal hjelpe politiet med å gjenvinne kontrollen.
+tekst: Store deler av hovedstaden kontrolleres av væpnede gjenger. En ny internasjonal styrke med FN-mandat, Gang Suppression Force, er i ferd med å settes inn for å hjelpe politiet med å gjenvinne kontrollen.
 søkeord: Haiti, Haitian, Port-au-Prince
 
 ## Venezuela (Venezuela)
-tekst: Oljerikt land i Sør-Amerika med en langvarig politisk og økonomisk krise, som har sendt millioner av mennesker på flukt, og et anspent forhold til USA.
+tekst: Oljerikt land i Sør-Amerika med en langvarig politisk og økonomisk krise som har sendt millioner på flukt. I januar 2026 angrep USA mål i landet og tok president Nicolás Maduro til fange. Visepresident Delcy Rodríguez overtok som fungerende president.
 søkeord: Venezuela, Venezuelan, Caracas
 
 ## Kasakhstan (Kazakhstan)
