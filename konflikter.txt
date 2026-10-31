@@ -6,7 +6,7 @@
 #   siden:     når konflikten startet
 #   søkeord:   ord som brukes til å finne nyheter om konflikten, adskilt med komma (hele ord)
 #   tekst:     kort, nøktern bakgrunn med egne ord
-# Linjer som starter med # vises ikke. Sist gjennomgått: 29.10.2026.
+# Linjer som starter med # vises ikke. Sist gjennomgått: 31.10.2026.
 
 ## Krigen i Ukraina
 type: krig
@@ -46,7 +46,7 @@ posisjon: 15.4, 44.2
 land: Yemen
 siden: Borgerkrig fra 2014, angrep i Rødehavet fra 2023
 søkeord: houthi, houthis, houthiene, yemen, jemen, red sea, rødehavet, sanaa
-tekst: Houthi-bevegelsen kontrollerer store deler av Jemen. Siden 2023 har den angrepet skipsfarten i Rødehavet og skutt mot Israel, noe som har ført til gjengjeldelsesangrep fra USA, Storbritannia og Israel.
+tekst: Houthi-bevegelsen kontrollerer store deler av Jemen. Siden 2023 har den angrepet skipsfarten i Rødehavet og skutt mot Israel, noe som har ført til gjengjeldelsesangrep fra USA, Storbritannia og Israel. Våpenhvilen mellom Saudi-Arabia og houthiene fra 2022 brøt sammen i juli 2026, og det er igjen kamper mellom houthiene og saudistøttede regjeringsstyrker, med angrep mot Saudi-Arabia og saudiske luftangrep i Jemen.
 
 ## Syria
 type: konflikt
@@ -70,7 +70,7 @@ posisjon: 15.5, -0.5
 land: Mali, Burkina Faso, Niger
 siden: Opprør fra 2012, militærkupp 2020–2023
 søkeord: sahel, mali, malian, burkina faso, burkina, niger, nigerien, jnim, bamako, ouagadougou, niamey, africa corps, wagner
-tekst: Islamistiske grupper knyttet til al-Qaida og IS er aktive i Mali, Burkina Faso og Niger. Etter militærkupp mellom 2020 og 2023 har landene brutt med Frankrike og vestlige partnere og knyttet seg tettere til Russland.
+tekst: Islamistiske grupper knyttet til al-Qaida og IS er aktive i Mali, Burkina Faso og Niger. Etter militærkupp mellom 2020 og 2023 har landene brutt med Frankrike og vestlige partnere og knyttet seg tettere til Russland. I april 2026 startet JNIM og tuaregopprørerne i FLA en samordnet offensiv i Mali der forsvarsministeren ble drept og FLA tok byen Kidal. Hæren tok Kidal tilbake med russisk støtte i oktober 2026, men kampene fortsetter.
 
 ## Øst-Kongo
 type: konflikt
