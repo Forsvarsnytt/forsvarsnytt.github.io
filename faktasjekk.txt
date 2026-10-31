@@ -4,7 +4,7 @@
 # Bare åpne kilder – aldri noe du vet gjennom tjenesten.
 #
 # fil | hvor ofte (dager) | sist gjennomgått | hva som sjekkes og hvor
-konflikter.txt | 7 | 2026-10-29 | Våpenhviler, offensiver, forhandlinger, nye eller avsluttede konflikter. Store nyhetsbyråer, NRK, BBC, Wikipedia-oversikter som utgangspunkt.
+konflikter.txt | 7 | 2026-10-31 | Våpenhviler, offensiver, forhandlinger, nye eller avsluttede konflikter. Store nyhetsbyråer, NRK, BBC, Wikipedia-oversikter som utgangspunkt.
 land.txt | 90 | 2026-10-29 | Ledere, kupp, medlemskap i NATO og EU, store endringer i forsvarspolitikk.
 forsvaret-steder.txt | 120 | 2026-10-29 | Avdelinger som er flyttet, nedlagt, opprettet eller har nytt navn. forsvaret.no/om-forsvaret/tjenestesteder.
 sider/1-teknologi.txt | 60 | 2026-10-29 | Nye våpen og systemer som er tatt i bruk, tall og årstall.
