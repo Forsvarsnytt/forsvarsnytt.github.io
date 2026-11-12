@@ -7,6 +7,13 @@
 "tid": "2026-11-11T00:00:00+00:00"
 },
 {
+"tittel": "How BBC got message from Vinícius Jr to Sudan football fan who lost his legs in war",
+"lenke": "https://www.bbc.co.uk/news/articles/cqm26mmpp2p1o?at_medium=RSS&at_campaign=rss",
+"kilde": "BBC Afrika",
+"tema": "afrika",
+"tid": "2026-11-11T00:19:42+00:00"
+},
+{
 "tittel": "Ukrainian drones reportedly target Russia's largest oil refinery, strike Baltic Sea port, missile boat",
 "lenke": "https://kyivindependent.com/ukraine-reportedly-strikes-ust-luga-baltic-sea-port-as-drones-attack-regions-across-russia/",
 "kilde": "Kyiv Independent",
@@ -40,6 +47,13 @@
 "kilde": "Forsvarets forum",
 "tema": "norge",
 "tid": "2026-11-11T07:40:39+00:00"
+},
+{
+"tittel": "Watch: Vinícius Jr's surprise message to boy who received prosthetic legs after Sudan drone strike",
+"lenke": "https://www.bbc.co.uk/news/videos/cm894wg251pzo?at_medium=RSS&at_campaign=rss",
+"kilde": "BBC Afrika",
+"tema": "styrker",
+"tid": "2026-11-11T09:28:36+00:00"
 },
 {
 "tittel": "Styrker marine-samarbeidet med allierte",
@@ -154,6 +168,13 @@
 "tid": "2026-11-11T16:34:41+00:00"
 },
 {
+"tittel": "US Treasury Secretary Scott Bessent relocated after alleged Iranian threats",
+"lenke": "https://www.bbc.co.uk/news/articles/cqr7gr0010r2o?at_medium=RSS&at_campaign=rss",
+"kilde": "BBC Midtøsten",
+"tema": "styrker",
+"tid": "2026-11-11T16:45:11+00:00"
+},
+{
 "tittel": "Three Iran-backed suspects plotted attacks including RAF Fairford incident, US says",
 "lenke": "https://www.bbc.co.uk/news/articles/c3rryrryk59zo?at_medium=RSS&at_campaign=rss",
 "kilde": "BBC Midtøsten",
@@ -250,5 +271,33 @@
 "kilde": "Forsvarsdepartementet",
 "tema": "norge",
 "tid": "2026-11-11T19:41:12.549195+00:00"
+},
+{
+"tittel": "Clashes erupt in Barcelona after thousands join Spain general strike",
+"lenke": "https://www.bbc.co.uk/news/articles/cwvg25nypmrvo?at_medium=RSS&at_campaign=rss",
+"kilde": "BBC Europa",
+"tema": "verden",
+"tid": "2026-11-11T22:07:37+00:00"
+},
+{
+"tittel": "British soldier charged with rape of woman serving in Cyprus",
+"lenke": "https://www.bbc.co.uk/news/articles/cvglr28re6n9o?at_medium=RSS&at_campaign=rss",
+"kilde": "BBC Europa",
+"tema": "verden",
+"tid": "2026-11-11T22:34:37+00:00"
+},
+{
+"tittel": "Russia's largest oil refinery slammed by drones in 8-hour attack, Ukraine confirms",
+"lenke": "https://kyivindependent.com/russias-largest-oil-refinery-slammed-by-drones-in-8-hr-attack-2-500-km-from-ukraine/",
+"kilde": "Kyiv Independent",
+"tema": "ukraina",
+"tid": "2026-11-11T22:41:46+00:00"
+},
+{
+"tittel": "Russia attacks Kyiv with ballistic missiles, drones hours after peace talks end",
+"lenke": "https://kyivindependent.com/russia-attacks-kyiv-with-ballistic-missiles-hours-after-peace-talks-end/",
+"kilde": "Kyiv Independent",
+"tema": "styrker",
+"tid": "2026-11-11T23:27:06+00:00"
 }
 ]
