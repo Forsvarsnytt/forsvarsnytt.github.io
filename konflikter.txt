@@ -6,7 +6,7 @@
 #   siden:     når konflikten startet
 #   søkeord:   ord som brukes til å finne nyheter om konflikten, adskilt med komma (hele ord)
 #   tekst:     kort, nøktern bakgrunn med egne ord
-# Linjer som starter med # vises ikke. Sist gjennomgått: 21.11.2026.
+# Linjer som starter med # vises ikke. Sist gjennomgått: 28.11.2026.
 
 ## Krigen i Ukraina
 type: krig
@@ -14,7 +14,7 @@ posisjon: 48.6, 35.5
 land: Ukraine
 siden: 2014, fullskala invasjon fra 24. februar 2022
 søkeord: ukraine, ukraina, ukrainian, ukrainsk, ukrainske, kyiv, kiev, kharkiv, zaporizhzhia, donetsk, donbas, kherson, crimea, krim, zelensky, zelenskyj, pokrovsk, odesa
-tekst: Russland gikk til fullskala invasjon av Ukraina 24. februar 2022, etter å ha annektert Krim og støttet væpnede separatister i Donbas siden 2014. Krigen er den største i Europa siden andre verdenskrig og står sentralt i norsk og alliert sikkerhetspolitikk. Det har vært flere runder med forhandlinger med USA som megler, men ingen fredsavtale. En lokal våpenhvile i Kherson-regionen fra 27. oktober til 1. november 2026 skulle la sivile forlate Oleshky. Samtalene i Abu Dhabi 10.–11. november 2026 endte med enighet om en fangeutveksling, men uten våpenhvile eller fredsavtale.
+tekst: Russland gikk til fullskala invasjon av Ukraina 24. februar 2022, etter å ha annektert Krim og støttet væpnede separatister i Donbas siden 2014. Krigen er den største i Europa siden andre verdenskrig og står sentralt i norsk og alliert sikkerhetspolitikk. Det har vært flere runder med forhandlinger med USA som megler, men ingen fredsavtale. En lokal våpenhvile i Kherson-regionen fra 27. oktober til 1. november 2026 skulle la sivile forlate Oleshky. Samtalene i Abu Dhabi 10.–11. november 2026 endte med enighet om en fangeutveksling, men uten våpenhvile eller fredsavtale. Dagen etter møtte USAs utsendinger Putin i Moskva, og partene ble enige om å fortsette samtalene.
 
 ## Gaza og Israel
 type: krig
@@ -46,7 +46,7 @@ posisjon: 15.4, 44.2
 land: Yemen
 siden: Borgerkrig fra 2014, angrep i Rødehavet fra 2023
 søkeord: houthi, houthis, houthiene, yemen, jemen, red sea, rødehavet, sanaa, aden, hodeidah
-tekst: Houthi-bevegelsen kontrollerer store deler av Jemen. Siden 2023 har den angrepet skipsfarten i Rødehavet og skutt mot Israel, noe som har ført til gjengjeldelsesangrep fra USA, Storbritannia og Israel. Høsten 2026 har houthiene rykket fram mot sør og står rundt 80 km fra Aden, og regjeringsstyrkene har trukket seg ut fra Bab al-Mandeb. Den saudiledede koalisjonen har trappet opp luftangrepene, og houthiene har skutt raketter og droner mot Saudi-Arabia.
+tekst: Houthi-bevegelsen kontrollerer store deler av Jemen. Siden 2023 har den angrepet skipsfarten i Rødehavet og skutt mot Israel, noe som har ført til gjengjeldelsesangrep fra USA, Storbritannia og Israel. Høsten 2026 har houthiene rykket fram mot sør, tatt havnebyen Mokha og nådd kysten under 100 km fra Aden, og regjeringsstyrkene har trukket seg ut fra Bab al-Mandeb. Den saudiledede koalisjonen har trappet opp luftangrepene, og houthiene har skutt raketter og droner mot Saudi-Arabia.
 
 ## Syria
 type: konflikt
@@ -62,7 +62,7 @@ posisjon: 15.0, 29.5
 land: Sudan
 siden: 15. april 2023
 søkeord: sudan, sudanese, rsf, darfur, khartoum, el fasher, el-fasher, burhan, hemedti
-tekst: Krigen mellom Sudans hær (SAF) og den paramilitære styrken RSF brøt ut i april 2023. Den har skapt en av verdens største humanitære kriser, med millioner av mennesker på flukt og alvorlige overgrep mot sivile, særlig i Darfur. RSF tok byen El Fasher i oktober 2025 og kontrollerer nesten hele Darfur, mens hæren holder det meste av resten av landet. Det er ingen våpenhvile.
+tekst: Krigen mellom Sudans hær (SAF) og den paramilitære styrken RSF brøt ut i april 2023. Den har skapt en av verdens største humanitære kriser, med millioner av mennesker på flukt og alvorlige overgrep mot sivile, særlig i Darfur. RSF tok byen El Fasher i oktober 2025 og kontrollerer nesten hele Darfur, mens hæren holder det meste av resten av landet. Høsten 2026 brøt hæren RSFs beleiring av El Obeid og rykket fram i Kordofan. Det er ingen våpenhvile.
 
 ## Sahel
 type: konflikt
@@ -70,7 +70,7 @@ posisjon: 15.5, -0.5
 land: Mali, Burkina Faso, Niger
 siden: Opprør fra 2012, militærkupp 2020–2023
 søkeord: sahel, mali, malian, burkina faso, burkina, niger, nigerien, jnim, bamako, ouagadougou, niamey, africa corps, wagner
-tekst: Islamistiske grupper knyttet til al-Qaida og IS er aktive i Mali, Burkina Faso og Niger. Etter militærkupp mellom 2020 og 2023 har landene brutt med Frankrike og vestlige partnere og knyttet seg tettere til Russland.
+tekst: Islamistiske grupper knyttet til al-Qaida og IS er aktive i Mali, Burkina Faso og Niger. Etter militærkupp mellom 2020 og 2023 har landene brutt med Frankrike og vestlige partnere og knyttet seg tettere til Russland. Våren 2026 angrep JNIM og tuaregopprørerne i FLA samordnet i Mali. Forsvarsministeren ble drept, og JNIM satte opp kontrollposter rundt hovedstaden Bamako.
 
 ## Øst-Kongo
 type: konflikt
@@ -110,7 +110,7 @@ posisjon: 21.0, 96.0
 land: Myanmar
 siden: Militærkupp 1. februar 2021
 søkeord: myanmar, burma, burmese, junta
-tekst: Etter militærkuppet i februar 2021 har motstandsgrupper og etniske væpnede grupper kjempet mot militærjuntaen i store deler av landet.
+tekst: Etter militærkuppet i februar 2021 har motstandsgrupper og etniske væpnede grupper kjempet mot militærjuntaen i store deler av landet. Etter et valg i regi av militæret valgte det nye parlamentet kuppleder Min Aung Hlaing til president i april 2026. Kampene fortsetter.
 
 ## Haiti
 type: konflikt
