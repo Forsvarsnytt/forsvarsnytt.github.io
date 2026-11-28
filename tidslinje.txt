@@ -3,7 +3,7 @@
 #   kategorier: ukraina, nato, norge, midtosten, afrika, verden
 # Neste linje er en kort tekst med egne ord.
 # Linjen «kilde: Navn på kilden | https://lenke» viser hvor opplysningene er hentet fra. Hver hendelse skal ha en kilde.
-# Linjer som starter med # vises ikke. Sist gjennomgått: 28.10.2026.
+# Linjer som starter med # vises ikke. Sist gjennomgått: 28.11.2026.
 
 ## 2022-02-24 | ukraina | Russland går til fullskala invasjon av Ukraina
 Russiske styrker angriper fra nord, øst og sør, blant annet mot Kyiv. Det er den største militære invasjonen i Europa siden andre verdenskrig.
@@ -180,3 +180,11 @@ kilde: Wikipedia | https://en.wikipedia.org/wiki/2026_Iran_war_ceasefire
 ## 2026-04-11 | ukraina | Kortvarig våpenhvile i påsken
 Russland og Ukraina går med på en våpenhvile på rundt 32 timer i påsken. Begge sider melder om brudd, og kampene fortsetter når den utløper.
 kilde: Wikipedia | https://en.wikipedia.org/wiki/2026_Russo-Ukrainian_truce
+
+## 2026-07-08 | nato | NATO-toppmøtet i Ankara
+De allierte bekrefter forpliktelsen til felles forsvar, holder fast ved målet for forsvarsutgifter fra Haag-toppmøtet og lover fortsatt støtte til Ukraina.
+kilde: NATO | https://www.nato.int/en/about-us/official-texts-and-resources/official-texts/2026/07/08/the-ankara-summit-declaration
+
+## 2026-11-11 | ukraina | Samtaler i Abu Dhabi uten våpenhvile
+Etter to dager med samtaler mellom USA, Ukraina og Russland blir partene enige om en fangeutveksling, men ikke om våpenhvile. Dagen etter møter USAs utsendinger Putin i Moskva.
+kilde: Al Jazeera | https://www.aljazeera.com/news/2026/11/12/us-envoys-arrive-in-moscow-for-russia-ukraine-talks-with-putin

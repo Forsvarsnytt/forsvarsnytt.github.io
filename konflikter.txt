@@ -6,7 +6,7 @@
 #   siden:     når konflikten startet
 #   søkeord:   ord som brukes til å finne nyheter om konflikten, adskilt med komma (hele ord)
 #   tekst:     kort, nøktern bakgrunn med egne ord
-# Linjer som starter med # vises ikke. Sist gjennomgått: 29.10.2026.
+# Linjer som starter med # vises ikke. Sist gjennomgått: 28.11.2026.
 
 ## Krigen i Ukraina
 type: krig
@@ -14,7 +14,7 @@ posisjon: 48.6, 35.5
 land: Ukraine
 siden: 2014, fullskala invasjon fra 24. februar 2022
 søkeord: ukraine, ukraina, ukrainian, ukrainsk, ukrainske, kyiv, kiev, kharkiv, zaporizhzhia, donetsk, donbas, kherson, crimea, krim, zelensky, zelenskyj, pokrovsk, odesa
-tekst: Russland gikk til fullskala invasjon av Ukraina 24. februar 2022, etter å ha annektert Krim og støttet væpnede separatister i Donbas siden 2014. Krigen er den største i Europa siden andre verdenskrig og står sentralt i norsk og alliert sikkerhetspolitikk. Det har vært flere runder med forhandlinger med USA som megler, men ingen fredsavtale. I oktober 2026 ble partene enige om en lokal våpenhvile i Oleshky i Kherson og nye samtaler i november.
+tekst: Russland gikk til fullskala invasjon av Ukraina 24. februar 2022, etter å ha annektert Krim og støttet væpnede separatister i Donbas siden 2014. Krigen er den største i Europa siden andre verdenskrig og står sentralt i norsk og alliert sikkerhetspolitikk. Det har vært flere runder med forhandlinger med USA som megler, men ingen fredsavtale. En lokal våpenhvile i Kherson-regionen fra 27. oktober til 1. november 2026 skulle la sivile forlate Oleshky. Samtalene i Abu Dhabi 10.–11. november 2026 endte med enighet om en fangeutveksling, men uten våpenhvile eller fredsavtale. Dagen etter møtte USAs utsendinger Putin i Moskva, og partene ble enige om å fortsette samtalene.
 
 ## Gaza og Israel
 type: krig
@@ -22,7 +22,7 @@ posisjon: 31.4, 34.4
 land: Israel, Palestine
 siden: 7. oktober 2023
 søkeord: gaza, hamas, west bank, vestbredden, idf, israel, israelsk, israelske, netanyahu
-tekst: Hamas angrep Israel 7. oktober 2023, drepte rundt 1200 mennesker og tok over 250 gisler. Israels militæroffensiv i Gaza har ført til svært store tap av sivile liv og en humanitær katastrofe. Det er inngått våpenhviler flere ganger, senest i oktober 2025. Se siste nytt for dagens situasjon.
+tekst: Hamas angrep Israel 7. oktober 2023, drepte rundt 1200 mennesker og tok over 250 gisler. Israels militæroffensiv i Gaza har ført til svært store tap av sivile liv og en humanitær katastrofe. Det er inngått våpenhviler flere ganger, senest i oktober 2025, men angrepene har ikke stoppet helt. I november 2026 advarte Fredsrådet (Board of Peace) om at våpenhvilen kan bryte sammen. Se siste nytt for dagens situasjon.
 
 ## Libanon og Hizbollah
 type: konflikt
@@ -30,7 +30,7 @@ posisjon: 33.6, 35.7
 land: Lebanon
 siden: oktober 2023
 søkeord: lebanon, libanon, hezbollah, hizbollah, beirut
-tekst: Hizbollah begynte å skyte mot Israel etter 7. oktober 2023, og høsten 2024 ble det åpen krig mellom Israel og Hizbollah. En våpenhvile ble inngått i november 2024, men kampene har blusset opp igjen, også i forbindelse med krigen mot Iran i 2026.
+tekst: Hizbollah begynte å skyte mot Israel etter 7. oktober 2023, og høsten 2024 ble det åpen krig mellom Israel og Hizbollah. En våpenhvile ble inngått i november 2024. I mars 2026, etter angrepene på Iran, begynte Hizbollah igjen å skyte mot Israel, og Israel svarte med luftangrep og en bakkeoperasjon i Sør-Libanon. En USA-meglet våpenhvile mellom Israel og Libanon har gjeldt siden april 2026, men Israel fortsetter med angrep og holder områder i sør.
 
 ## Krigen mot Iran
 type: krig
@@ -38,15 +38,15 @@ posisjon: 32.4, 53.7
 land: Iran
 siden: 28. februar 2026
 søkeord: iran, iranian, iransk, iranske, irgc, tehran, teheran, revolusjonsgarden, hormuz, hormuzstredet
-tekst: USA og Israel innledet omfattende angrep mot Iran 28. februar 2026, etter at forhandlinger om atomprogrammet hadde brutt sammen. Iran svarte med angrep mot Israel, amerikanske baser og Gulf-stater, og skipstrafikken gjennom Hormuzstredet stoppet nesten opp. En våpenhvile fra april brøt sammen i juli 2026. Allerede i juni 2025 var det en tolv dager lang krig mellom Israel og Iran.
+tekst: USA og Israel innledet omfattende angrep mot Iran 28. februar 2026, etter at forhandlinger om atomprogrammet hadde brutt sammen. Øverste leder Ali Khamenei ble drept, og sønnen Mojtaba Khamenei tok over. Iran svarte med angrep mot Israel, amerikanske baser og Gulf-stater, og skipstrafikken gjennom Hormuzstredet stoppet nesten opp. En våpenhvile fra april brøt sammen i juli 2026. I november 2026 pågår indirekte samtaler med Qatar og Pakistan som meglere, uten at det er inngått noen avtale. Allerede i juni 2025 var det en tolv dager lang krig mellom Israel og Iran.
 
 ## Jemen og Rødehavet
 type: konflikt
 posisjon: 15.4, 44.2
 land: Yemen
 siden: Borgerkrig fra 2014, angrep i Rødehavet fra 2023
-søkeord: houthi, houthis, houthiene, yemen, jemen, red sea, rødehavet, sanaa
-tekst: Houthi-bevegelsen kontrollerer store deler av Jemen. Siden 2023 har den angrepet skipsfarten i Rødehavet og skutt mot Israel, noe som har ført til gjengjeldelsesangrep fra USA, Storbritannia og Israel.
+søkeord: houthi, houthis, houthiene, yemen, jemen, red sea, rødehavet, sanaa, aden, hodeidah
+tekst: Houthi-bevegelsen kontrollerer store deler av Jemen. Siden 2023 har den angrepet skipsfarten i Rødehavet og skutt mot Israel, noe som har ført til gjengjeldelsesangrep fra USA, Storbritannia og Israel. Høsten 2026 har houthiene rykket fram mot sør, tatt havnebyen Mokha og nådd kysten under 100 km fra Aden, og regjeringsstyrkene har trukket seg ut fra Bab al-Mandeb. Den saudiledede koalisjonen har trappet opp luftangrepene, og houthiene har skutt raketter og droner mot Saudi-Arabia.
 
 ## Syria
 type: konflikt
@@ -54,7 +54,7 @@ posisjon: 35.0, 38.5
 land: Syria
 siden: Borgerkrig fra 2011, regimeskifte i desember 2024
 søkeord: syria, syrian, syrisk, damascus, damaskus, hts, aleppo
-tekst: Assad-regimet falt i desember 2024 etter en offensiv ledet av opprørsgruppen HTS. Et overgangsstyre leder landet, men det har vært vold mellom ulike grupper, og flere utenlandske stater har militære styrker i landet.
+tekst: Assad-regimet falt i desember 2024 etter en offensiv ledet av opprørsgruppen HTS. Et overgangsstyre leder landet, men det har vært vold mellom ulike grupper, og flere utenlandske stater har militære styrker i landet. Den kurdisk-ledede SDF skal innlemmes i den syriske staten, etter planen innen utgangen av 2026.
 
 ## Borgerkrigen i Sudan
 type: krig
@@ -62,7 +62,7 @@ posisjon: 15.0, 29.5
 land: Sudan
 siden: 15. april 2023
 søkeord: sudan, sudanese, rsf, darfur, khartoum, el fasher, el-fasher, burhan, hemedti
-tekst: Krigen mellom Sudans hær (SAF) og den paramilitære styrken RSF brøt ut i april 2023. Den har skapt en av verdens største humanitære kriser, med millioner av mennesker på flukt og alvorlige overgrep mot sivile, særlig i Darfur.
+tekst: Krigen mellom Sudans hær (SAF) og den paramilitære styrken RSF brøt ut i april 2023. Den har skapt en av verdens største humanitære kriser, med millioner av mennesker på flukt og alvorlige overgrep mot sivile, særlig i Darfur. RSF tok byen El Fasher i oktober 2025 og kontrollerer nesten hele Darfur, mens hæren holder det meste av resten av landet. Høsten 2026 brøt hæren RSFs beleiring av El Obeid og rykket fram i Kordofan. Det er ingen våpenhvile.
 
 ## Sahel
 type: konflikt
@@ -70,7 +70,7 @@ posisjon: 15.5, -0.5
 land: Mali, Burkina Faso, Niger
 siden: Opprør fra 2012, militærkupp 2020–2023
 søkeord: sahel, mali, malian, burkina faso, burkina, niger, nigerien, jnim, bamako, ouagadougou, niamey, africa corps, wagner
-tekst: Islamistiske grupper knyttet til al-Qaida og IS er aktive i Mali, Burkina Faso og Niger. Etter militærkupp mellom 2020 og 2023 har landene brutt med Frankrike og vestlige partnere og knyttet seg tettere til Russland.
+tekst: Islamistiske grupper knyttet til al-Qaida og IS er aktive i Mali, Burkina Faso og Niger. Etter militærkupp mellom 2020 og 2023 har landene brutt med Frankrike og vestlige partnere og knyttet seg tettere til Russland. Våren 2026 angrep JNIM og tuaregopprørerne i FLA samordnet i Mali. Forsvarsministeren ble drept, og JNIM satte opp kontrollposter rundt hovedstaden Bamako.
 
 ## Øst-Kongo
 type: konflikt
@@ -78,7 +78,7 @@ posisjon: -1.7, 29.0
 land: Democratic Republic of the Congo, Rwanda
 siden: Langvarig, ny opptrapping fra 2022
 søkeord: congo, kongo, drc, m23, goma, bukavu, kivu, rwanda, rwandan
-tekst: Den Rwanda-støttede opprørsgruppen M23 har kjempet mot Kongos regjering i de østlige provinsene. I 2025 tok M23 kontroll over storbyene Goma og Bukavu. Det har vært flere forsøk på fredsavtaler.
+tekst: Den Rwanda-støttede opprørsgruppen M23 har kjempet mot Kongos regjering i de østlige provinsene. I 2025 tok M23 kontroll over storbyene Goma og Bukavu. Kongo og Rwanda undertegnet en fredsavtale i Washington i 2025, og Kongo og M23 ble enige om et rammeverk i Doha i november 2025 og et veikart for forhandlinger i august 2026, men kampene fortsetter.
 
 ## Somalia
 type: konflikt
@@ -110,7 +110,7 @@ posisjon: 21.0, 96.0
 land: Myanmar
 siden: Militærkupp 1. februar 2021
 søkeord: myanmar, burma, burmese, junta
-tekst: Etter militærkuppet i februar 2021 har motstandsgrupper og etniske væpnede grupper kjempet mot militærjuntaen i store deler av landet.
+tekst: Etter militærkuppet i februar 2021 har motstandsgrupper og etniske væpnede grupper kjempet mot militærjuntaen i store deler av landet. Etter et valg i regi av militæret valgte det nye parlamentet kuppleder Min Aung Hlaing til president i april 2026. Kampene fortsetter.
 
 ## Haiti
 type: konflikt
@@ -118,7 +118,7 @@ posisjon: 18.9, -72.3
 land: Haiti
 siden: Kraftig opptrapping fra 2021
 søkeord: haiti, haitian, port-au-prince
-tekst: Væpnede gjenger kontrollerer store deler av hovedstaden Port-au-Prince. En internasjonal sikkerhetsstyrke ledet av Kenya ble sendt til landet i 2024.
+tekst: Væpnede gjenger kontrollerer store deler av hovedstaden Port-au-Prince. En internasjonal sikkerhetsstyrke ledet av Kenya ble sendt til landet i 2024. Den er erstattet av en større FN-godkjent styrke mot gjengene (Gang Suppression Force), som begynte å komme til landet i april 2026.
 
 ## India og Pakistan
 type: spenning
